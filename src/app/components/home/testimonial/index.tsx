@@ -67,6 +67,7 @@ export default function ReferenceSystems() {
   const [activeTab, setActiveTab] = useState("All");
 
   const scrollRef = useRef<HTMLDivElement>(null);
+  const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   const categories = ["All", "Residential", "Commercial", "ProAV"];
 
@@ -75,15 +76,38 @@ export default function ReferenceSystems() {
       ? projects
       : projects.filter((p) => p.category === activeTab);
 
+  /* ===== FIXED SCROLL LOGIC ===== */
   const scroll = (dir: "left" | "right") => {
     if (!scrollRef.current) return;
 
-    const width = scrollRef.current.clientWidth;
+    const container = scrollRef.current;
+    const containerLeft = container.scrollLeft;
 
-    scrollRef.current.scrollBy({
-      left: dir === "left" ? -width * 0.8 : width * 0.8,
-      behavior: "smooth",
+    let closestIndex = 0;
+    let closestDistance = Infinity;
+
+    itemRefs.current.forEach((el, i) => {
+      if (!el) return;
+      const distance = Math.abs(el.offsetLeft - containerLeft);
+      if (distance < closestDistance) {
+        closestDistance = distance;
+        closestIndex = i;
+      }
     });
+
+    let nextIndex =
+      dir === "right" ? closestIndex + 1 : closestIndex - 1;
+
+    nextIndex = Math.max(0, Math.min(nextIndex, filteredProjects.length - 1));
+
+    const target = itemRefs.current[nextIndex];
+
+    if (target) {
+      container.scrollTo({
+        left: target.offsetLeft,
+        behavior: "smooth",
+      });
+    }
   };
 
   return (
@@ -119,12 +143,11 @@ export default function ReferenceSystems() {
               ))}
             </div>
 
-            {/* Fade edge */}
             <div className="pointer-events-none absolute right-0 top-0 h-full w-10 bg-gradient-to-l from-white to-transparent" />
           </div>
         </div>
 
-        {/* ===== Slider Controls (Desktop Only) ===== */}
+        {/* ===== Controls ===== */}
         <div className="mt-10 hidden md:flex justify-end gap-3">
           <button
             onClick={() => scroll("left")}
@@ -144,12 +167,13 @@ export default function ReferenceSystems() {
         {/* ===== Slider ===== */}
         <div
           ref={scrollRef}
-          className="mt-6 flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 px-1 scrollbar-hide"
+          className="mt-6 flex gap-4 overflow-x-auto snap-x snap-proximity pb-4 px-1 scrollbar-hide"
           style={{ WebkitOverflowScrolling: "touch" }}
         >
-          {filteredProjects.map((project) => (
+          {filteredProjects.map((project, index) => (
             <div
               key={project.id}
+              ref={(el) => (itemRefs.current[index] = el)}
               onClick={() => setActiveProject(project)}
               className="min-w-[85%] sm:min-w-[70%] md:min-w-[420px] snap-start shrink-0 cursor-pointer group"
             >
@@ -220,7 +244,6 @@ function ProjectModal({ project, onClose }: any) {
 
         <p className="text-white/50 mt-2">{project.type}</p>
 
-        {/* Gallery */}
         <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
           {project.gallery.map((img: string, i: number) => (
             <img
@@ -231,7 +254,6 @@ function ProjectModal({ project, onClose }: any) {
           ))}
         </div>
 
-        {/* Sections */}
         <div className="mt-12 space-y-8 text-white/80">
           <div>
             <h3 className="text-white text-sm uppercase mb-2">Overview</h3>
