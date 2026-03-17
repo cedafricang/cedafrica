@@ -76,19 +76,19 @@ export default function ReferenceSystems() {
       ? projects
       : projects.filter((p) => p.category === activeTab);
 
-  /* ===== FIXED SCROLL LOGIC ===== */
+  /* ===== PERFECT SCROLL (1 CARD AT A TIME) ===== */
   const scroll = (dir: "left" | "right") => {
     if (!scrollRef.current) return;
 
     const container = scrollRef.current;
-    const containerLeft = container.scrollLeft;
+    const scrollLeft = container.scrollLeft;
 
     let closestIndex = 0;
     let closestDistance = Infinity;
 
     itemRefs.current.forEach((el, i) => {
       if (!el) return;
-      const distance = Math.abs(el.offsetLeft - containerLeft);
+      const distance = Math.abs(el.offsetLeft - scrollLeft);
       if (distance < closestDistance) {
         closestDistance = distance;
         closestIndex = i;
@@ -147,7 +147,7 @@ export default function ReferenceSystems() {
           </div>
         </div>
 
-        {/* ===== Controls ===== */}
+        {/* ===== Controls (Desktop Only) ===== */}
         <div className="mt-10 hidden md:flex justify-end gap-3">
           <button
             onClick={() => scroll("left")}
@@ -167,23 +167,24 @@ export default function ReferenceSystems() {
         {/* ===== Slider ===== */}
         <div
           ref={scrollRef}
-          className="mt-6 flex gap-4 overflow-x-auto snap-x snap-proximity pb-4 pl-6 pr-2 scrollbar-hide"
+          className="mt-6 flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 px-6 scrollbar-hide"
           style={{ WebkitOverflowScrolling: "touch" }}
         >
           {filteredProjects.map((project, index) => (
             <div
               key={project.id}
-            ref={(el) => {
-  itemRefs.current[index] = el;
-}}
+              ref={(el) => {
+                itemRefs.current[index] = el;
+              }}
               onClick={() => setActiveProject(project)}
-              className="min-w-[calc(100vw-3rem)] sm:min-w-[70%] md:min-w-[420px] snap-start shrink-0 cursor-pointer group"
+              className="w-[85%] sm:w-[70%] md:w-[420px] snap-start shrink-0 cursor-pointer group"
             >
-              <div className="relative h-[260px] overflow-hidden">
+              {/* ✅ PERFECT SQUARE IMAGE */}
+              <div className="relative w-full aspect-square overflow-hidden">
                 <img
-  src={project.preview}
-  className="w-full h-full object-cover pointer-events-none"
-/>
+                  src={project.preview}
+                  className="w-full h-full object-cover pointer-events-none"
+                />
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition" />
               </div>
 
