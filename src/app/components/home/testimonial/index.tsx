@@ -99,21 +99,26 @@ export default function ReferenceSystems() {
           </div>
 
           {/* ===== Tabs ===== */}
-          <div className="flex gap-6">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setActiveTab(cat)}
-                className={`text-[11px] tracking-[0.3em] uppercase transition ${
-                  activeTab === cat
-                    ? "text-black"
-                    : "text-black/40 hover:text-black"
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
+<div className="relative mt-4 md:mt-0">
+  <div className="flex overflow-x-auto no-scrollbar gap-6 pr-6">
+    {categories.map((cat) => (
+      <button
+        key={cat}
+        onClick={() => setActiveTab(cat)}
+        className={`flex-shrink-0 text-[11px] tracking-[0.3em] uppercase transition whitespace-nowrap ${
+          activeTab === cat
+            ? "text-black"
+            : "text-black/40 hover:text-black"
+        }`}
+      >
+        {cat}
+      </button>
+    ))}
+  </div>
+
+  {/* subtle fade edges (luxury touch) */}
+  <div className="pointer-events-none absolute right-0 top-0 h-full w-10 bg-gradient-to-l from-white to-transparent" />
+</div>
         </div>
 
         {/* ===== Slider Controls ===== */}
