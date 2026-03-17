@@ -173,7 +173,9 @@ export default function ReferenceSystems() {
           {filteredProjects.map((project, index) => (
             <div
               key={project.id}
-              ref={(el) => (itemRefs.current[index] = el)}
+            ref={(el) => {
+  itemRefs.current[index] = el;
+}}
               onClick={() => setActiveProject(project)}
               className="min-w-[85%] sm:min-w-[70%] md:min-w-[420px] snap-start shrink-0 cursor-pointer group"
             >
