@@ -77,8 +77,11 @@ export default function ReferenceSystems() {
 
   const scroll = (dir: "left" | "right") => {
     if (!scrollRef.current) return;
+
+    const width = scrollRef.current.clientWidth;
+
     scrollRef.current.scrollBy({
-      left: dir === "left" ? -400 : 400,
+      left: dir === "left" ? -width * 0.8 : width * 0.8,
       behavior: "smooth",
     });
   };
@@ -99,30 +102,30 @@ export default function ReferenceSystems() {
           </div>
 
           {/* ===== Tabs ===== */}
-<div className="relative mt-4 md:mt-0">
-  <div className="flex overflow-x-auto no-scrollbar gap-6 pr-6">
-    {categories.map((cat) => (
-      <button
-        key={cat}
-        onClick={() => setActiveTab(cat)}
-        className={`flex-shrink-0 text-[11px] tracking-[0.3em] uppercase transition whitespace-nowrap ${
-          activeTab === cat
-            ? "text-black"
-            : "text-black/40 hover:text-black"
-        }`}
-      >
-        {cat}
-      </button>
-    ))}
-  </div>
+          <div className="relative mt-4 md:mt-0">
+            <div className="flex overflow-x-auto no-scrollbar gap-6 pr-6">
+              {categories.map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => setActiveTab(cat)}
+                  className={`flex-shrink-0 text-[11px] tracking-[0.3em] uppercase transition whitespace-nowrap ${
+                    activeTab === cat
+                      ? "text-black"
+                      : "text-black/40 hover:text-black"
+                  }`}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
 
-  {/* subtle fade edges (luxury touch) */}
-  <div className="pointer-events-none absolute right-0 top-0 h-full w-10 bg-gradient-to-l from-white to-transparent" />
-</div>
+            {/* Fade edge */}
+            <div className="pointer-events-none absolute right-0 top-0 h-full w-10 bg-gradient-to-l from-white to-transparent" />
+          </div>
         </div>
 
-        {/* ===== Slider Controls ===== */}
-        <div className="mt-10 flex justify-end gap-3">
+        {/* ===== Slider Controls (Desktop Only) ===== */}
+        <div className="mt-10 hidden md:flex justify-end gap-3">
           <button
             onClick={() => scroll("left")}
             className="w-10 h-10 flex items-center justify-center border border-black/20 rounded-full hover:border-black transition"
@@ -141,13 +144,14 @@ export default function ReferenceSystems() {
         {/* ===== Slider ===== */}
         <div
           ref={scrollRef}
-          className="mt-6 flex gap-6 overflow-x-auto snap-x snap-mandatory pb-4 scrollbar-hide"
+          className="mt-6 flex gap-4 overflow-x-auto snap-x snap-mandatory pb-4 px-1 scrollbar-hide"
+          style={{ WebkitOverflowScrolling: "touch" }}
         >
           {filteredProjects.map((project) => (
             <div
               key={project.id}
               onClick={() => setActiveProject(project)}
-              className="min-w-[320px] md:min-w-[420px] snap-start cursor-pointer group"
+              className="min-w-[85%] sm:min-w-[70%] md:min-w-[420px] snap-start shrink-0 cursor-pointer group"
             >
               <div className="relative h-[260px] overflow-hidden">
                 <img
