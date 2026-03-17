@@ -111,7 +111,7 @@ export default function ReferenceSystems() {
   };
 
   return (
-    <section className="bg-white text-black py-24">
+    <section className="bg-white text-black py-24 overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-6">
         {/* ===== Header ===== */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
@@ -167,7 +167,7 @@ export default function ReferenceSystems() {
         {/* ===== Slider ===== */}
         <div
           ref={scrollRef}
-          className="mt-6 flex gap-4 overflow-x-auto snap-x snap-proximity pb-4 px-1 scrollbar-hide"
+          className="mt-6 flex gap-4 overflow-x-auto snap-x snap-proximity pb-4 pl-6 pr-2 scrollbar-hide"
           style={{ WebkitOverflowScrolling: "touch" }}
         >
           {filteredProjects.map((project, index) => (
@@ -177,13 +177,13 @@ export default function ReferenceSystems() {
   itemRefs.current[index] = el;
 }}
               onClick={() => setActiveProject(project)}
-              className="min-w-[85%] sm:min-w-[70%] md:min-w-[420px] snap-start shrink-0 cursor-pointer group"
+              className="min-w-[calc(100vw-3rem)] sm:min-w-[70%] md:min-w-[420px] snap-start shrink-0 cursor-pointer group"
             >
               <div className="relative h-[260px] overflow-hidden">
                 <img
-                  src={project.preview}
-                  className="w-full h-full object-cover transition duration-700 group-hover:scale-105"
-                />
+  src={project.preview}
+  className="w-full h-full object-cover pointer-events-none"
+/>
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition" />
               </div>
 
