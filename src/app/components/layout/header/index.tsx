@@ -39,9 +39,9 @@ const nav: NavItem[] = [
       desc: "How CED governs partners, standards and AV system design.",
       image: "/images/nav/hifi.jpg",
       links: [
-        { label: "How We Work", href: "#" },
-        { label: "Governance & Standards", href: "#" },
-        { label: "Certified Partner Ecosystem", href: "#" },
+        { label: "How We Work", href: "/how-we-work" },
+        { label: "Governance & Standards", href: "/governance" },
+        { label: "Certified Partner Ecosystem", href: "/partner-ecosystem" },
       ],
     },
   },

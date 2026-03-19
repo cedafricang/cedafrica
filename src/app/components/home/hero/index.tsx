@@ -11,6 +11,7 @@ const slides = [
     desc: "Structured access to design authority, certified systems, and project execution standards.",
     cta: "Explore Partner Pathways",
     link: "/partners",
+    image: "/images/hero/avimage.jpg",
   },
   {
     id: 2,
@@ -18,6 +19,7 @@ const slides = [
     desc: "Design certainty, specification support, and performance-driven AV systems.",
     cta: "Access Specifier Support",
     link: "/industry",
+    image: "/images/hero/book.webp",
   },
   {
     id: 3,
@@ -25,6 +27,7 @@ const slides = [
     desc: "Integrated AV planning, execution frameworks, and scalable system delivery.",
     cta: "Request Project Consultation",
     link: "/engage",
+    image: "/images/hero/hifi.jpg",
   },
   {
     id: 4,
@@ -32,6 +35,7 @@ const slides = [
     desc: "Professional AV systems designed for reliability, scale, and long-term performance.",
     cta: "Explore ProAV Systems",
     link: "/solutions",
+    image: "/images/hero/soni.jpg",
   },
 ];
 
@@ -55,16 +59,29 @@ export default function Hero() {
 
   return (
     <section className="relative h-screen w-full overflow-hidden bg-black text-white">
-      {/* ===== Background Video ===== */}
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        className="absolute inset-0 h-full w-full object-cover"
-      >
-        <source src="/images/hero/cedvid.mp4" type="video/mp4" />
-      </video>
+      {/* ===== Background Images (Animated) ===== */}
+      <div className="absolute inset-0">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={slides[index].id}
+            initial={{ opacity: 0, scale: 1.1 }}
+            animate={{ opacity: 1, scale: 1.2 }}
+            exit={{ opacity: 0 }}
+            transition={{
+              opacity: { duration: 1 },
+              scale: { duration: 8, ease: "easeOut" },
+            }}
+            className="absolute inset-0"
+          >
+            <div
+              className="h-full w-full bg-cover bg-center"
+              style={{
+                backgroundImage: `url(${slides[index].image})`,
+              }}
+            />
+          </motion.div>
+        </AnimatePresence>
+      </div>
 
       {/* ===== Overlay ===== */}
       <div className="absolute inset-0 bg-black/60" />
@@ -83,8 +100,8 @@ export default function Hero() {
               >
                 {/* Title */}
                 <h1 className="text-4xl font-semibold leading-tight md:text-6xl bg-gradient-to-r from-white via-[#d9d9d9] to-[#a6a6a6] bg-clip-text text-transparent">
-  {slides[index].title}
-</h1>
+                  {slides[index].title}
+                </h1>
 
                 {/* Description */}
                 <p className="mt-6 text-lg text-white/70">
