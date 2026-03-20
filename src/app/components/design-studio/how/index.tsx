@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 
 /* ============================= */
-/* CMS DATA */
+/* DATA */
 /* ============================= */
 
 const steps = [
@@ -20,17 +20,17 @@ const steps = [
   },
   {
     title: "Define",
-    desc: "Project scope, requirements, and constraints are established",
+    desc: "Project scope and requirements are clearly established",
     icon: Route,
   },
   {
     title: "Design",
-    desc: "System architecture and performance are fully defined",
+    desc: "System architecture and performance are defined",
     icon: DraftingCompass,
   },
   {
     title: "Deliver",
-    desc: "Documentation prepared for execution by certified partners",
+    desc: "Documentation prepared for certified execution",
     icon: FileText,
   },
 ];
@@ -46,22 +46,18 @@ const gradients = [
 /* COMPONENT */
 /* ============================= */
 
-export default function HowItWorks() {
+export default function HowItWorksSnake() {
   return (
-    <section className="relative py-40 overflow-hidden">
+    <section className="relative py-28 md:py-40 overflow-hidden">
 
       {/* ============================= */}
-      {/* FIXED BACKGROUND */}
+      {/* BACKGROUND */}
       {/* ============================= */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-scroll md:bg-fixed"
         style={{ backgroundImage: "url(/images/hero/avimage.jpg)" }}
       />
-
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-black/70" />
-
-      {/* Depth gradient */}
+      <div className="absolute inset-0 bg-black/75" />
       <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/70 to-black/90" />
 
       {/* ============================= */}
@@ -70,8 +66,8 @@ export default function HowItWorks() {
       <div className="relative max-w-7xl mx-auto px-6">
 
         {/* Header */}
-        <div className="max-w-2xl mb-20 text-white">
-          <h2 className="text-4xl text-white md:text-5xl font-light mb-6">
+        <div className="max-w-2xl mb-16 text-white">
+          <h2 className="text-3xl text-white/70 md:text-5xl font-light mb-4">
             How It Works
           </h2>
           <p className="text-white/70">
@@ -80,71 +76,114 @@ export default function HowItWorks() {
         </div>
 
         {/* ============================= */}
-        {/* HORIZONTAL FLOW */}
+        {/* DESKTOP FLOW */}
         {/* ============================= */}
+        <div className="hidden md:block relative">
 
-        <div className="relative">
+          {/* LINE */}
+          <div className="absolute top-1/2 left-0 right-0 h-[1px] bg-white/10" />
 
-          {/* Scroll Container */}
-          <div className="flex gap-6 overflow-x-auto no-scrollbar">
+          <div className="grid grid-cols-4 gap-10 relative">
 
             {steps.map((step, index) => {
               const Icon = step.icon;
 
               return (
-                <div key={index} className="flex items-center">
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  className="relative text-center"
+                >
+                  {/* NODE */}
+                  <div className="absolute top-1/2 left-1/2 w-3 h-3 bg-white/50 rounded-full -translate-x-1/2 -translate-y-1/2 z-0" />
 
                   {/* CARD */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 }}
-                    className={`min-w-[260px] md:min-w-[300px] p-8 bg-gradient-to-br ${gradients[index]} border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.2)]`}
-                  >
-                    {/* Icon */}
-                    <div className="mb-6 text-black/70">
-                      <Icon size={28} strokeWidth={1.5} />
+                  <div className={`relative z-10 mt-10 p-8 bg-gradient-to-br ${gradients[index]} shadow-[0_20px_60px_rgba(0,0,0,0.25)] border border-white/10`}>
+
+                    <div className="mb-4 text-black/70 flex justify-center">
+                      <Icon size={26} strokeWidth={1.5} />
                     </div>
 
-                    {/* Title */}
-                    <h3 className="text-xl text-black/70 font-medium mb-3">
+                    <h3 className="text-lg font-medium text-black/80 mb-2">
                       {step.title}
                     </h3>
 
-                    {/* Description */}
-                    <p className="text-black/60 text-sm leading-relaxed">
+                    <p className="text-sm text-black/60">
                       {step.desc}
                     </p>
-                  </motion.div>
 
-                  {/* Arrow */}
-                  {index !== steps.length - 1 && (
-                    <div className="mx-6 text-white/40 text-xl">
-                      →
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* ============================= */}
+        {/* MOBILE SNAKE FLOW */}
+        {/* ============================= */}
+        <div className="md:hidden relative">
+
+          {/* SVG SNAKE LINE */}
+          <svg
+            className="absolute left-1/2 top-0 -translate-x-1/2 h-full w-[2px]"
+            viewBox="0 0 2 1000"
+            preserveAspectRatio="none"
+          >
+            <path
+              d="M1 0 C1 100, 1 200, 1 300 C1 400, 1 500, 1 600 C1 700, 1 800, 1 1000"
+              stroke="rgba(255,255,255,0.2)"
+              strokeWidth="2"
+              fill="none"
+            />
+          </svg>
+
+          <div className="space-y-16">
+
+            {steps.map((step, index) => {
+              const Icon = step.icon;
+              const isLeft = index % 2 === 0;
+
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: isLeft ? -40 : 40 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.6 }}
+                  className={`flex ${isLeft ? "justify-start" : "justify-end"}`}
+                >
+                  <div className="relative w-[85%]">
+
+                    {/* NODE */}
+                    <div className="absolute left-1/2 top-6 w-3 h-3 bg-white/50 rounded-full -translate-x-1/2" />
+
+                    {/* CARD */}
+                    <div className={`p-6 bg-gradient-to-br ${gradients[index]} shadow-[0_20px_60px_rgba(0,0,0,0.25)] border border-white/10`}>
+
+                      <div className="mb-4 text-black/70">
+                        <Icon size={24} strokeWidth={1.5} />
+                      </div>
+
+                      <h3 className="text-lg font-medium text-black/80 mb-2">
+                        {step.title}
+                      </h3>
+
+                      <p className="text-sm text-black/60">
+                        {step.desc}
+                      </p>
+
                     </div>
-                  )}
-                </div>
+                  </div>
+                </motion.div>
               );
             })}
 
           </div>
-
         </div>
-      </div>
 
-      {/* ============================= */}
-      {/* HIDE SCROLLBAR (IMPORTANT) */}
-      {/* ============================= */}
-      <style jsx>{`
-        .no-scrollbar::-webkit-scrollbar {
-          display: none;
-        }
-        .no-scrollbar {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-        }
-      `}</style>
+      </div>
     </section>
   );
 }
