@@ -52,9 +52,9 @@ const nav: NavItem[] = [
       desc: "Consulting, system design and reference AV environments.",
       image: "/images/nav/hifi.jpg",
       links: [
-        { label: "AV Design Studio", href: "#" },
-        { label: "ProAV Systems", href: "#" },
-        { label: "Reference Performance Systems", href: "#" },
+        { label: "AV Design Studio", href: "/design-studio" },
+        { label: "ProAV Systems", href: "/proav" },
+        { label: "Reference Performance Systems", href: "/performance-system" },
       ],
     },
   },
