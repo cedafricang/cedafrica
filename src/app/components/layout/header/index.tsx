@@ -65,7 +65,7 @@ const nav: NavItem[] = [
       desc: "Programs designed for system integrators and AV partners.",
       image: "/images/nav/hifi.jpg",
       links: [
-        { label: "Partner Pathways", href: "#" },
+        { label: "Partner Pathways", href: "partner-pathway" },
         { label: "SI Program", href: "#" },
         { label: "ProAV SI Program", href: "#" },
         { label: "Retail Program", href: "#" },
