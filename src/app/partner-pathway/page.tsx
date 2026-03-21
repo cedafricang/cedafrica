@@ -73,7 +73,7 @@ export default function PartnerPathwaysPage() {
                 {heroData.eyebrow}
               </p>
 
-              <h1 className="text-5xl md:text-7xl font-light leading-[1.05]">
+              <h1 className="text-5xl text-white md:text-7xl font-light leading-[1.05]">
                 {heroData.title}
               </h1>
 

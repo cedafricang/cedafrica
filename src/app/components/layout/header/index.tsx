@@ -66,14 +66,14 @@ const nav: NavItem[] = [
       image: "/images/nav/hifi.jpg",
       links: [
         { label: "Partner Pathways", href: "partner-pathway" },
-        { label: "SI Program", href: "#" },
-        { label: "ProAV SI Program", href: "#" },
-        { label: "Retail Program", href: "#" },
-        { label: "Contractor Program", href: "#" },
+        { label: "SI Program", href: "/si-program" },
+        { label: "ProAV SI Program", href: "/proav-si-program" },
+        { label: "Retail Program", href: "/retail-program" },
+        { label: "Contractor Program", href: "/contractor-program" },
       ],
     },
   },
-  { label: "Brands", href: "#" },
+  { label: "Brands", href: "/brands" },
   {
     label: "Industry",
     mega: {
@@ -124,6 +124,12 @@ export default function Header() {
     document.body.style.overflow = mobileOpen ? "hidden" : "auto";
   }, [mobileOpen]);
 
+  const closeAllMenus = () => {
+  setActive(null);
+  setMobileOpen(false);
+  setMobileSub(null);
+};
+
   const activeMega = nav.find((n) => n.label === active)?.mega;
 
   return (
@@ -172,9 +178,10 @@ export default function Header() {
     </span>
   ) : (
     <Link
-      key={i}
-      href={item.href || "#"}
-      onMouseEnter={() => setActive(null)} // ✅ THIS IS THE FIX
+  key={i}
+  href={item.href || "#"}
+  onClick={closeAllMenus}
+  onMouseEnter={() => setActive(null)} // ✅ THIS IS THE FIX
       className={`nav-item transition-colors duration-500 ${
         scrolled ? "text-black" : "text-white"
       }`}
@@ -209,7 +216,7 @@ export default function Header() {
 
         <div className="nav-divider" />
 
-        <MegaMenu item={activeMega} />
+        <MegaMenu item={activeMega} onClose={closeAllMenus} />
 
         {/* MOBILE MENU */}
         <div className={`mobile-overlay ${mobileOpen ? "open" : ""}`}>
@@ -241,10 +248,12 @@ export default function Header() {
                     }
                   >
                     {item.href ? (
-                      <Link href={item.href}>{item.label}</Link>
-                    ) : (
-                      item.label
-                    )}
+  <Link href={item.href} onClick={closeAllMenus}>
+    {item.label}
+  </Link>
+) : (
+  item.label
+)}
 
                     {item.mega && (
                       <span
@@ -264,7 +273,12 @@ export default function Header() {
                       }`}
                     >
                       {item.mega.links.map((l, j) => (
-                        <Link key={j} href={l.href} className="mobile-sub-item">
+                      <Link
+  key={j}
+  href={l.href}
+  className="mobile-sub-item"
+  onClick={closeAllMenus}
+>
                           {l.label}
                         </Link>
                       ))}
@@ -494,7 +508,7 @@ pointer-events:auto;
 /* MEGA MENU */
 /* ============================= */
 
-function MegaMenu({ item }: { item?: MegaData }) {
+function MegaMenu({ item, onClose }: { item?: MegaData; onClose: () => void }) {
   if (!item) return null;
 
   return (
@@ -510,7 +524,12 @@ function MegaMenu({ item }: { item?: MegaData }) {
 
           <div className="mega-links">
             {item.links.map((l, i) => (
-              <Link key={i} href={l.href} className="mega-link">
+  <Link
+    key={i}
+    href={l.href}
+    className="mega-link"
+    onClick={onClose} // ✅ ADD THIS
+  >
                 <span>{l.label}</span>
                 <span className="icon">→</span>
               </Link>

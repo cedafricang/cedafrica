@@ -87,7 +87,7 @@ export default function PartnerPathwaysSection() {
             Pathways
           </p>
 
-          <h2 className="text-3xl md:text-5xl font-light mb-4">
+          <h2 className="text-3xl text-white md:text-5xl font-light mb-4">
             Partnership Pathways
           </h2>
 

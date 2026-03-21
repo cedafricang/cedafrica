@@ -41,7 +41,7 @@ export default function PartnerCTA() {
           </p>
 
           {/* Title */}
-          <h2 className="text-3xl md:text-5xl font-light mb-6 leading-tight">
+          <h2 className="text-3xl text-white md:text-5xl font-light mb-6 leading-tight">
             Enter the Ecosystem
           </h2>
 
