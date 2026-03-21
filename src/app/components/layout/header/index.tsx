@@ -81,8 +81,8 @@ const nav: NavItem[] = [
       desc: "Supporting architects and consultants in specifying AV systems.",
       image: "/images/nav/hifi.jpg",
       links: [
-        { label: "Architects & MEP Consultants", href: "#" },
-        { label: "CPD / Learning & Events", href: "#" },
+        { label: "Architects & MEP Consultants", href: "/architects-and-mep" },
+        { label: "CPD / Learning & Events", href: "/cpd" },
       ],
     },
   },
