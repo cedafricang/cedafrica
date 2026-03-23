@@ -12,33 +12,33 @@ const footerNav = [
   {
     title: "Platform",
     links: [
-      { label: "How We Work", href: "/platform" },
-      { label: "Governance & Standards", href: "/platform" },
-      { label: "Partner Ecosystem", href: "/platform" },
+      { label: "How We Work", href: "/how-we-work" },
+      { label: "Governance & Standards", href: "/governance" },
+      { label: "Partner Ecosystem", href: "/partner-ecosystem" },
     ],
   },
   {
     title: "Solutions",
     links: [
-      { label: "AV Design Studio", href: "/solutions" },
-      { label: "ProAV Systems", href: "/solutions" },
-      { label: "Reference Systems", href: "/solutions" },
+      { label: "AV Design Studio", href: "/design-studio" },
+      { label: "ProAV Systems", href: "/proav" },
+      { label: "Reference Systems", href: "/performance-system" },
     ],
   },
   {
     title: "Partners",
     links: [
-      { label: "Partner Pathways", href: "/partners" },
-      { label: "SI Program", href: "/partners" },
-      { label: "Retail Program", href: "/partners" },
+      { label: "Partner Pathways", href: "/partner-pathway" },
+      { label: "SI Program", href: "/si-program" },
+      { label: "Retail Program", href: "/retail-program" },
     ],
   },
   {
     title: "Resources",
     links: [
-      { label: "Case Studies", href: "/resources" },
-      { label: "Knowledge Hub", href: "/resources" },
-      { label: "Downloads", href: "/resources" },
+      { label: "Case Studies", href: "/case-studies" },
+      { label: "Knowledge Hub", href: "/knowledge-hub" },
+     
     ],
   },
 ];

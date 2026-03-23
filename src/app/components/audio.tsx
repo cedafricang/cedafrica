@@ -40,7 +40,7 @@ export default function AudioConsent() {
   return (
     <>
       {/* ===== AUDIO ===== */}
-      <audio ref={audioRef} src="/audio/cedwelcome.mp3" preload="auto" />
+      <audio ref={audioRef} src="/audio/cedwlc.mp3" preload="auto" />
 
       {/* ===== MODAL ===== */}
       <AnimatePresence>
