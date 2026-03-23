@@ -93,13 +93,13 @@ const nav: NavItem[] = [
       desc: "Evidence, knowledge and technical documentation.",
       image: "/images/nav/hifi.jpg",
       links: [
-        { label: "Case Studies", href: "#" },
-        { label: "Knowledge Hub", href: "#" },
-        { label: "Downloads / Policies", href: "#" },
+        { label: "Case Studies", href: "/case-studies" },
+        { label: "Knowledge Hub", href: "/knowledge-hub" },
+        
       ],
     },
   },
-  { label: "About", href: "#" },
+  { label: "About", href: "/about" },
 ];
 
 /* ============================= */
