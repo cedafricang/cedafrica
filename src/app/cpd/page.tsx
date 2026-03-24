@@ -108,7 +108,7 @@ export default function CPDPage() {
                 {data.hero.eyebrow}
               </p>
 
-              <h1 className="text-5xl md:text-7xl font-light leading-tight">
+              <h1 className="text-5xl text-white md:text-7xl font-light leading-tight">
                 {data.hero.title}
               </h1>
 
@@ -241,7 +241,7 @@ export default function CPDPage() {
       {/* CTA */}
       {/* ============================= */}
       <section className="py-28 text-center bg-[#1c1c1e] text-white">
-        <h2 className="text-4xl mb-6">
+        <h2 className="text-4xl text-white mb-6">
           Request a Session
         </h2>
 

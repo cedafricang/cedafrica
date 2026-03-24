@@ -61,7 +61,7 @@ export default function ArchitectsWhatThisIs() {
           </p>
 
           {/* Title */}
-          <h2 className="text-4xl md:text-5xl font-light leading-tight mb-6">
+          <h2 className="text-4xl text-white md:text-5xl font-light leading-tight mb-6">
             {sectionData.title}
           </h2>
 

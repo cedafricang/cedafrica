@@ -54,7 +54,7 @@ export default function ArchitectsPositioning() {
           </p>
 
           {/* Title */}
-          <h2 className="text-4xl md:text-5xl font-light mb-6">
+          <h2 className="text-4xl text-white md:text-5xl font-light mb-6">
             {data.title}
           </h2>
 

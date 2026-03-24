@@ -79,7 +79,7 @@ export default function CaseStudyPage() {
               </p>
 
               {/* Title */}
-              <h1 className="text-5xl md:text-7xl font-light leading-[1.05]">
+              <h1 className="text-5xl text-white md:text-7xl font-light leading-[1.05]">
                 {data.hero.title}
               </h1>
 
