@@ -9,53 +9,139 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const projects = [
   {
-    id: 1,
-    category: "Residential",
-    type: "Private Cinema",
-    title: "Ikoyi Residence Cinema",
-    preview: "/images/projects/av1.jpg",
-    gallery: ["/images/projects/cinema-1.jpg", "/images/projects/cinema-2.jpg"],
-    overview: "A fully engineered private cinema system.",
-    challenges: "Acoustic limitations within space.",
-    solution: "Custom treatment and calibration.",
-    outcome: "Reference-grade immersive experience.",
-  },
+  id: 1,
+  category: "Residential",
+  type: "Home Technology & Private Cinema",
+  title: "Project Mortimer",
+  preview: "/images/projects/av1.jpg",
+  gallery: [
+    "/images/projects/cinema-1.jpg",
+    "/images/projects/cinema-2.jpg"
+  ],
+
+  overview: "A design-led residential technology project delivering a fully integrated home experience, including a high-performance private cinema engineered for clarity, control, and immersion.",
+
+  challenges: "Premium home technology projects are often driven by contractor decisions rather than performance intent, leading to inconsistent system behavior, poor user experience, and compromised acoustic outcomes within spatial constraints.",
+
+  solution: "CED defined the performance intent from the outset, developed system architecture and user flows, and produced detailed engineering documentation covering audio-visual distribution, cinema design, and infrastructure. Acoustic strategy, speaker layout, and calibration parameters were specified to align with reference performance standards, while execution was guided to maintain design integrity.",
+
+  outcome: "A predictable, high-performance home technology environment where audio-visual systems operate seamlessly across spaces. The private cinema delivers a controlled, immersive experience aligned with reference benchmarks, while the overall system remains intuitive, reliable, and true to the original design intent."
+},
   {
-    id: 2,
-    category: "Commercial",
-    type: "Boardroom",
-    title: "Enterprise Boardroom",
-    preview: "/images/projects/warm.png",
-    gallery: ["/images/projects/av2.jpg", "/images/projects/boardroom-2.jpg"],
-    overview: "Integrated conferencing system.",
-    challenges: "Signal routing complexity.",
-    solution: "Centralized AV control system.",
-    outcome: "Seamless executive communication.",
-  },
+  id: 2,
+  category: "Residential",
+  type: "Private Cinema & Reference Performance",
+  title: "Alexence Cinema",
+  preview: "/images/projects/warm.png",
+  gallery: [
+    "/images/projects/av2.jpg",
+    "/images/projects/boardroom-2.jpg"
+  ],
+
+  overview: "A reference-grade private cinema environment engineered for immersive playback, precision acoustics, and controlled visual performance within a luxury residential setting.",
+
+  challenges: "Delivering true cinematic performance within a residential envelope required balancing acoustic control, speaker placement, and visual integration, while avoiding the common pitfalls of uneven coverage, excessive reflections, and compromised viewing conditions.",
+
+  solution: "CED defined the performance targets across audio clarity, coverage, and visual fidelity, then developed a complete system architecture including loudspeaker layout, acoustic treatment strategy, projection design, and control integration. Detailed engineering documentation ensured alignment between design intent and execution, with calibration parameters specified to achieve reference-level playback.",
+
+  outcome: "A controlled, immersive cinema experience with consistent coverage, balanced acoustics, and refined visual performance. The system delivers predictable, high-fidelity playback aligned with reference standards, while remaining seamlessly integrated into the residential environment."
+},
   {
-    id: 3,
-    category: "ProAV",
-    type: "Control Room",
-    title: "Operations Control Room",
-    preview: "/images/projects/cinema.jpg",
-    gallery: ["/images/projects/control-1.jpg", "/images/projects/control-2.jpg"],
-    overview: "Mission-critical monitoring system.",
-    challenges: "Real-time data synchronization.",
-    solution: "Multi-screen AV distribution.",
-    outcome: "High-performance operational visibility.",
-  },
-  {
-    id: 4,
-    category: "Residential",
-    type: "Hi-Fi",
-    title: "Luxury Listening Room",
-    preview: "/images/projects/av3.jpg",
-    gallery: ["/images/projects/hifi-1.jpg", "/images/projects/hifi-2.jpg"],
-    overview: "High-end stereo listening environment.",
-    challenges: "Acoustic neutrality.",
-    solution: "Precision placement and tuning.",
-    outcome: "Balanced immersive sound.",
-  },
+  id: 3,
+  category: "Commercial",
+  type: "AV Experience Centre",
+  title: "Soundhous Experience Centre",
+  preview: "/images/projects/cinema.jpg",
+  gallery: [
+    "/images/projects/control-1.jpg",
+    "/images/projects/control-2.jpg"
+  ],
+
+  overview: "A multi-space AV experience centre designed to demonstrate high-performance audio-visual systems across real-life environments, including media rooms, hi-fi spaces, home cinema, and social zones.",
+
+  challenges: "Creating multiple distinct AV environments within a single location required precise system zoning, acoustic control, and seamless integration, while ensuring each space delivered a unique yet consistent performance experience without interference or compromise.",
+
+  solution: "CED defined performance intent across each zone, developing system architecture for audio distribution, room-specific tuning, and control integration. Detailed engineering documentation guided the deployment of cinema systems, hi-fi listening setups, and multi-room audio, with acoustic strategies and calibration parameters tailored to each environment.",
+
+  outcome: "A fully immersive experience centre where users can transition seamlessly between spaces, each delivering controlled, high-fidelity performance. The environment serves as a live benchmark for AV system design, showcasing clarity, consistency, and the impact of a design-led approach."
+},
+ {
+  id: 4,
+  category: "Commercial",
+  type: "Restaurant & Lounge",
+  title: "Kilala Restaurant & Lounge",
+  preview: "/images/projects/av3.jpg",
+  gallery: [
+    "/images/projects/hifi-1.jpg",
+    "/images/projects/hifi-2.jpg"
+  ],
+
+  overview: "A design-led hospitality AV system delivering a refined, atmosphere-driven audio experience across dining and lounge environments, seamlessly integrated within the architectural space.",
+
+  challenges: "Hospitality environments require consistent audio coverage without visual intrusion, balancing multiple zones with different energy levels while avoiding uneven sound distribution, excessive volume, or disruption to the guest experience.",
+
+  solution: "CED defined the performance intent for both dining and lounge areas, developing a zoned audio system with precise speaker placement, controlled coverage, and discreet integration. System architecture, acoustic considerations, and calibration parameters were specified to ensure clarity, balance, and consistency across all areas while preserving the visual integrity of the space.",
+
+  outcome: "A cohesive and immersive sound environment where audio enhances the atmosphere without drawing attention to itself. Guests experience consistent, high-quality sound across zones, reinforcing the identity of the space while maintaining comfort, clarity, and control."
+},
+{
+  id: 5,
+  category: "Commercial",
+  type: "Hotel & Resort",
+  title: "The Kinshaus Jahi",
+  preview: "/images/projects/av3.jpg",
+  gallery: [
+    "/images/projects/hotel-1.jpg",
+    "/images/projects/hotel-2.jpg"
+  ],
+
+  overview: "A hospitality AV system designed to deliver consistent, high-quality audio-visual experiences across guest rooms, public areas, and leisure spaces within a modern hotel environment.",
+
+  challenges: "Hotel environments require seamless system performance across multiple zones with varying use cases, while maintaining simplicity for guests, operational reliability for staff, and minimal visual intrusion within a refined architectural setting.",
+
+  solution: "CED defined system architecture across guest and shared spaces, developing a structured AV distribution framework with zoned audio, centralized control logic, and scalable infrastructure. Detailed engineering documentation ensured alignment across all areas, with performance targets set for clarity, consistency, and ease of use while preserving the design integrity of the space.",
+
+  outcome: "A unified and reliable AV environment where guests experience intuitive control and consistent performance across spaces, while operators benefit from a scalable and maintainable system. The result is a refined hospitality experience supported by a design-led, performance-driven AV foundation."
+},
+{
+  id: 6,
+  category: "ProAV",
+  type: "Nightclub & Bar",
+  title: "Booth Night Club",
+  preview: "/images/projects/av3.jpg",
+  gallery: [
+    "/images/projects/club-1.jpg",
+    "/images/projects/club-2.jpg"
+  ],
+
+
+  overview: "A high-performance audio-visual system engineered for a nightlife environment, delivering powerful, controlled sound and immersive energy across dancefloor and lounge zones.",
+
+  challenges: "Nightclub environments demand high sound pressure levels, consistent coverage, and system stability under continuous operation, while managing acoustic reflections, crowd density, and spatial limitations without compromising clarity or experience.",
+
+  solution: "CED defined performance targets for SPL, coverage, and system behavior, developing a robust audio system architecture with optimized speaker deployment, subwoofer integration, and acoustic considerations. Detailed engineering documentation and calibration parameters ensured controlled output, clarity at high volumes, and system reliability across all operational conditions.",
+
+  outcome: "A dynamic and immersive nightclub experience with powerful, balanced sound and consistent coverage across the space. The system delivers high-energy performance without distortion or fatigue, maintaining clarity, control, and reliability throughout extended operation."
+},
+{
+  id: 7,
+  category: "ProAV",
+  type: "House of Worship",
+  title: "AMCC House of Worship",
+  preview: "/images/projects/av3.jpg",
+  gallery: [
+    "/images/projects/church-1.jpg",
+    "/images/projects/church-2.jpg"
+  ],
+
+  overview: "A performance-driven AV system engineered for a large-scale worship environment, delivering consistent coverage, speech intelligibility, and controlled sound across the entire audience area.",
+
+  challenges: "Large worship spaces present complex acoustic conditions, including reflections, reverberation, and uneven coverage, requiring precise system design to achieve clarity and consistent sound pressure levels without compromising the architectural vision.",
+
+  solution: "CED defined performance targets for coverage, intelligibility, and SPL, developing a structured loudspeaker system design aligned with seating geometry and spatial constraints. Acoustic considerations, system configuration, and calibration parameters were documented in detail to ensure accurate implementation and alignment with design intent.",
+
+  outcome: "A balanced and intelligible audio environment with consistent coverage across the space, delivering clear communication and immersive sound while maintaining control, reliability, and alignment with architectural aesthetics."
+},
 ];
 
 /* ============================= */

@@ -12,8 +12,13 @@ const brands = [
     category: "Audio",
     items: [
       {
-        name: "Focal",
-        logo: "/images/brands/focal.svg",
+        name: "Sonos",
+        logo: "/images/brands/sonos.svg",
+        url: "https://www.sonos.com",
+      },
+      {
+        name: "Karray",
+        logo: "/images/brands/karray.svg",
         url: "https://www.focal.com",
       },
       {
@@ -22,18 +27,38 @@ const brands = [
         url: "https://www.focal.com",
       },
       {
-        name: "Focal",
-        logo: "/images/brands/focal.svg",
-        url: "https://www.focal.com",
-      },
-      {
-        name: "Focal",
-        logo: "/images/brands/focal.svg",
+        name: "Kgear",
+        logo: "/images/brands/kgear.svg",
         url: "https://www.focal.com",
       },
       {
         name: "Naim",
         logo: "/images/brands/naim.svg",
+        url: "https://www.naimaudio.com",
+      },
+      {
+        name: "Sonance",
+        logo: "/images/brands/sonance.svg",
+        url: "https://www.sonance.com",
+      },
+      {
+        name: "Trinnov Audio",
+        logo: "/images/brands/trinnov.svg",
+        url: "https://www.naimaudio.com",
+      },
+      {
+        name: "JBL",
+        logo: "/images/brands/jbl.svg",
+        url: "https://www.naimaudio.com",
+      },
+      {
+        name: "Sony",
+        logo: "/images/brands/sony.svg",
+        url: "https://www.naimaudio.com",
+      },
+      {
+        name: "Audio Control",
+        logo: "/images/brands/audiocontrol.svg",
         url: "https://www.naimaudio.com",
       },
     ],
@@ -42,90 +67,120 @@ const brands = [
     category: "Video",
     items: [
       {
-        name: "Sony",
-        logo: "/images/brands/sony.svg",
+        name: "Screen Innovations",
+        logo: "/images/brands/screeninnovation.svg",
         url: "https://www.sony.com",
       },
        {
-        name: "Sony",
-        logo: "/images/brands/sony.svg",
+        name: "Barco",
+        logo: "/images/brands/barco.svg",
         url: "https://www.sony.com",
       },
        {
-        name: "Sony",
-        logo: "/images/brands/sony.svg",
+        name: "Epiphan Video",
+        logo: "/images/brands/epiphan.svg",
         url: "https://www.sony.com",
       },
        {
-        name: "Sony",
-        logo: "/images/brands/sony.svg",
+        name: "Speechi",
+        logo: "/images/brands/speechi.svg",
         url: "https://www.sony.com",
       },
        {
-        name: "Sony",
-        logo: "/images/brands/sony.svg",
+        name: "Infiled",
+        logo: "/images/brands/infiled.svg",
         url: "https://www.sony.com",
       },
        {
-        name: "Sony",
-        logo: "/images/brands/sony.svg",
+        name: "AVPro edge",
+        logo: "/images/brands/avproedge.svg",
         url: "https://www.sony.com",
       },
     ],
   },
   {
-    category: "Security",
+    category: "Security-Communication",
     items: [
       {
-        name: "Hikvision",
-        logo: "/images/brands/hikvision.svg",
+        name: "Reolink",
+        logo: "/images/brands/reolink.svg",
         url: "https://www.hikvision.com",
       },
       {
-        name: "Hikvision",
-        logo: "/images/brands/hikvision.svg",
+        name: "Ekey",
+        logo: "/images/brands/ekey.svg",
         url: "https://www.hikvision.com",
+      }
+    ],
+  },
+  {
+    category: "Lighting-Control",
+    items: [
+      {
+        name: "Audioflow",
+        logo: "/images/brands/audioflow.svg",
+        url: "https://www.crestron.com",
       },
       {
-        name: "Hikvision",
-        logo: "/images/brands/hikvision.svg",
-        url: "https://www.hikvision.com",
+        name: "Lutron",
+        logo: "/images/brands/lutron.svg",
+        url: "https://www.crestron.com",
       },
       {
-        name: "Hikvision",
-        logo: "/images/brands/hikvision.svg",
-        url: "https://www.hikvision.com",
+        name: "Luhkee",
+        logo: "/images/brands/luhkee.svg",
+        url: "https://www.crestron.com",
       },
       {
-        name: "Hikvision",
-        logo: "/images/brands/hikvision.svg",
-        url: "https://www.hikvision.com",
+        name: "Shelly",
+        logo: "/images/brands/shelly.svg",
+        url: "https://www.crestron.com",
+      },
+      {
+        name: "Crestron",
+        logo: "/images/brands/crestron.svg",
+        url: "https://www.crestron.com",
+      },
+      {
+        name: "Zennio",
+        logo: "/images/brands/zennio.svg",
+        url: "https://www.crestron.com",
+      },
+      {
+        name: "Rithum Home",
+        logo: "/images/brands/rithum.svg",
+        url: "https://www.crestron.com",
       },
     ],
   },
   {
-    category: "Control",
+    category: "Acoustics",
     items: [
       {
-        name: "Crestron",
-        logo: "/images/brands/crestron.svg",
+        name: "Vicoustic",
+        logo: "/images/brands/vicoustic.svg",
         url: "https://www.crestron.com",
       },
       {
-        name: "Crestron",
-        logo: "/images/brands/crestron.svg",
+        name: "Cineak",
+        logo: "/images/brands/cineak.svg",
         url: "https://www.crestron.com",
       },
       {
-        name: "Crestron",
-        logo: "/images/brands/crestron.svg",
+        name: "EZ Acoustic",
+        logo: "/images/brands/ez.svg",
         url: "https://www.crestron.com",
       },
       {
-        name: "Crestron",
-        logo: "/images/brands/crestron.svg",
+        name: "Palliser",
+        logo: "/images/brands/palliser.svg",
         url: "https://www.crestron.com",
       },
+      {
+        name: "Leadcom Seating",
+        logo: "/images/brands/leadcom.svg",
+        url: "https://www.crestron.com",
+      }
     ],
   },
 ];
@@ -200,7 +255,7 @@ export default function BrandEcosystem() {
                 <img
                   src={brand.logo}
                   alt={brand.name}
-                  className="h-6 opacity-70 group-hover:opacity-100 transition duration-300"
+                  className="h-10 opacity-70 group-hover:opacity-100 transition duration-300"
                 />
 
                 {/* Hover line */}

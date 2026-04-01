@@ -11,7 +11,7 @@ const slides = [
     desc: "Structured access to design authority, certified systems, and project execution standards.",
     cta: "Explore Partner Pathways",
     link: "/partners",
-    image: "/images/hero/avimage.jpg",
+    image: "/images/hero/si.webp",
   },
   {
     id: 2,
@@ -19,7 +19,7 @@ const slides = [
     desc: "Design certainty, specification support, and performance-driven AV systems.",
     cta: "Access Specifier Support",
     link: "/industry",
-    image: "/images/hero/book.webp",
+    image: "/images/hero/arch.webp",
   },
   {
     id: 3,
@@ -27,7 +27,7 @@ const slides = [
     desc: "Integrated AV planning, execution frameworks, and scalable system delivery.",
     cta: "Request Project Consultation",
     link: "/engage",
-    image: "/images/hero/hifi.jpg",
+    image: "/images/hero/dev.webp",
   },
   {
     id: 4,
@@ -35,7 +35,7 @@ const slides = [
     desc: "Professional AV systems designed for reliability, scale, and long-term performance.",
     cta: "Explore ProAV Systems",
     link: "/solutions",
-    image: "/images/hero/soni.jpg",
+    image: "/images/hero/board.webp",
   },
 ];
 
@@ -84,7 +84,7 @@ export default function Hero() {
       </div>
 
       {/* ===== Overlay ===== */}
-      <div className="absolute inset-0 bg-black/60" />
+      <div className="absolute inset-0 bg-black/80" />
 
       {/* ===== Content ===== */}
       <div className="relative z-10 flex h-full w-full items-center">
