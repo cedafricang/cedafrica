@@ -23,13 +23,17 @@ const pageData = {
   },
 
   partners: [
-    "/images/partners/sonos.svg",
-    "/images/partners/focal.svg",
-    "/images/partners/naim.svg",
-    "/images/partners/k-array.svg",
-    "/images/partners/sonance.svg",
-    "/images/partners/trinnov.svg",
-    "/images/partners/vicoustic.svg",
+    "/images/partners/baron.svg",
+    "/images/partners/avantis.svg",
+    "/images/partners/ca.svg",
+    "/images/partners/gabonn.svg",
+    "/images/partners/idlewoods.svg",
+    "/images/partners/jam.svg",
+    "/images/partners/saota.svg",
+    "/images/partners/spectra.svg",
+    "/images/partners/topklan.svg",
+    "/images/partners/triangle.svg",
+    "/images/partners/wse.svg",
   ],
 };
 
@@ -105,8 +109,8 @@ export default function HowWeWorkPage() {
           {/* Marquee */}
           <div className="relative w-full overflow-hidden">
             <motion.div
-              className="flex gap-20 items-center"
-              animate={{ x: ["0%", "-50%"] }}
+              className="flex gap-10 md:gap-16 items-center min-w-max"
+              animate={{ x: [0, -1500] }}
               transition={{
                 duration: 25,
                 ease: "linear",
@@ -121,7 +125,7 @@ export default function HowWeWorkPage() {
                   <img
                     src={logo}
                     alt="partner"
-                    className="h-8 md:h-10 object-contain filter brightness-0 invert"
+                    className="h-4 md:h-6 object-contain filter brightness-0 invert"
                   />
                 </div>
               ))}

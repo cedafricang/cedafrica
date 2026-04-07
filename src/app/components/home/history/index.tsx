@@ -73,7 +73,7 @@ const brands = [
       },
        {
         name: "Barco",
-        logo: "/images/brands/barco.svg",
+        logo: "/images/brands/Barco.svg",
         url: "https://www.sony.com",
       },
        {

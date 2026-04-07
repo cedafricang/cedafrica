@@ -14,13 +14,18 @@ const data = {
     image: "/images/hero/avimage.jpg",
   },
 
-  partners: [
-    "/images/partners/sonos.svg",
-    "/images/partners/focal.svg",
-    "/images/partners/naim.svg",
-    "/images/partners/k-array.svg",
-    "/images/partners/sonance.svg",
-    "/images/partners/trinnov.svg",
+   partners: [
+    "/images/partners/baron.svg",
+    "/images/partners/avantis.svg",
+    "/images/partners/ca.svg",
+    "/images/partners/gabonn.svg",
+    "/images/partners/idlewoods.svg",
+    "/images/partners/jam.svg",
+    "/images/partners/saota.svg",
+    "/images/partners/spectra.svg",
+    "/images/partners/topklan.svg",
+    "/images/partners/triangle.svg",
+    "/images/partners/wse.svg",
   ],
 
   principles: [
@@ -134,7 +139,7 @@ export default function Page() {
                 <img
                   key={i}
                   src={logo}
-                  className="h-8 md:h-10 brightness-0 invert opacity-70"
+                  className="h-4 md:h-6 brightness-0 invert opacity-70"
                   alt=""
                 />
               ))}

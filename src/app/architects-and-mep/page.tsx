@@ -21,13 +21,17 @@ const heroData = {
     "Designed systems. Coordinated delivery. Defined performance.",
   image: "/images/hero/avimage.jpg",
 
-  partners: [
-    "/images/partners/sonos.svg",
-    "/images/partners/focal.svg",
-    "/images/partners/naim.svg",
-    "/images/partners/k-array.svg",
-    "/images/partners/sonance.svg",
-    "/images/partners/trinnov.svg",
+   partners: [
+    "/images/partners/baron.svg",
+    "/images/partners/avantis.svg",
+    "/images/partners/ca.svg",
+    "/images/partners/gabonn.svg",
+    "/images/partners/idlewoods.svg",
+    "/images/partners/jam.svg",
+    "/images/partners/saota.svg",
+    
+    "/images/partners/topklan.svg",
+   
   ],
 };
 
@@ -112,7 +116,7 @@ export default function ArchitectsPage() {
                 key={i}
                 src={logo}
                 alt="partner"
-                className="h-8 md:h-10 brightness-0 invert opacity-70"
+                className="h-6 md:h-8 brightness-0 invert opacity-70"
               />
             ))}
           </motion.div>

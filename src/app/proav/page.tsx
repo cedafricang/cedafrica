@@ -46,13 +46,18 @@ const data = {
     image: "/images/hero/avimage.jpg",
   },
 
-  partners: [
-    "/images/partners/sonos.svg",
-    "/images/partners/focal.svg",
-    "/images/partners/naim.svg",
-    "/images/partners/k-array.svg",
-    "/images/partners/sonance.svg",
-    "/images/partners/trinnov.svg",
+   partners: [
+    "/images/partners/baron.svg",
+    "/images/partners/avantis.svg",
+    "/images/partners/ca.svg",
+    "/images/partners/gabonn.svg",
+    "/images/partners/idlewoods.svg",
+    "/images/partners/jam.svg",
+    "/images/partners/saota.svg",
+    "/images/partners/spectra.svg",
+    "/images/partners/topklan.svg",
+    "/images/partners/triangle.svg",
+    "/images/partners/wse.svg",
   ],
 
   definition: {

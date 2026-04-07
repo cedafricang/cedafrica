@@ -23,12 +23,12 @@ const data = {
   },
 
   partners: [
-    "/images/partners/sonos.svg",
-    "/images/partners/focal.svg",
-    "/images/partners/naim.svg",
-    "/images/partners/k-array.svg",
-    "/images/partners/sonance.svg",
-    "/images/partners/trinnov.svg",
+    "/images/brands/sonos.svg",
+    "/images/brands/focal.svg",
+    "/images/brands/naim.svg",
+    "/images/brands/karray.svg",
+    "/images/brands/sonance.svg",
+    "/images/brands/trinnov.svg",
   ],
 };
 
