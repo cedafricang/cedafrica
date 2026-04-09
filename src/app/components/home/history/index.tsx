@@ -19,7 +19,7 @@ const brands = [
       {
         name: "Karray",
         logo: "/images/brands/karray.svg",
-        url: "https://www.focal.com",
+        url: "https://www.k-array.com/en",
       },
       {
         name: "Focal",
@@ -29,7 +29,7 @@ const brands = [
       {
         name: "Kgear",
         logo: "/images/brands/kgear.svg",
-        url: "https://www.focal.com",
+        url: "https://www.k-array.com/en/k-group/k-gear",
       },
       {
         name: "Naim",
@@ -39,27 +39,27 @@ const brands = [
       {
         name: "Sonance",
         logo: "/images/brands/sonance.svg",
-        url: "https://www.sonance.com",
+        url: "https://sonance.com/",
       },
       {
         name: "Trinnov Audio",
         logo: "/images/brands/trinnov.svg",
-        url: "https://www.naimaudio.com",
+        url: "https://www.trinnov.com/",
       },
       {
         name: "JBL",
         logo: "/images/brands/jbl.svg",
-        url: "https://www.naimaudio.com",
+        url: "https://www.jbl.com/",
       },
       {
         name: "Sony",
         logo: "/images/brands/sony.svg",
-        url: "https://www.naimaudio.com",
+        url: "https://www.sony.com/",
       },
       {
         name: "Audio Control",
         logo: "/images/brands/audiocontrol.svg",
-        url: "https://www.naimaudio.com",
+        url: "https://audiocontrol.com/",
       },
     ],
   },
@@ -69,32 +69,32 @@ const brands = [
       {
         name: "Screen Innovations",
         logo: "/images/brands/screeninnovation.svg",
-        url: "https://www.sony.com",
+        url: "https://www.screeninnovations.com/",
       },
        {
         name: "Barco",
         logo: "/images/brands/Barco.svg",
-        url: "https://www.sony.com",
+        url: "https://www.barco.com/en",
       },
        {
         name: "Epiphan Video",
         logo: "/images/brands/epiphan.svg",
-        url: "https://www.sony.com",
+        url: "https://www.epiphan.com/",
       },
        {
         name: "Speechi",
         logo: "/images/brands/speechi.svg",
-        url: "https://www.sony.com",
+        url: "https://speechi.com/",
       },
        {
         name: "Infiled",
         logo: "/images/brands/infiled.svg",
-        url: "https://www.sony.com",
+        url: "https://www.infiled.com/",
       },
        {
         name: "AVPro edge",
         logo: "/images/brands/avproedge.svg",
-        url: "https://www.sony.com",
+        url: "https://www.avproglobal.com/",
       },
     ],
   },
@@ -104,12 +104,12 @@ const brands = [
       {
         name: "Reolink",
         logo: "/images/brands/reolink.svg",
-        url: "https://www.hikvision.com",
+        url: "https://reolink.com/",
       },
       {
         name: "Ekey",
         logo: "/images/brands/ekey.svg",
-        url: "https://www.hikvision.com",
+        url: "https://www.ekey.net/en/",
       }
     ],
   },
@@ -119,22 +119,22 @@ const brands = [
       {
         name: "Audioflow",
         logo: "/images/brands/audioflow.svg",
-        url: "https://www.crestron.com",
+        url: "https://flow.audio/",
       },
       {
         name: "Lutron",
         logo: "/images/brands/lutron.svg",
-        url: "https://www.crestron.com",
+        url: "https://www.lutron.com/us/en",
       },
       {
         name: "Luhkee",
         logo: "/images/brands/luhkee.svg",
-        url: "https://www.crestron.com",
+        url: "https://www.luhkee.be/",
       },
       {
         name: "Shelly",
         logo: "/images/brands/shelly.svg",
-        url: "https://www.crestron.com",
+        url: "https://www.shelly.com/",
       },
       {
         name: "Crestron",
@@ -144,12 +144,12 @@ const brands = [
       {
         name: "Zennio",
         logo: "/images/brands/zennio.svg",
-        url: "https://www.crestron.com",
+        url: "https://www.zennio.com",
       },
       {
         name: "Rithum Home",
         logo: "/images/brands/rithum.svg",
-        url: "https://www.crestron.com",
+        url: "https://rithumhome.com/",
       },
     ],
   },
@@ -159,27 +159,27 @@ const brands = [
       {
         name: "Vicoustic",
         logo: "/images/brands/vicoustic.svg",
-        url: "https://www.crestron.com",
+        url: "https://vicoustic.com/",
       },
       {
         name: "Cineak",
         logo: "/images/brands/cineak.svg",
-        url: "https://www.crestron.com",
+        url: "https://cineak.com/",
       },
       {
         name: "EZ Acoustic",
         logo: "/images/brands/ez.svg",
-        url: "https://www.crestron.com",
+        url: "https://www.ezacoustics.com/",
       },
       {
         name: "Palliser",
         logo: "/images/brands/palliser.svg",
-        url: "https://www.crestron.com",
+        url: "https://www.palliser.com/",
       },
       {
         name: "Leadcom Seating",
         logo: "/images/brands/leadcom.svg",
-        url: "https://www.crestron.com",
+        url: "https://www.leadcomseating.com/",
       }
     ],
   },

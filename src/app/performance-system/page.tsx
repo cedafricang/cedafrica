@@ -27,7 +27,7 @@ const data = {
       label: "Request Consultation",
       href: "/engage?type=reference",
     },
-    image: "/images/hero/avimage.jpg",
+    image: "/images/hero/foc.webp",
   },
 
  partners: [

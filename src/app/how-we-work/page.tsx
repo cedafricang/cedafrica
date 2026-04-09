@@ -19,7 +19,7 @@ const pageData = {
     title: "How We Work",
     description:
       "A structured operating system designed to deliver certainty, performance, and control across every AV project.",
-    image: "/images/hero/avimage.jpg",
+    image: "/images/projects/work.jpg",
   },
 
   partners: [

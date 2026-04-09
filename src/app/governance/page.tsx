@@ -11,7 +11,7 @@ const data = {
   hero: {
     title: "Governance & Standards",
     desc: "A structured framework that defines how systems are designed, executed, and maintained — ensuring consistency, accountability, and performance.",
-    image: "/images/hero/avimage.jpg",
+    image: "/images/hero/kar.webp",
   },
 
    partners: [
@@ -110,7 +110,7 @@ export default function Page() {
         </motion.div>
 
         {/* Overlay */}
-        <div className="absolute inset-0 bg-black/70" />
+        <div className="absolute inset-0 bg-black/90" />
 
         {/* Content */}
         <div className="relative z-10 max-w-6xl mx-auto px-6">

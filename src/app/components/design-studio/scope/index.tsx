@@ -14,22 +14,22 @@ const data = {
     {
       title: "System Architecture",
       desc: "The structure, layout, and logic of the entire audiovisual system.",
-      image: "/images/hero/avimage.jpg",
+      image: "/images/hero/draw.png",
     },
     {
       title: "Performance Standards",
       desc: "Defined benchmarks for audio, visual, and system performance.",
-      image: "/images/hero/avimage.jpg",
+      image: "/images/hero/cinema.webp",
     },
     {
       title: "Technology & Brand Alignment",
       desc: "Selection of technologies and brands aligned with system objectives.",
-      image: "/images/hero/avimage.jpg",
+      image: "/images/hero/kar.webp",
     },
     {
       title: "Integration with Architecture & MEP",
       desc: "Seamless coordination with building systems, design, and infrastructure.",
-      image: "/images/hero/avimage.jpg",
+      image: "/images/hero/son.webp",
     },
   ],
 };

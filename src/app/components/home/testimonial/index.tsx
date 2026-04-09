@@ -13,10 +13,10 @@ const projects = [
   category: "Residential",
   type: "Home Technology & Private Cinema",
   title: "Project Mortimer",
-  preview: "/images/projects/av1.jpg",
+  preview: "/images/projects/motimer1.png",
   gallery: [
-    "/images/projects/cinema-1.jpg",
-    "/images/projects/cinema-2.jpg"
+    "/images/projects/motimer2.png",
+    "/images/projects/motimer3.png"
   ],
 
   overview: "A design-led residential technology project delivering a fully integrated home experience, including a high-performance private cinema engineered for clarity, control, and immersion.",
@@ -32,10 +32,10 @@ const projects = [
   category: "Residential",
   type: "Private Cinema & Reference Performance",
   title: "Alexence Cinema",
-  preview: "/images/projects/warm.png",
+  preview: "/images/projects/alex.jpg",
   gallery: [
-    "/images/projects/av2.jpg",
-    "/images/projects/boardroom-2.jpg"
+    "/images/projects/alex.jpg"
+    
   ],
 
   overview: "A reference-grade private cinema environment engineered for immersive playback, precision acoustics, and controlled visual performance within a luxury residential setting.",
@@ -53,8 +53,8 @@ const projects = [
   title: "Soundhous Experience Centre",
   preview: "/images/projects/cinema.jpg",
   gallery: [
-    "/images/projects/control-1.jpg",
-    "/images/projects/control-2.jpg"
+    "/images/projects/hifi.jpeg",
+    "/images/projects/soundhous.jpg"
   ],
 
   overview: "A multi-space AV experience centre designed to demonstrate high-performance audio-visual systems across real-life environments, including media rooms, hi-fi spaces, home cinema, and social zones.",
@@ -70,10 +70,10 @@ const projects = [
   category: "Commercial",
   type: "Restaurant & Lounge",
   title: "Kilala Restaurant & Lounge",
-  preview: "/images/projects/av3.jpg",
+  preview: "/images/projects/kilala3.jpeg",
   gallery: [
-    "/images/projects/hifi-1.jpg",
-    "/images/projects/hifi-2.jpg"
+    "/images/projects/kilala.jpeg",
+    "/images/projects/kilala1.jpeg"
   ],
 
   overview: "A design-led hospitality AV system delivering a refined, atmosphere-driven audio experience across dining and lounge environments, seamlessly integrated within the architectural space.",
@@ -84,54 +84,17 @@ const projects = [
 
   outcome: "A cohesive and immersive sound environment where audio enhances the atmosphere without drawing attention to itself. Guests experience consistent, high-quality sound across zones, reinforcing the identity of the space while maintaining comfort, clarity, and control."
 },
-{
-  id: 5,
-  category: "Commercial",
-  type: "Hotel & Resort",
-  title: "The Kinshaus Jahi",
-  preview: "/images/projects/av3.jpg",
-  gallery: [
-    "/images/projects/hotel-1.jpg",
-    "/images/projects/hotel-2.jpg"
-  ],
-
-  overview: "A hospitality AV system designed to deliver consistent, high-quality audio-visual experiences across guest rooms, public areas, and leisure spaces within a modern hotel environment.",
-
-  challenges: "Hotel environments require seamless system performance across multiple zones with varying use cases, while maintaining simplicity for guests, operational reliability for staff, and minimal visual intrusion within a refined architectural setting.",
-
-  solution: "CED defined system architecture across guest and shared spaces, developing a structured AV distribution framework with zoned audio, centralized control logic, and scalable infrastructure. Detailed engineering documentation ensured alignment across all areas, with performance targets set for clarity, consistency, and ease of use while preserving the design integrity of the space.",
-
-  outcome: "A unified and reliable AV environment where guests experience intuitive control and consistent performance across spaces, while operators benefit from a scalable and maintainable system. The result is a refined hospitality experience supported by a design-led, performance-driven AV foundation."
-},
-{
-  id: 6,
-  category: "ProAV",
-  type: "Nightclub & Bar",
-  title: "Booth Night Club",
-  preview: "/images/projects/av3.jpg",
-  gallery: [
-    "/images/projects/club-1.jpg",
-    "/images/projects/club-2.jpg"
-  ],
 
 
-  overview: "A high-performance audio-visual system engineered for a nightlife environment, delivering powerful, controlled sound and immersive energy across dancefloor and lounge zones.",
-
-  challenges: "Nightclub environments demand high sound pressure levels, consistent coverage, and system stability under continuous operation, while managing acoustic reflections, crowd density, and spatial limitations without compromising clarity or experience.",
-
-  solution: "CED defined performance targets for SPL, coverage, and system behavior, developing a robust audio system architecture with optimized speaker deployment, subwoofer integration, and acoustic considerations. Detailed engineering documentation and calibration parameters ensured controlled output, clarity at high volumes, and system reliability across all operational conditions.",
-
-  outcome: "A dynamic and immersive nightclub experience with powerful, balanced sound and consistent coverage across the space. The system delivers high-energy performance without distortion or fatigue, maintaining clarity, control, and reliability throughout extended operation."
-},
 {
   id: 7,
   category: "ProAV",
   type: "House of Worship",
   title: "AMCC House of Worship",
-  preview: "/images/projects/av3.jpg",
+  preview: "/images/projects/amvc.jpeg",
   gallery: [
-    "/images/projects/church-1.jpg",
-    "/images/projects/church-2.jpg"
+    "/images/projects/amvc1.jpeg",
+    "/images/projects/amvc2.jpeg"
   ],
 
   overview: "A performance-driven AV system engineered for a large-scale worship environment, delivering consistent coverage, speech intelligibility, and controlled sound across the entire audience area.",

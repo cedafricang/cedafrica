@@ -18,7 +18,7 @@ const sectionData = {
     "Everything is defined before delivery",
   ],
 
-  image: "/images/hero/avimage.jpg",
+  image: "/images/hero/son.webp",
 };
 
 /* ============================= */

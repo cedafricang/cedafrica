@@ -12,7 +12,7 @@ const rulesData = {
   description:
     "CED operates within a defined system. Every engagement follows structured boundaries designed to ensure clarity, accountability, and performance.",
 
-  background: "/images/hero/avimage.jpg",
+  background: "/images/hero/foc.webp",
 
   rules: [
     "CED does not operate as a contractor",
@@ -43,7 +43,7 @@ export default function RulesSection() {
       <div className="absolute inset-0 bg-black/80" />
 
       {/* Depth Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/90 via-black/70 to-black/95" />
+      <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/30 to-black/35" />
 
       {/* Subtle Noise Layer (Luxury Feel) */}
       <div className="absolute inset-0 opacity-[0.05] mix-blend-overlay pointer-events-none bg-[url('/images/noise.png')]" />

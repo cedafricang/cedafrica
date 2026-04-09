@@ -20,7 +20,7 @@ const heroData = {
     label: "Request Design Consultation",
     href: "/engage?type=design",
   },
-  image: "/images/hero/avimage.jpg",
+  image: "/images/hero/luk.webp",
 
   partners: [
     "/images/partners/baron.svg",

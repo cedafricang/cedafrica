@@ -10,22 +10,22 @@ const audiences = [
   {
     title: "System Integrators",
     desc: "Residential, Hospitality, and ProAV environments requiring structured system design and execution.",
-    image: "/images/hero/avimage.jpg",
+    image: "/images/hero/si.webp",
   },
   {
     title: "Architects & MEP Consultants",
     desc: "Specification-led stakeholders integrating AV into broader building and infrastructure design.",
-    image: "/images/hero/avimage.jpg",
+    image: "/images/hero/arch.webp",
   },
   {
     title: "Developers & Contractors",
     desc: "Project owners responsible for delivery, requiring clarity, coordination, and performance certainty.",
-    image: "/images/hero/avimage.jpg",
+    image: "/images/hero/dev.webp",
   },
   {
     title: "Enterprise & Institutional Clients",
     desc: "Organisations requiring scalable, governed audiovisual systems across multiple environments.",
-    image: "/images/hero/avimage.jpg",
+    image: "/images/hero/board.webp",
   },
 ];
 

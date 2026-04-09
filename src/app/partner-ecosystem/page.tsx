@@ -11,7 +11,7 @@ const data = {
   hero: {
     title: "Certified Partner Ecosystem",
     desc: "A governed network of approved partners operating within defined standards to ensure consistent system performance and controlled project delivery.",
-    image: "/images/hero/avimage.jpg",
+    image: "/images/hero/cust.webp",
   },
 
  partners: [
@@ -98,7 +98,7 @@ export default function Page() {
         </motion.div>
 
         {/* Overlay */}
-        <div className="absolute inset-0 bg-black/70" />
+        <div className="absolute inset-0 bg-black/85" />
 
         {/* Content */}
         <div className="relative z-10 max-w-6xl mx-auto px-6">

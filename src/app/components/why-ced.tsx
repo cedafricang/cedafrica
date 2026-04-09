@@ -13,7 +13,7 @@ const philosophy = {
     "The audiovisual industry lacks structure, standardisation, and accountability. Projects are often fragmented and inconsistently executed.",
   statement2:
     "CED exists to bring order, governance, and performance certainty — operating as the structured layer between design, specification, and system delivery.",
-  image: "/images/hero/avimage.jpg",
+  image: "/images/hero/h5.webp",
 };
 
 /* ============================= */
