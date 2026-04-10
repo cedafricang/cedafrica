@@ -157,16 +157,16 @@ export default function Page() {
       {/* ============================= */}
       {/* TIMELINE */}
       {/* ============================= */}
-      <section className="py-32 bg-white text-black">
-      <div className="max-w-6xl mx-auto px-6">
+      <section className="py-24 md:py-32 bg-white text-black">
+      <div className="max-w-6xl mx-auto px-5 md:px-6">
 
         {/* HEADER */}
-        <div className="text-center max-w-2xl mx-auto mb-24">
-          <h2 className="text-4xl md:text-5xl font-light tracking-tight mb-4">
+        <div className="text-center max-w-2xl mx-auto mb-16 md:mb-24">
+          <h2 className="text-3xl md:text-5xl font-light tracking-tight mb-4">
             How the Retail Program Works
           </h2>
 
-          <p className="text-black/50 text-lg leading-relaxed">
+          <p className="text-black/50 text-base md:text-lg leading-relaxed">
             A structured retail pathway focused on experience, positioning, and controlled product delivery.
           </p>
         </div>
@@ -174,80 +174,115 @@ export default function Page() {
         {/* TIMELINE */}
         <div className="relative">
 
-          {/* CENTER LINE (lighter for softer feel) */}
-          <div className="absolute left-1/2 top-0 -translate-x-1/2 w-[1px] h-full bg-black/5" />
+          {/* MOBILE LINE (softer) */}
+          <div className="absolute left-[20px] top-0 w-[1px] h-full bg-black/5 md:hidden" />
 
-          <div className="space-y-24">
+          {/* DESKTOP CENTER LINE */}
+          <div className="hidden md:block absolute left-1/2 top-0 -translate-x-1/2 w-[1px] h-full bg-black/5" />
+
+          <div className="space-y-16 md:space-y-24">
             {data.timeline.map((item: any, i: number) => {
               const isLeft = i % 2 === 0;
               const Icon = icons[i % icons.length];
 
               return (
-                <div key={i} className="relative flex items-center">
+                <div key={i} className="relative">
 
-                  {/* LEFT */}
-                  <div className={`w-1/2 pr-14 ${isLeft ? "" : "hidden md:block"}`}>
-                    {isLeft && (
-                      <motion.div
-                        initial={{ opacity: 0, x: -30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.5 }}
-                        className="text-right"
-                      >
-                        {/* STEP NUMBER (softer than SI) */}
-                        <div className="text-black/5 text-6xl font-light mb-2">
-                          {String(i + 1).padStart(2, "0")}
-                        </div>
+                  {/* ================= MOBILE ================= */}
+                  <div className="md:hidden flex items-start gap-5">
 
-                        <h3 className="text-xl font-medium text-black/80 mb-3">
-                          {item.title}
-                        </h3>
-
-                        <p className="text-black/50 leading-relaxed">
-                          {item.desc}
-                        </p>
-                      </motion.div>
-                    )}
-                  </div>
-
-                  {/* CENTER NODE */}
-                  <div className="absolute left-1/2 -translate-x-1/2 z-10">
-                    <div className="relative flex items-center justify-center">
-
-                      {/* soft glow */}
-                      <div className="absolute w-16 h-16 rounded-full bg-black/5 blur-md" />
-
-                      {/* icon container */}
-                      <div className="w-12 h-12 rounded-full bg-white border border-black/10 flex items-center justify-center shadow-[0_4px_20px_rgba(0,0,0,0.04)]">
-                        <Icon size={18} className="text-black/70" />
+                    {/* ICON */}
+                    <div className="relative flex-shrink-0 w-10 h-10">
+                      <div className="absolute inset-0 rounded-full bg-black/5 blur-md" />
+                      <div className="relative w-10 h-10 rounded-full bg-white border border-black/10 flex items-center justify-center shadow-[0_4px_12px_rgba(0,0,0,0.04)]">
+                        <Icon size={16} className="text-black/70" />
                       </div>
                     </div>
+
+                    {/* CONTENT */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 24 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.45 }}
+                      className="max-w-[85%]"
+                    >
+                      {/* STEP NUMBER (very soft) */}
+                      <div className="text-black/5 text-5xl font-light mb-1">
+                        {String(i + 1).padStart(2, "0")}
+                      </div>
+
+                      <h3 className="text-lg font-medium text-black/80 mb-2 leading-snug">
+                        {item.title}
+                      </h3>
+
+                      <p className="text-black/50 leading-relaxed text-sm">
+                        {item.desc}
+                      </p>
+                    </motion.div>
                   </div>
 
-                  {/* RIGHT */}
-                  <div className={`w-1/2 pl-14 ${!isLeft ? "" : "hidden md:block"}`}>
-                    {!isLeft && (
-                      <motion.div
-                        initial={{ opacity: 0, x: 30 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.5 }}
-                      >
-                        {/* STEP NUMBER */}
-                        <div className="text-black/5 text-6xl font-light mb-2">
-                          {String(i + 1).padStart(2, "0")}
+                  {/* ================= DESKTOP ================= */}
+                  <div className="hidden md:flex items-start">
+
+                    {/* LEFT */}
+                    <div className={`w-1/2 pr-14 ${isLeft ? "" : "invisible"}`}>
+                      {isLeft && (
+                        <motion.div
+                          initial={{ opacity: 0, x: -30 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          transition={{ duration: 0.5 }}
+                          className="text-right max-w-md ml-auto"
+                        >
+                          <div className="text-black/5 text-6xl font-light mb-2">
+                            {String(i + 1).padStart(2, "0")}
+                          </div>
+
+                          <h3 className="text-xl font-medium text-black/80 mb-3 leading-snug">
+                            {item.title}
+                          </h3>
+
+                          <p className="text-black/50 leading-relaxed">
+                            {item.desc}
+                          </p>
+                        </motion.div>
+                      )}
+                    </div>
+
+                    {/* CENTER NODE */}
+                    <div className="absolute left-1/2 -translate-x-1/2 z-10">
+                      <div className="relative flex items-center justify-center">
+                        <div className="absolute w-16 h-16 rounded-full bg-black/5 blur-md" />
+                        <div className="w-12 h-12 rounded-full bg-white border border-black/10 flex items-center justify-center shadow-[0_4px_20px_rgba(0,0,0,0.04)]">
+                          <Icon size={18} className="text-black/70" />
                         </div>
+                      </div>
+                    </div>
 
-                        <h3 className="text-xl font-medium text-black/80 mb-3">
-                          {item.title}
-                        </h3>
+                    {/* RIGHT */}
+                    <div className={`w-1/2 pl-14 ${!isLeft ? "" : "invisible"}`}>
+                      {!isLeft && (
+                        <motion.div
+                          initial={{ opacity: 0, x: 30 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          transition={{ duration: 0.5 }}
+                          className="max-w-md"
+                        >
+                          <div className="text-black/5 text-6xl font-light mb-2">
+                            {String(i + 1).padStart(2, "0")}
+                          </div>
 
-                        <p className="text-black/50 leading-relaxed">
-                          {item.desc}
-                        </p>
-                      </motion.div>
-                    )}
+                          <h3 className="text-xl font-medium text-black/80 mb-3 leading-snug">
+                            {item.title}
+                          </h3>
+
+                          <p className="text-black/50 leading-relaxed">
+                            {item.desc}
+                          </p>
+                        </motion.div>
+                      )}
+                    </div>
+
                   </div>
-
                 </div>
               );
             })}
@@ -255,7 +290,7 @@ export default function Page() {
         </div>
       </div>
     </section>
-      {/* ============================= */}
+          {/* ============================= */}
       {/* SYSTEM STATEMENT */}
       {/* ============================= */}
       <section className="relative h-[70vh] flex items-center">

@@ -8,6 +8,7 @@ import DiscoverProperties from "./components/home/property-option"; // mentor / 
 import Listing from "./components/home/property-list";
 import Testimonials from "./components/home/testimonial";
 import History from "./components/home/history";
+import Count from "./components/home/counter";
 
 import Info from "./components/home/info";
 
@@ -95,6 +96,7 @@ export default function Home() {
       {/* Core hero & positioning */}
       <Hero />
       <About />
+       <Count />
 
       {/* Platform / WhatsApp / AI section */}
       <DiscoverProperties />

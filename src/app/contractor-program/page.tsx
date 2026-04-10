@@ -158,16 +158,16 @@ export default function Page() {
       {/* ============================= */}
       {/* TIMELINE */}
       {/* ============================= */}
-      <section className="py-32 bg-white">
-      <div className="max-w-6xl mx-auto px-6">
+      <section className="py-24 md:py-32 bg-white">
+      <div className="max-w-6xl mx-auto px-5 md:px-6">
 
         {/* HEADER */}
-        <div className="text-center max-w-2xl mx-auto mb-24">
-          <h2 className="text-4xl md:text-5xl font-light tracking-tight mb-4">
+        <div className="text-center max-w-2xl mx-auto mb-16 md:mb-24">
+          <h2 className="text-3xl md:text-5xl font-light tracking-tight mb-4">
             How the Contractor Program Works
           </h2>
 
-          <p className="text-black/50 text-lg leading-relaxed">
+          <p className="text-black/50 text-base md:text-lg leading-relaxed">
             A structured approach ensuring alignment between construction,
             infrastructure, and AV system delivery.
           </p>
@@ -176,61 +176,99 @@ export default function Page() {
         {/* TIMELINE */}
         <div className="relative">
 
-          {/* CENTER LINE */}
-          <div className="absolute left-1/2 top-0 -translate-x-1/2 w-[1px] h-full bg-black/10" />
+          {/* MOBILE LINE */}
+          <div className="absolute left-5 top-0 w-[1px] h-full bg-black/10 md:hidden" />
 
-          <div className="space-y-24">
+          {/* DESKTOP LINE */}
+          <div className="hidden md:block absolute left-1/2 top-0 -translate-x-1/2 w-[1px] h-full bg-black/10" />
+
+          <div className="space-y-16 md:space-y-24">
             {data.timeline.map((item: any, i: number) => {
               const isLeft = i % 2 === 0;
               const Icon = icons[i % icons.length];
 
               return (
-                <div
-                  key={i}
-                  className="relative flex items-center justify-between"
-                >
-                  {/* LEFT CONTENT */}
-                  <div className={`w-1/2 pr-12 ${isLeft ? "" : "opacity-0 md:opacity-100"}`}>
-                    {isLeft && (
-                      <motion.div
-                        initial={{ opacity: 0, x: -40 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.6 }}
-                        className="text-right"
-                      >
-                        <h3 className="text-xl font-medium text-black/80 mb-3">
-                          {item.title}
-                        </h3>
-                        <p className="text-black/50 leading-relaxed">
-                          {item.desc}
-                        </p>
-                      </motion.div>
-                    )}
-                  </div>
+                <div key={i} className="relative">
 
-                  {/* CENTER ICON */}
-                  <div className="absolute left-1/2 -translate-x-1/2 z-10">
-                    <div className="w-12 h-12 rounded-full bg-white border border-black/10 flex items-center justify-center shadow-sm">
-                      <Icon size={18} className="text-black/70" />
+                  {/* ================= MOBILE ================= */}
+                  <div className="md:hidden flex items-start gap-6">
+
+                    {/* ICON */}
+                    <div className="relative flex-shrink-0">
+                      <div className="absolute w-12 h-12 rounded-full bg-black/5 blur-sm" />
+                      <div className="relative w-10 h-10 rounded-full bg-white border border-black/10 flex items-center justify-center shadow-sm">
+                        <Icon size={16} className="text-black/70" />
+                      </div>
                     </div>
+
+                    {/* CONTENT */}
+                    <motion.div
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5 }}
+                    >
+                      <h3 className="text-lg font-medium text-black/80 mb-2">
+                        {item.title}
+                      </h3>
+
+                      <p className="text-black/50 leading-relaxed text-sm">
+                        {item.desc}
+                      </p>
+                    </motion.div>
                   </div>
 
-                  {/* RIGHT CONTENT */}
-                  <div className={`w-1/2 pl-12 ${!isLeft ? "" : "opacity-0 md:opacity-100"}`}>
-                    {!isLeft && (
-                      <motion.div
-                        initial={{ opacity: 0, x: 40 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.6 }}
-                      >
-                        <h3 className="text-xl font-medium text-black/80 mb-3">
-                          {item.title}
-                        </h3>
-                        <p className="text-black/50 leading-relaxed">
-                          {item.desc}
-                        </p>
-                      </motion.div>
-                    )}
+                  {/* ================= DESKTOP ================= */}
+                  <div className="hidden md:flex items-center justify-between">
+
+                    {/* LEFT */}
+                    <div className={`w-1/2 pr-12 ${isLeft ? "" : "invisible"}`}>
+                      {isLeft && (
+                        <motion.div
+                          initial={{ opacity: 0, x: -40 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          transition={{ duration: 0.6 }}
+                          className="text-right"
+                        >
+                          <h3 className="text-xl font-medium text-black/80 mb-3">
+                            {item.title}
+                          </h3>
+
+                          <p className="text-black/50 leading-relaxed">
+                            {item.desc}
+                          </p>
+                        </motion.div>
+                      )}
+                    </div>
+
+                    {/* CENTER ICON */}
+                    <div className="absolute left-1/2 -translate-x-1/2 z-10">
+                      <div className="relative flex items-center justify-center">
+                        <div className="absolute w-14 h-14 rounded-full bg-black/5 blur-sm" />
+                        <div className="w-12 h-12 rounded-full bg-white border border-black/10 flex items-center justify-center shadow-sm">
+                          <Icon size={18} className="text-black/70" />
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* RIGHT */}
+                    <div className={`w-1/2 pl-12 ${!isLeft ? "" : "invisible"}`}>
+                      {!isLeft && (
+                        <motion.div
+                          initial={{ opacity: 0, x: 40 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          transition={{ duration: 0.6 }}
+                        >
+                          <h3 className="text-xl font-medium text-black/80 mb-3">
+                            {item.title}
+                          </h3>
+
+                          <p className="text-black/50 leading-relaxed">
+                            {item.desc}
+                          </p>
+                        </motion.div>
+                      )}
+                    </div>
+
                   </div>
                 </div>
               );
