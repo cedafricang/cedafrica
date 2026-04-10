@@ -19,7 +19,7 @@ const sectionData = {
     "Performance is defined before execution",
   ],
 
-  image: "/images/hero/avimage.jpg",
+  image: "/images/hero/architects.png",
 };
 
 /* ============================= */

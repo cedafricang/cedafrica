@@ -43,7 +43,7 @@ const data = {
       label: "Start Your Project",
       href: "/engage",
     },
-    image: "/images/hero/avimage.jpg",
+    image: "/images/hero/pro.webp",
   },
 
    partners: [

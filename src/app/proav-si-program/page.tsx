@@ -1,6 +1,23 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
+import {
+  Shield,
+  FileCheck,
+  Cpu,
+  Layers,
+  Settings2,
+  CheckCircle2,
+} from "lucide-react";
+
+const icons = [
+  Shield,
+  FileCheck,
+  Cpu,
+  Layers,
+  Settings2,
+  CheckCircle2,
+];
 
 /* ============================= */
 /* DATA */
@@ -10,7 +27,7 @@ const data = {
   hero: {
     title: "ProAV SI Program",
     desc: "A certification framework for professional AV system integrators delivering complex audiovisual systems within defined standards, governed execution, and performance validation.",
-    image: "/images/hero/avimage.jpg",
+    image: "/images/hero/proav.webp",
   },
 
    partners: [
@@ -31,22 +48,22 @@ const data = {
     {
       title: "Technical Qualification",
       desc: "Integrators are assessed based on ProAV system experience, technical capability, and ability to deliver complex integrated environments.",
-      image: "/images/hero/avimage.jpg",
+      image: "/images/hero/install.webp",
     },
     {
       title: "Certification & Approval",
       desc: "Qualified integrators are certified to operate within CED-defined ProAV system frameworks and execution standards.",
-      image: "/images/hero/avimage.jpg",
+      image: "/images/hero/proav.webp",
     },
     {
       title: "System Integration Alignment",
       desc: "Integrators align with defined system architectures, signal flow, performance targets, and integration methodologies.",
-      image: "/images/hero/avimage.jpg",
+      image: "/images/hero/studio.webp",
     },
     {
       title: "Execution & Performance Validation",
       desc: "All systems are deployed under governance, with validation ensuring performance, reliability, and system integrity.",
-      image: "/images/hero/avimage.jpg",
+      image: "/images/hero/si.webp",
     },
   ],
 
@@ -96,7 +113,7 @@ export default function Page() {
           />
         </motion.div>
 
-        <div className="absolute inset-0 bg-black/75" />
+        <div className="absolute inset-0 bg-black/90" />
 
         <div className="relative z-10 max-w-6xl mx-auto px-6 text-white">
           <h1 className="text-5xl text-white md:text-7xl font-light max-w-4xl leading-tight">
@@ -140,58 +157,104 @@ export default function Page() {
       {/* ============================= */}
       {/* TIMELINE */}
       {/* ============================= */}
-      <section className="py-28">
-        <div className="max-w-6xl mx-auto px-6">
+      <section className="py-32 bg-[#f6f6f6] text-white">
+      <div className="max-w-6xl mx-auto px-6">
 
-          <div className="text-center max-w-2xl mx-auto mb-20">
-            <h2 className="text-4xl font-light mb-4">
-              How the ProAV SI Program Works
-            </h2>
+        {/* HEADER */}
+        <div className="text-center max-w-2xl mx-auto mb-24">
+          <h2 className="text-4xl md:text-5xl font-light tracking-tight mb-4">
+            How the ProAV SI Program Works
+          </h2>
 
-            <p className="text-black/60">
-              A structured pathway from qualification to governed system execution.
-            </p>
-          </div>
+          <p className="text-white/60 text-lg leading-relaxed">
+            A structured pathway from qualification to governed system execution.
+          </p>
+        </div>
+
+        {/* TIMELINE */}
+        <div className="relative">
+
+          {/* CENTER LINE (glow style) */}
+          <div className="absolute left-1/2 top-0 -translate-x-1/2 w-[1px] h-full bg-black/10" />
 
           <div className="space-y-28">
-
-            {data.timeline.map((item, i) => {
+            {data.timeline.map((item: any, i: number) => {
               const isLeft = i % 2 === 0;
+              const Icon = icons[i % icons.length];
 
               return (
-                <div
-                  key={i}
-                  className={`flex flex-col md:flex-row items-center gap-12 ${
-                    isLeft ? "" : "md:flex-row-reverse"
-                  }`}
-                >
-                  {/* IMAGE */}
-                  <div className="w-full md:w-1/2">
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      className="w-full h-[300px] object-cover"
-                    />
+                <div key={i} className="relative flex items-center">
+
+                  {/* LEFT */}
+                  <div className={`w-1/2 pr-14 ${isLeft ? "" : "hidden md:block"}`}>
+                    {isLeft && (
+                      <motion.div
+                        initial={{ opacity: 0, x: -40 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.6 }}
+                        className="text-right"
+                      >
+                        {/* STEP NUMBER */}
+                        <div className="text-black/20 text-5xl font-light mb-2">
+                          {String(i + 1).padStart(2, "0")}
+                        </div>
+
+                        <h3 className="text-xl font-medium text-black/90 mb-3">
+                          {item.title}
+                        </h3>
+
+                        <p className="text-black/60 leading-relaxed">
+                          {item.desc}
+                        </p>
+                      </motion.div>
+                    )}
                   </div>
 
-                  {/* TEXT */}
-                  <div className="w-full md:w-1/2">
-                    <h3 className="text-2xl text-black/70 font-medium mb-4">
-                      {item.title}
-                    </h3>
+                  {/* CENTER NODE */}
+                  <div className="absolute left-1/2 -translate-x-1/2 z-10">
+                    <div className="relative flex items-center justify-center">
+                      
+                      {/* outer glow */}
+                      <div className="absolute w-14 h-14 rounded-full bg-black/5 blur-md" />
 
-                    <p className="text-black/60 leading-relaxed">
-                      {item.desc}
-                    </p>
+                      {/* icon container */}
+                      <div className="w-12 h-12 rounded-full bg-[#0A0F1C] border border-white/20 flex items-center justify-center">
+                        <Icon size={18} className="text-white/80" />
+                      </div>
+                    </div>
                   </div>
+
+                  {/* RIGHT */}
+                  <div className={`w-1/2 pl-14 ${!isLeft ? "" : "hidden md:block"}`}>
+                    {!isLeft && (
+                      <motion.div
+                        initial={{ opacity: 0, x: 40 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.6 }}
+                      >
+                        {/* STEP NUMBER */}
+                        <div className="text-black/20 text-5xl font-light mb-2">
+                          {String(i + 1).padStart(2, "0")}
+                        </div>
+
+                        <h3 className="text-xl font-medium text-black/90 mb-3">
+                          {item.title}
+                        </h3>
+
+                        <p className="text-black/60 leading-relaxed">
+                          {item.desc}
+                        </p>
+                      </motion.div>
+                    )}
+                  </div>
+
                 </div>
               );
             })}
-
           </div>
         </div>
-      </section>
-
+      </div>
+    </section>
       {/* ============================= */}
       {/* SYSTEM STATEMENT */}
       {/* ============================= */}

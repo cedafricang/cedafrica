@@ -19,7 +19,7 @@ const data = {
     desc: "A curated portfolio of globally recognized audiovisual brands operating within defined standards, system design frameworks, and performance-driven environments.",
     subtext:
       "Every brand within the CED ecosystem is selected, aligned, and integrated — not just listed.",
-    image: "/images/hero/avimage.jpg",
+    image: "/images/projects/av3.jpg",
   },
 
   partners: [

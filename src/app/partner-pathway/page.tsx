@@ -22,7 +22,7 @@ const heroData = {
     label: "Enter the Ecosystem",
     href: "/engage?type=partner",
   },
-  image: "/images/hero/avimage.jpg",
+  image: "/images/hero/h5.webp",
 
   partners: [
     "/images/partners/baron.svg",

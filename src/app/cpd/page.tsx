@@ -21,7 +21,7 @@ const data = {
     description:
       "Structured learning programs and technical sessions designed to align professionals with real-world system design, coordination, and performance standards.",
     subtext: "Not all knowledge is equal. Ours is structured.",
-    image: "/images/hero/avimage.jpg",
+    image: "/images/hero/foc.webp",
   },
 
   partners: [

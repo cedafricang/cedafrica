@@ -19,7 +19,7 @@ const heroData = {
     "CED operates as the system design and coordination layer — aligning audiovisual infrastructure with architectural intent and engineering requirements from the earliest stages of the project.",
   subtext:
     "Designed systems. Coordinated delivery. Defined performance.",
-  image: "/images/hero/avimage.jpg",
+  image: "/images/hero/arch.webp",
 
    partners: [
     "/images/partners/baron.svg",

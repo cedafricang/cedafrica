@@ -28,7 +28,7 @@ const data = {
     title: "CED Africa",
     desc: "CED Africa operates as the structured layer defining how audiovisual systems are designed, specified, and delivered — introducing standards, governance, and performance into a fragmented industry.",
     subtext: "Not a contractor. Not a vendor. A system.",
-    image: "/images/hero/avimage.jpg",
+    image: "/images/hero/h5.webp",
   },
 
 partners: [
@@ -155,7 +155,7 @@ export default function AboutPage() {
           <img src={data.hero.image} className="w-full h-full object-cover" />
         </motion.div>
 
-        <div className="absolute inset-0 bg-black/70" />
+        <div className="absolute inset-0 bg-black/85" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-6 text-white">
           <h1 className="text-6xl text-white md:text-7xl font-light max-w-3xl">

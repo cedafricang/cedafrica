@@ -1,6 +1,23 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
+import {
+  Store,
+  Eye,
+  LayoutGrid,
+  Tag,
+  ShoppingBag,
+  CheckCircle,
+} from "lucide-react";
+
+const icons = [
+  Store,
+  Eye,
+  LayoutGrid,
+  Tag,
+  ShoppingBag,
+  CheckCircle,
+];
 
 /* ============================= */
 /* DATA */
@@ -10,7 +27,7 @@ const data = {
   hero: {
     title: "Retail Program",
     desc: "A structured retail framework for partners representing premium audiovisual brands within controlled environments, defined standards, and curated customer experiences.",
-    image: "/images/hero/avimage.jpg",
+    image: "/images/projects/soundhous.jpg",
   },
 
    partners: [
@@ -96,7 +113,7 @@ export default function Page() {
           />
         </motion.div>
 
-        <div className="absolute inset-0 bg-black/75" />
+        <div className="absolute inset-0 bg-black/95" />
 
         <div className="relative z-10 max-w-6xl mx-auto px-6 text-white">
           <h1 className="text-5xl text-white md:text-7xl font-light max-w-4xl leading-tight">
@@ -140,58 +157,104 @@ export default function Page() {
       {/* ============================= */}
       {/* TIMELINE */}
       {/* ============================= */}
-      <section className="py-28">
-        <div className="max-w-6xl mx-auto px-6">
+      <section className="py-32 bg-white text-black">
+      <div className="max-w-6xl mx-auto px-6">
 
-          <div className="text-center max-w-2xl mx-auto mb-20">
-            <h2 className="text-4xl font-light mb-4">
-              How the Retail Program Works
-            </h2>
+        {/* HEADER */}
+        <div className="text-center max-w-2xl mx-auto mb-24">
+          <h2 className="text-4xl md:text-5xl font-light tracking-tight mb-4">
+            How the Retail Program Works
+          </h2>
 
-            <p className="text-black/60">
-              A structured retail pathway focused on experience, positioning, and controlled product delivery.
-            </p>
-          </div>
+          <p className="text-black/50 text-lg leading-relaxed">
+            A structured retail pathway focused on experience, positioning, and controlled product delivery.
+          </p>
+        </div>
 
-          <div className="space-y-28">
+        {/* TIMELINE */}
+        <div className="relative">
 
-            {data.timeline.map((item, i) => {
+          {/* CENTER LINE (lighter for softer feel) */}
+          <div className="absolute left-1/2 top-0 -translate-x-1/2 w-[1px] h-full bg-black/5" />
+
+          <div className="space-y-24">
+            {data.timeline.map((item: any, i: number) => {
               const isLeft = i % 2 === 0;
+              const Icon = icons[i % icons.length];
 
               return (
-                <div
-                  key={i}
-                  className={`flex flex-col md:flex-row items-center gap-12 ${
-                    isLeft ? "" : "md:flex-row-reverse"
-                  }`}
-                >
-                  {/* IMAGE */}
-                  <div className="w-full md:w-1/2">
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      className="w-full h-[300px] object-cover"
-                    />
+                <div key={i} className="relative flex items-center">
+
+                  {/* LEFT */}
+                  <div className={`w-1/2 pr-14 ${isLeft ? "" : "hidden md:block"}`}>
+                    {isLeft && (
+                      <motion.div
+                        initial={{ opacity: 0, x: -30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.5 }}
+                        className="text-right"
+                      >
+                        {/* STEP NUMBER (softer than SI) */}
+                        <div className="text-black/5 text-6xl font-light mb-2">
+                          {String(i + 1).padStart(2, "0")}
+                        </div>
+
+                        <h3 className="text-xl font-medium text-black/80 mb-3">
+                          {item.title}
+                        </h3>
+
+                        <p className="text-black/50 leading-relaxed">
+                          {item.desc}
+                        </p>
+                      </motion.div>
+                    )}
                   </div>
 
-                  {/* TEXT */}
-                  <div className="w-full md:w-1/2">
-                    <h3 className="text-2xl text-black/70 font-medium mb-4">
-                      {item.title}
-                    </h3>
+                  {/* CENTER NODE */}
+                  <div className="absolute left-1/2 -translate-x-1/2 z-10">
+                    <div className="relative flex items-center justify-center">
 
-                    <p className="text-black/60 leading-relaxed">
-                      {item.desc}
-                    </p>
+                      {/* soft glow */}
+                      <div className="absolute w-16 h-16 rounded-full bg-black/5 blur-md" />
+
+                      {/* icon container */}
+                      <div className="w-12 h-12 rounded-full bg-white border border-black/10 flex items-center justify-center shadow-[0_4px_20px_rgba(0,0,0,0.04)]">
+                        <Icon size={18} className="text-black/70" />
+                      </div>
+                    </div>
                   </div>
+
+                  {/* RIGHT */}
+                  <div className={`w-1/2 pl-14 ${!isLeft ? "" : "hidden md:block"}`}>
+                    {!isLeft && (
+                      <motion.div
+                        initial={{ opacity: 0, x: 30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.5 }}
+                      >
+                        {/* STEP NUMBER */}
+                        <div className="text-black/5 text-6xl font-light mb-2">
+                          {String(i + 1).padStart(2, "0")}
+                        </div>
+
+                        <h3 className="text-xl font-medium text-black/80 mb-3">
+                          {item.title}
+                        </h3>
+
+                        <p className="text-black/50 leading-relaxed">
+                          {item.desc}
+                        </p>
+                      </motion.div>
+                    )}
+                  </div>
+
                 </div>
               );
             })}
-
           </div>
         </div>
-      </section>
-
+      </div>
+    </section>
       {/* ============================= */}
       {/* SYSTEM STATEMENT */}
       {/* ============================= */}

@@ -17,9 +17,9 @@ const data = {
     "We operate as an independent layer between design, specification, and execution — ensuring that audiovisual systems are properly defined before they are built.",
 
   images: [
-    "/images/hero/avimage.jpg",
-    "/images/hero/avimage.jpg",
-    "/images/hero/avimage.jpg",
+    "/images/hero/book.webp",
+    "/images/projects/work.jpg",
+    "/images/projects/av3.jpg",
   ],
 };
 
