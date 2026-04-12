@@ -241,7 +241,7 @@ export default function ReferenceSystems() {
                 <p className="text-[11px] tracking-[0.3em] uppercase text-black/50">
                   {project.type}
                 </p>
-                <h3 className="mt-2 text-black/70 text-xl font-medium">
+                <h3 className="mt-2 text-black text-xl font-medium">
                   {project.title}
                 </h3>
               </div>
@@ -290,7 +290,7 @@ function ProjectModal({ project, onClose }: any) {
           Close ✕
         </button>
 
-        <h2 className="text-white text-3xl font-semibold">
+        <h2 className="text-black text-3xl font-semibold">
           {project.title}
         </h2>
 
