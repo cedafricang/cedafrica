@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
 import "./globals.css";
+import { cormorant } from './fonts';
 
 import { ThemeProvider } from "next-themes";
 import NextTopLoader from "nextjs-toploader";
@@ -30,7 +31,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className={cormorant.variable}>
       <body className={dmsans.className}>
         <AppContextProvider>
           <ThemeProvider attribute="class" defaultTheme="light">

@@ -70,12 +70,12 @@ export default function SeedAfricaStats() {
   });
 
   return (
-    <section ref={ref} className="py-24 md:py-32 bg-white">
+    <section ref={ref} className="py-24 md:py-32 bg-[#b8a882]">
       <div className="max-w-6xl mx-auto px-5 md:px-6">
 
         {/* HEADER */}
         <div className="max-w-xl mb-16 md:mb-20">
-          <h2 className="text-3xl md:text-5xl font-light tracking-tight mb-4">
+          <h2 className="text-3xl md:text-5xl font-light text-black tracking-tight mb-4">
             Measured Impact
           </h2>
 

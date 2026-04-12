@@ -99,7 +99,7 @@ export default function Hero() {
                 transition={{ duration: 0.6 }}
               >
                 {/* Title */}
-                <h1 className="text-4xl font-semibold leading-tight md:text-6xl bg-gradient-to-r from-white via-[#d9d9d9] to-[#a6a6a6] bg-clip-text text-transparent">
+                <h1 className="text-4xl font-semibold leading-tight md:text-6xl bg-gradient-to-r from-white via-[#d9d9d9] to-[#a6a6a6] bg-clip-text text-[#b8a882]">
                   {slides[index].title}
                 </h1>
 
