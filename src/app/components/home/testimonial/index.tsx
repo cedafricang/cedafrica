@@ -160,7 +160,7 @@ export default function ReferenceSystems() {
   };
 
   return (
-    <section className="bg-white text-black py-24 overflow-hidden">
+    <section className="bg-[#b8a882] text-black py-24 overflow-hidden">
       <div className="max-w-[1400px] mx-auto px-6">
         {/* ===== Header ===== */}
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
@@ -169,7 +169,7 @@ export default function ReferenceSystems() {
               Reference Systems
             </p>
 
-            <h2 className="mt-4 text-3xl md:text-5xl font-semibold tracking-tight">
+            <h2 className="mt-4 text-3xl md:text-5xl font-semibold text-black tracking-tight">
               Proven Systems
             </h2>
           </div>

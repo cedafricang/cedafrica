@@ -69,7 +69,7 @@ export default function AVDesignDefinition() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="text-white text-4xl md:text-5xl font-light leading-tight mb-10"
+              className="text-[#b8a882] text-4xl md:text-5xl font-light leading-tight mb-10"
             >
               {sectionData.title}
             </motion.h2>

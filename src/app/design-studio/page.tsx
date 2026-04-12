@@ -86,7 +86,7 @@ export default function AVDesignHero() {
                 {heroData.eyebrow}
               </p>
 
-              <h1 className="text-white text-6xl md:text-7xl font-light leading-[1.05]">
+              <h1 className="text-[#b8a882] text-6xl md:text-7xl font-light leading-[1.05]">
                 {heroData.title}
               </h1>
 

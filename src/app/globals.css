@@ -62,6 +62,11 @@ html {
     h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-cormorant), serif;
   color: #b8a882;
+   color: #b8a882 !important;
+}
+/* 👇 override class */
+.text-black {
+  color: #000 !important;
 }
 
     h1 {

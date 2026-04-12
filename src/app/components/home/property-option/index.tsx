@@ -52,7 +52,7 @@ export default function HowCEDWorks() {
             Platform Governance
           </p>
 
-          <h2 className="mt-4 text-3xl text-white md:text-5xl font-semibold tracking-tight leading-tight">
+          <h2 className="mt-4 text-3xl text-[#b8a882] md:text-5xl font-semibold tracking-tight leading-tight">
             How CED Works
           </h2>
 

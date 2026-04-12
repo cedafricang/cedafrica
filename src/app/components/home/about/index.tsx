@@ -52,7 +52,7 @@ export default function EngagementPathways() {
             Engagement Pathways
           </p>
 
-          <h2 className="mt-4 text-3xl md:text-5xl font-semibold tracking-tight leading-tight">
+          <h2 className="mt-4 text-3xl md:text-5xl font-semibold tracking-tight text-[#b8a882] leading-tight">
             Select Your Engagement Pathway
           </h2>
 
