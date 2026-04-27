@@ -6,6 +6,7 @@ import What from "../components/design-studio/what";
 import Scope from "../components/design-studio/scope";
 import How from "../components/design-studio/how";
 import Cta from "../components/design-studio/valcta";
+import Solution from "../components/av-solutions/solutions";
 
 /* ============================= */
 /* CMS DATA */
@@ -147,6 +148,7 @@ export default function AVDesignHero() {
       {/* NEXT SECTION */}
       {/* ============================= */}
       <What />
+      <Solution />
         <Scope />
 
 <How />
