@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import HASD from "../../../components/hasd"
+import Method from "../../../components/methodology"
 
 export default function HospitalityPage() {
   return (
@@ -79,47 +80,11 @@ export default function HospitalityPage() {
 
       {/* ================= DESIGN PROCESS ================= */}
 
-      <section className="py-28 bg-[#fafafa]">
-        <div className="max-w-[1200px] mx-auto px-8">
-
-          <p className="text-[11px] tracking-[0.3em] uppercase opacity-50 mb-10">
-            Design Process
-          </p>
-
-          <div className="grid md:grid-cols-4 gap-12">
-
-            {[
-              "Zoning Strategy",
-              "System Distribution",
-              "Control Integration",
-              "Operational Planning",
-            ].map((step, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.15 }}
-                viewport={{ once: true }}
-              >
-                <p className="text-[11px] opacity-40 mb-3">
-                  0{i + 1}
-                </p>
-
-                <h3 className="text-sm font-medium">
-                  {step}
-                </h3>
-              </motion.div>
-            ))}
-
-          </div>
-
-        </div>
-      </section>
-
+      
 
       {/* ================= DOCUMENTATION ================= */}
 
-    
+    <Method />
         <HASD />
 
 
