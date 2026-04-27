@@ -130,28 +130,46 @@ export default function Page() {
         {/* ============================= */}
         <div className="absolute bottom-0 w-full pb-10 overflow-hidden">
 
-          <div className="absolute left-0 top-0 h-full w-40 bg-gradient-to-r from-black to-transparent z-10" />
-          <div className="absolute right-0 top-0 h-full w-40 bg-gradient-to-l from-black to-transparent z-10" />
+  {/* Fade edges */}
+  <div className="pointer-events-none absolute left-0 top-0 h-full w-20 md:w-40 bg-gradient-to-r from-black to-transparent z-10" />
+  <div className="pointer-events-none absolute right-0 top-0 h-full w-20 md:w-40 bg-gradient-to-l from-black to-transparent z-10" />
 
-          <motion.div
-            className="flex gap-20 w-max"
-            animate={{ x: ["0%", "-50%"] }}
-            transition={{ repeat: Infinity, duration: 30, ease: "linear" }}
-          >
-            {loopPartners.map((logo, i) => (
-              <img
-                key={i}
-                src={logo}
-                alt="brand"
-                className="h-4 md:h-6 brightness-0 invert opacity-70"
-              />
-            ))}
-          </motion.div>
-
-          <p className="text-white/40 text-xs tracking-widest uppercase text-center mt-6">
-            Premium Brand Ecosystem
-          </p>
+  {/* Marquee */}
+  <div className="overflow-hidden">
+    <motion.div
+      className="flex items-center gap-10 md:gap-20 min-w-max"
+      animate={{ x: ["0%", "-50%"] }}
+      transition={{
+        repeat: Infinity,
+        duration: 30,
+        ease: "linear",
+      }}
+    >
+      {[...loopPartners, ...loopPartners].map((logo, i) => (
+        <div key={i} className="flex-shrink-0">
+          <img
+            src={logo}
+            alt="brand"
+            className="
+              h-6 sm:h-7 md:h-6
+              object-contain
+              brightness-0 invert
+              opacity-70
+              transition-transform duration-500
+              hover:scale-105
+            "
+          />
         </div>
+      ))}
+    </motion.div>
+  </div>
+
+  {/* Label */}
+  <p className="text-white/40 text-[10px] md:text-xs tracking-widest uppercase text-center mt-6">
+    Premium Brand Ecosystem
+  </p>
+
+</div>
       </section>
 
       {/* ============================= */}
@@ -320,24 +338,68 @@ export default function Page() {
       {/* ============================= */}
       {/* VALUE */}
       {/* ============================= */}
-      <section className="py-28 bg-gradient-to-b from-[#f8f8f9] to-[#f1f1f2]">
+     <section className="py-20 md:py-28 bg-gradient-to-b from-[#f8f8f9] to-[#f1f1f2]">
+      <div className="max-w-5xl mx-auto px-6">
 
-        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16">
+        {/* HEADER */}
+        <div className="mb-14 md:mb-20 max-w-2xl">
+          <p className="text-[11px] tracking-[0.35em] uppercase opacity-50 mb-4">
+            Value Structure
+          </p>
 
-          {data.value.map((item, i) => (
-            <div key={i} className="border-t border-black/10 pt-6">
-              <h3 className="text-xl  text-black/70 font-medium mb-2">
-                {item.title}
-              </h3>
+          <h2 className="text-2xl md:text-3xl font-medium text-black">
+            Defined Outcomes Across Every Engagement
+          </h2>
+        </div>
 
-              <p className="text-black/60">
-                {item.desc}
-              </p>
-            </div>
+        {/* LIST */}
+        <div className="divide-y divide-black/10">
+
+          {data.value.map((item: any, i: number) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.08 }}
+              viewport={{ once: true }}
+              className="group py-10 md:py-12 grid grid-cols-[auto_1fr] gap-6 md:gap-10 items-start"
+            >
+
+              {/* NUMBER */}
+              <div className="relative">
+
+                <span className="text-2xl md:text-3xl font-light text-black/40">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+
+                {/* subtle gold accent */}
+                <div className="absolute bottom-0 left-0 w-0 h-[2px] bg-[#b8a882] group-hover:w-full transition-all duration-500" />
+
+              </div>
+
+              {/* CONTENT */}
+              <div>
+
+                <h3 className="text-base md:text-lg font-medium text-black mb-2">
+                  {item.title}
+                </h3>
+
+                <p className="text-sm md:text-[15px] text-black/60 leading-relaxed max-w-[600px]">
+                  {item.desc}
+                </p>
+
+                {/* subtle hover line */}
+                <div className="mt-4 w-0 h-[1px] bg-black/30 group-hover:w-16 transition-all duration-500" />
+
+              </div>
+
+            </motion.div>
           ))}
 
         </div>
-      </section>
+
+      </div>
+    </section>
 
       {/* ============================= */}
       {/* CTA */}

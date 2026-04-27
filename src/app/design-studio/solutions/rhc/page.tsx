@@ -3,17 +3,34 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
-import RHCD from "../../../components/rhcd"
-import Method from "../../../components/methodology"
+import RHCD from "../../../components/rhcd";
+import Method from "../../../components/methodology";
+
+const drawings = [
+  {
+    src: "/images/diagrams/sd1.png",
+    title: "Cinema Layout & Speaker Positioning",
+    desc: "Precision placement of LCR, surrounds, and subwoofers for immersive sound reproduction.",
+  },
+  {
+    src: "/images/diagrams/sd2.png",
+    title: "Front Wall & Screen Integration",
+    desc: "Acoustically transparent screen design with hidden speaker architecture.",
+  },
+  {
+    src: "/images/diagrams/sd3.png",
+    title: "Acoustic & Lighting Integration",
+    desc: "Balanced acoustic treatment and lighting design for optimal performance and ambience.",
+  },
+];
 
 export default function CinemaPage() {
   return (
     <main className="bg-white text-black">
 
       {/* ================= HERO ================= */}
-
-      <section className="bg-[#b8a882] py-32">
-        <div className="max-w-[1200px] mx-auto px-8">
+      <section className="bg-[#b8a882] py-24 md:py-32">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-8">
 
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -24,7 +41,7 @@ export default function CinemaPage() {
               AV Design Studio
             </p>
 
-            <h1 className="text-4xl text-black md:text-5xl font-medium mb-6">
+            <h1 className="text-3xl text-black md:text-5xl font-medium mb-6">
               Reference Home Cinema
             </h1>
 
@@ -38,11 +55,9 @@ export default function CinemaPage() {
         </div>
       </section>
 
-
       {/* ================= CASE STUDY ================= */}
-
-      <section className="py-28">
-        <div className="max-w-[1200px] mx-auto px-8 grid md:grid-cols-2 gap-16">
+      <section className="py-20 md:py-28">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-8 grid md:grid-cols-2 gap-12 md:gap-16">
 
           <div>
             <p className="text-[11px] tracking-[0.3em] uppercase opacity-50 mb-4">
@@ -66,31 +81,27 @@ export default function CinemaPage() {
             </p>
           </div>
 
-          <div className="relative h-[320px] rounded-lg overflow-hidden">
+          <div className="relative h-[260px] md:h-[320px] rounded-lg overflow-hidden">
             <Image
               src="/images/projects/cinema.jpg"
               alt="Soundhous Cinema"
               fill
-              style={{ objectFit: "cover" }}
+              className="object-cover"
             />
           </div>
 
         </div>
       </section>
 
-
-      {/* ================= DESIGN PROCESS ================= */}
-
+      {/* ================= METHODOLOGY ================= */}
       <Method />
 
       {/* ================= DOCUMENTATION ================= */}
-
       <RHCD />
 
       {/* ================= SAMPLE DRAWINGS ================= */}
-
-      <section className="py-28 bg-[#fafafa]">
-        <div className="max-w-[1200px] mx-auto px-8">
+      <section className="py-20 md:py-28 bg-[#fafafa]">
+        <div className="max-w-[1200px] mx-auto px-6 md:px-8">
 
           <p className="text-[11px] tracking-[0.3em] uppercase opacity-50 mb-10">
             Sample Drawings
@@ -98,30 +109,53 @@ export default function CinemaPage() {
 
           <div className="grid md:grid-cols-3 gap-8">
 
-            <div className="relative h-[240px] rounded-lg overflow-hidden">
-              <Image src="/images/diagrams/sd1.png" alt="" fill />
-            </div>
+            {drawings.map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 }}
+                viewport={{ once: true }}
+                className="group relative h-[220px] md:h-[260px] rounded-lg overflow-hidden"
+              >
 
-            <div className="relative h-[240px] rounded-lg overflow-hidden">
-                <Image src="/images/diagrams/sd2.png" alt="" fill />
-            </div>
+                {/* IMAGE */}
+                <Image
+                  src={item.src}
+                  alt={item.title}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                />
 
-            <div className="relative h-[240px] rounded-lg overflow-hidden">
-               <Image src="/images/diagrams/sd3.png" alt="" fill />
-            </div>
+                {/* OVERLAY */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+
+                {/* TEXT */}
+                <div className="absolute bottom-0 p-5 md:p-6 text-white">
+
+                  <h3 className="text-sm md:text-base font-medium mb-2">
+                    {item.title}
+                  </h3>
+
+                  <p className="text-xs md:text-sm opacity-80 leading-relaxed">
+                    {item.desc}
+                  </p>
+
+                </div>
+
+              </motion.div>
+            ))}
 
           </div>
 
         </div>
       </section>
 
-
       {/* ================= CTA ================= */}
+      <section className="py-24 md:py-32 text-center">
+        <div className="max-w-[800px] mx-auto px-6 md:px-8">
 
-      <section className="py-32 text-center">
-        <div className="max-w-[800px] mx-auto px-8">
-
-          <h2 className="text-2xl font-medium mb-6">
+          <h2 className="text-xl md:text-2xl font-medium mb-6">
             Start a Cinema Design Project
           </h2>
 

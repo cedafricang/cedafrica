@@ -9,10 +9,21 @@ import {
   Network,
   CheckCircle,
 } from "lucide-react";
+import {
+  
+  Cpu,
+  LineChart,
+} from "lucide-react";
+
+
 
 const icons = [
   ShieldCheck,
   ClipboardCheck,
+  ShieldCheck,
+  Layers,
+  Cpu,
+  LineChart,
   Layers,
   Settings,
   Network,
@@ -319,20 +330,73 @@ export default function Page() {
       {/* ============================= */}
       {/* VALUE */}
       {/* ============================= */}
-      <section className="py-28 bg-gradient-to-b from-[#f8f8f9] to-[#f1f1f2]">
-        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16">
-          {data.value.map((item, i) => (
-            <div key={i} className="border-t border-black/10 pt-6">
-              <h3 className="text-xl text-black/70 font-medium mb-2">
-                {item.title}
-              </h3>
-              <p className="text-black/60">
-                {item.desc}
-              </p>
-            </div>
-          ))}
+     <section className="py-20 md:py-28 bg-gradient-to-b from-[#f8f8f9] to-[#f1f1f2]">
+      <div className="max-w-6xl mx-auto px-6">
+
+        {/* HEADER */}
+        <div className="mb-14 md:mb-20 max-w-2xl">
+          <p className="text-[11px] tracking-[0.35em] uppercase opacity-50 mb-4">
+            Value Framework
+          </p>
+
+          <h2 className="text-2xl md:text-3xl font-medium text-black">
+            Designed Systems. Delivered Outcomes.
+          </h2>
         </div>
-      </section>
+
+        {/* GRID */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-y-12 md:gap-x-16">
+
+          {data.value.map((item: any, i: number) => {
+            const Icon = icons[i % icons.length];
+
+            return (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.08 }}
+                viewport={{ once: true }}
+                className="group relative flex gap-5 items-start"
+              >
+
+                {/* ICON + LINE */}
+                <div className="relative flex flex-col items-center">
+
+                  {/* icon */}
+                  <div className="w-10 h-10 flex items-center justify-center border border-black/20 text-black/80 bg-white">
+                    <Icon size={18} />
+                  </div>
+
+                  {/* vertical line */}
+                  <div className="w-[1px] h-full bg-black/10 mt-3 group-hover:bg-black/30 transition" />
+
+                </div>
+
+                {/* CONTENT */}
+                <div className="flex-1 pb-2">
+
+                  <h3 className="text-base md:text-lg font-medium text-black mb-2">
+                    {item.title}
+                  </h3>
+
+                  <p className="text-sm md:text-[15px] text-black/60 leading-relaxed">
+                    {item.desc}
+                  </p>
+
+                  {/* subtle bottom divider */}
+                  <div className="mt-5 w-0 h-[1px] bg-black/30 group-hover:w-16 transition-all duration-500" />
+
+                </div>
+
+              </motion.div>
+            );
+          })}
+
+        </div>
+
+      </div>
+    </section>
 
       {/* ============================= */}
       {/* CTA */}

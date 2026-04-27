@@ -10,12 +10,24 @@ import {
   Wrench,
   ShieldCheck,
 } from "lucide-react";
+import {
+  
+  Layers,
+  Cpu,
+  LineChart,
+} from "lucide-react";
+
+
 
 const icons = [
   ClipboardList,
   Users,
   Settings,
   Wrench,
+   ShieldCheck,
+  Layers,
+  Cpu,
+  LineChart,
   ShieldCheck,
   CheckCircle,
 ];
@@ -308,24 +320,72 @@ export default function Page() {
       {/* ============================= */}
       {/* VALUE */}
       {/* ============================= */}
-      <section className="py-28 bg-gradient-to-b from-[#f8f8f9] to-[#f1f1f2]">
+      <section className="py-20 md:py-28 bg-gradient-to-b from-[#f8f8f9] to-[#f1f1f2]">
+      <div className="max-w-5xl mx-auto px-6">
 
-        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16">
+        {/* HEADER */}
+        <div className="mb-14 md:mb-20 max-w-2xl">
+          <p className="text-[11px] tracking-[0.35em] uppercase opacity-50 mb-4">
+            Value Delivered
+          </p>
 
-          {data.value.map((item, i) => (
-            <div key={i} className="border-t border-black/10 pt-6">
-              <h3 className="text-xl text-black/70 font-medium mb-2">
-                {item.title}
-              </h3>
+          <h2 className="text-2xl md:text-3xl font-medium text-black">
+            Structured Benefits Across Every Engagement
+          </h2>
+        </div>
 
-              <p className="text-black/60">
-                {item.desc}
-              </p>
-            </div>
-          ))}
+        {/* LIST */}
+        <div className="divide-y divide-black/10">
+
+          {data.value.map((item: any, i: number) => {
+            const Icon = icons[i % icons.length];
+
+            return (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.08 }}
+                viewport={{ once: true }}
+                className="group py-8 md:py-10 flex gap-6 md:gap-8 items-start"
+              >
+
+                {/* ICON */}
+                <div className="relative flex-shrink-0">
+
+                  {/* subtle glow */}
+                  <div className="absolute inset-0 bg-[#b8a882]/20 blur-[8px] rounded-full opacity-0 group-hover:opacity-100 transition" />
+
+                  <div className="w-10 h-10 flex items-center justify-center border border-black/20 text-black/80 relative z-10">
+                    <Icon size={18} />
+                  </div>
+
+                </div>
+
+                {/* CONTENT */}
+                <div className="flex-1">
+
+                  <h3 className="text-base md:text-lg font-medium text-black mb-2">
+                    {item.title}
+                  </h3>
+
+                  <p className="text-sm md:text-[15px] text-black/60 leading-relaxed max-w-[600px]">
+                    {item.desc}
+                  </p>
+
+                </div>
+
+                {/* RIGHT DETAIL LINE */}
+                <div className="hidden md:block w-0 group-hover:w-16 h-[1px] bg-black/30 self-center transition-all duration-500" />
+
+              </motion.div>
+            );
+          })}
 
         </div>
-      </section>
+
+      </div>
+    </section>
 
       {/* ============================= */}
       {/* CTA */}

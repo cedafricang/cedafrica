@@ -113,35 +113,46 @@ export default function AVDesignHero() {
         {/* ============================= */}
         <div className="absolute bottom-0 left-0 w-full pb-10 overflow-hidden">
 
-          <div className="pointer-events-none absolute left-0 top-0 h-full w-40 bg-gradient-to-r from-black to-transparent z-10" />
-          <div className="pointer-events-none absolute right-0 top-0 h-full w-40 bg-gradient-to-l from-black to-transparent z-10" />
+  {/* Fade edges (responsive) */}
+  <div className="pointer-events-none absolute left-0 top-0 h-full w-20 md:w-40 bg-gradient-to-r from-black to-transparent z-10" />
+  <div className="pointer-events-none absolute right-0 top-0 h-full w-20 md:w-40 bg-gradient-to-l from-black to-transparent z-10" />
 
-          <div className="overflow-hidden">
-            <motion.div
-              className="flex items-center gap-20 min-w-max"
-              animate={{ x: ["-50%", "0%"] }}
-              transition={{
-                duration: 30,
-                ease: "linear",
-                repeat: Infinity,
-              }}
-            >
-              {loopPartners.map((logo, i) => (
-                <div key={i} className="flex-shrink-0">
-                  <img
-                    src={logo}
-                    alt="partner"
-                    className="h-4 md:h-6 object-contain brightness-0 invert opacity-70"
-                  />
-                </div>
-              ))}
-            </motion.div>
-          </div>
-
-          <p className="text-white/40 text-xs tracking-widest uppercase mt-6 text-center">
-            Certified Partner Ecosystem
-          </p>
+  {/* Marquee */}
+  <div className="overflow-hidden">
+    <motion.div
+      className="flex items-center gap-10 md:gap-20 min-w-max"
+      animate={{ x: ["-50%", "0%"] }}
+      transition={{
+        duration: 30,
+        ease: "linear",
+        repeat: Infinity,
+      }}
+    >
+      {[...loopPartners, ...loopPartners].map((logo, i) => (
+        <div key={i} className="flex-shrink-0">
+          <img
+            src={logo}
+            alt="partner"
+            className="
+              h-6 sm:h-7 md:h-6
+              object-contain
+              brightness-0 invert
+              opacity-70
+              transition-transform duration-500
+              hover:scale-105
+            "
+          />
         </div>
+      ))}
+    </motion.div>
+  </div>
+
+  {/* Label */}
+  <p className="text-white/40 text-[10px] md:text-xs tracking-widest uppercase mt-6 text-center">
+    Certified Partner Ecosystem
+  </p>
+
+</div>
       </section>
 
       {/* ============================= */}

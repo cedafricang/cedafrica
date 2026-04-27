@@ -2,6 +2,27 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import {
+  ShieldCheck,
+  CheckCircle2,
+  Layers,
+  Network,
+} from "lucide-react";
+import {
+  
+  LineChart,
+} from "lucide-react";
+
+const icons = [
+  ShieldCheck,
+  CheckCircle2,
+  Layers,
+  LineChart,
+];
+
+const meaningIcons = [ShieldCheck, CheckCircle2, CheckCircle2, CheckCircle2];
+const ecosystemIcons = [Layers, Network, Layers, Network];
+
 
 /* ============================= */
 /* DATA (CMS READY) */
@@ -112,114 +133,302 @@ export default function Page() {
         </div>
 
         {/* Partner Marquee */}
-        <div className="absolute bottom-0 left-0 w-full pb-10">
+        <div className="absolute bottom-0 left-0 w-full pb-10 overflow-hidden">
 
-          {/* Fade edges */}
-          <div className="absolute left-0 w-40 h-full bg-gradient-to-r from-black to-transparent z-10" />
-          <div className="absolute right-0 w-40 h-full bg-gradient-to-l from-black to-transparent z-10" />
+  {/* Fade edges */}
+  <div className="pointer-events-none absolute left-0 top-0 h-full w-20 md:w-40 bg-gradient-to-r from-black to-transparent z-10" />
+  <div className="pointer-events-none absolute right-0 top-0 h-full w-20 md:w-40 bg-gradient-to-l from-black to-transparent z-10" />
 
-          <div className="overflow-hidden">
-            <motion.div
-              className="flex gap-20 w-max"
-              animate={{ x: ["0%", "-50%"] }}
-              transition={{ repeat: Infinity, duration: 30, ease: "linear" }}
-            >
-              {loopPartners.map((logo, i) => (
-                <img
-                  key={i}
-                  src={logo}
-                  className="h-4 md:h-6 brightness-0 invert opacity-70"
-                  alt=""
-                />
-              ))}
-            </motion.div>
-          </div>
-
-          <p className="text-white/40 text-xs tracking-widest uppercase text-center mt-6">
-            Certified Partner Network
-          </p>
+  {/* Marquee */}
+  <div className="relative w-full overflow-hidden">
+    <motion.div
+      className="flex items-center gap-8 md:gap-20 min-w-max"
+      animate={{ x: ["0%", "-50%"] }}
+      transition={{
+        repeat: Infinity,
+        duration: 30,
+        ease: "linear",
+      }}
+    >
+      {[...loopPartners, ...loopPartners].map((logo, i) => (
+        <div
+          key={i}
+          className="flex items-center justify-center opacity-70 hover:opacity-100 transition duration-500"
+        >
+          <img
+            src={logo}
+            alt="partner"
+            className="
+              h-6 sm:h-7 md:h-8 lg:h-10
+              object-contain
+              brightness-0 invert
+              transition-transform duration-500
+              hover:scale-105
+            "
+          />
         </div>
+      ))}
+    </motion.div>
+  </div>
+
+  {/* Label */}
+  <p className="text-white/40 text-[10px] md:text-xs tracking-widest uppercase text-center mt-6">
+    Certified Partner Network
+  </p>
+
+</div>
       </section>
 
       {/* ============================= */}
       {/* WHAT CERTIFIED MEANS */}
       {/* ============================= */}
-      <section className="py-28 bg-gradient-to-b from-[#f9f9fa] to-[#f2f2f3]">
-        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-20">
+      <section className="py-20 md:py-28 bg-gradient-to-b from-[#f9f9fa] to-[#f2f2f3]">
+      <div className="max-w-6xl mx-auto px-6">
 
-          <div>
-            <h2 className="text-3xl font-light mb-6">
+        {/* SECTION HEADER */}
+        <div className="mb-16 md:mb-20 max-w-2xl">
+          <p className="text-[11px] tracking-[0.35em] uppercase opacity-50 mb-4">
+            Certification Framework
+          </p>
+
+          <h2 className="text-2xl md:text-3xl font-medium text-black">
+            Defined Standards. Structured Ecosystem.
+          </h2>
+        </div>
+
+        {/* GRID */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
+
+          {/* ================= LEFT: MEANING ================= */}
+          <div className="relative border border-black/10 bg-white/70 backdrop-blur-sm p-6 md:p-8">
+
+            {/* TOP GOLD LINE */}
+            <div className="absolute top-0 left-0 w-full h-[2px] bg-[#b8a882]" />
+
+            <h3 className="text-xl md:text-2xl font-medium mb-6">
               What Certified Means
-            </h2>
-            <div className="space-y-3 text-black/60">
-              {data.meaning.map((item, i) => (
-                <p key={i}>{item}</p>
-              ))}
+            </h3>
+
+            <div className="space-y-6">
+
+              {data.meaning.map((item: string, i: number) => {
+                const Icon = meaningIcons[i % meaningIcons.length];
+
+                return (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: i * 0.08 }}
+                    viewport={{ once: true }}
+                    className="flex items-start gap-4 group"
+                  >
+
+                    {/* ICON */}
+                    <div className="w-9 h-9 flex items-center justify-center border border-black/20 text-black/80 shrink-0">
+                      <Icon size={16} />
+                    </div>
+
+                    {/* TEXT */}
+                    <p className="text-sm md:text-[15px] text-black/70 leading-relaxed">
+                      {item}
+                    </p>
+
+                  </motion.div>
+                );
+              })}
+
             </div>
+
           </div>
 
-          <div>
-            <h2 className="text-3xl font-light mb-6">
+          {/* ================= RIGHT: ECOSYSTEM ================= */}
+          <div className="relative border border-black/10 bg-white/70 backdrop-blur-sm p-6 md:p-8">
+
+            {/* TOP GOLD LINE */}
+            <div className="absolute top-0 left-0 w-full h-[2px] bg-[#b8a882]" />
+
+            <h3 className="text-xl md:text-2xl font-medium mb-6">
               Ecosystem
-            </h2>
-            <div className="space-y-3 text-black/60">
-              {data.types.map((item, i) => (
-                <p key={i}>{item}</p>
-              ))}
+            </h3>
+
+            <div className="space-y-6">
+
+              {data.types.map((item: string, i: number) => {
+                const Icon = ecosystemIcons[i % ecosystemIcons.length];
+
+                return (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: i * 0.08 }}
+                    viewport={{ once: true }}
+                    className="flex items-start gap-4 group"
+                  >
+
+                    {/* ICON */}
+                    <div className="w-9 h-9 flex items-center justify-center border border-black/20 text-black/80 shrink-0">
+                      <Icon size={16} />
+                    </div>
+
+                    {/* TEXT */}
+                    <p className="text-sm md:text-[15px] text-black/70 leading-relaxed">
+                      {item}
+                    </p>
+
+                  </motion.div>
+                );
+              })}
+
             </div>
+
           </div>
 
         </div>
-      </section>
 
+      </div>
+    </section>
       {/* ============================= */}
       {/* SYSTEM STATEMENT */}
       {/* ============================= */}
-      <section className="relative h-[80vh] flex items-center">
+      <section className="relative min-h-[75vh] md:h-[80vh] flex items-center">
 
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-fixed"
-          style={{ backgroundImage: "url(/images/hero/avimage.jpg)" }}
-        />
+      {/* BACKGROUND */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-fixed"
+        style={{ backgroundImage: "url(/images/hero/avimage.jpg)" }}
+      />
 
-        <div className="absolute inset-0 bg-black/75" />
+      {/* OVERLAY */}
+      <div className="absolute inset-0 bg-black/75" />
 
-        <div className="relative z-10 max-w-3xl mx-auto text-center text-white px-6">
-          <p className="text-lg">CED defines the system.</p>
+      {/* CONTENT */}
+      <div className="relative z-10 max-w-3xl mx-auto text-center text-white px-6">
 
-          <div className="w-12 h-[1px] bg-white/40 mx-auto my-6" />
-
-          <p className="text-lg">
-            Certified partners execute under governance.
+        {/* HEADER */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          className="mb-12"
+        >
+          <p className="text-[11px] tracking-[0.35em] uppercase opacity-60 mb-4">
+            System Governance
           </p>
 
-          <div className="w-12 h-[1px] bg-white/40 mx-auto my-6" />
+          <h1 className="text-2xl md:text-4xl font-medium leading-tight">
+            Controlled Design. Structured Execution.
+          </h1>
+        </motion.div>
 
-          <p className="text-lg">
-            Every project is delivered within a controlled framework.
-          </p>
+        {/* STATEMENTS */}
+        <div className="space-y-6 md:space-y-8">
+
+          {[
+            "CED defines the system.",
+            "Certified partners execute under governance.",
+            "Every project is delivered within a controlled framework.",
+          ].map((text, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.2 }}
+            >
+              <p className="text-base md:text-lg">
+                {text}
+              </p>
+
+              {i !== 2 && (
+                <div className="w-10 md:w-12 h-[1px] bg-white/40 mx-auto my-4 md:my-6" />
+              )}
+            </motion.div>
+          ))}
+
         </div>
-      </section>
+
+      </div>
+
+      {/* BOTTOM FADE */}
+      <div className="pointer-events-none absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-black/70 to-transparent" />
+
+    </section>
 
       {/* ============================= */}
       {/* VALUE */}
       {/* ============================= */}
-      <section className="py-28 bg-gradient-to-b from-[#f8f8f9] to-[#f1f1f2]">
-        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16">
+      <section className="py-20 md:py-28 bg-gradient-to-b from-[#f8f8f9] to-[#f1f1f2]">
+      <div className="max-w-6xl mx-auto px-6">
 
-          {data.value.map((item, i) => (
-            <div key={i} className="border-t border-black/10 pt-6">
-              <h3 className="text-xl text-black/70 font-medium mb-2">
-                {item.title}
-              </h3>
-              <p className="text-black/60 text-sm">
-                {item.desc}
-              </p>
-            </div>
-          ))}
+        {/* HEADER */}
+        <div className="mb-16 md:mb-20 max-w-2xl">
+          <p className="text-[11px] tracking-[0.35em] uppercase opacity-50 mb-4">
+            System Value
+          </p>
+
+          <h2 className="text-2xl md:text-3xl font-medium text-black">
+            Measurable Outcomes Through Structured Delivery
+          </h2>
+        </div>
+
+        {/* GRID */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
+
+          {data.value.map((item: any, i: number) => {
+            const Icon = icons[i % icons.length];
+
+            return (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.08 }}
+                viewport={{ once: true }}
+                className="
+                  group
+                  relative
+                  border border-black/10
+                  bg-white/70
+                  backdrop-blur-sm
+                  p-6 md:p-8
+                  transition
+                  hover:border-black/30
+                  hover:-translate-y-[3px]
+                "
+              >
+
+                {/* GOLD TOP LINE */}
+                <div className="absolute top-0 left-0 w-0 h-[2px] bg-[#b8a882] group-hover:w-full transition-all duration-500" />
+
+                {/* ICON */}
+                <div className="mb-4">
+                  <div className="w-10 h-10 flex items-center justify-center border border-black/20 text-black/80">
+                    <Icon size={18} />
+                  </div>
+                </div>
+
+                {/* TITLE */}
+                <h3 className="text-lg md:text-xl text-black font-medium mb-3">
+                  {item.title}
+                </h3>
+
+                {/* DESCRIPTION */}
+                <p className="text-sm md:text-[15px] text-black/60 leading-relaxed">
+                  {item.desc}
+                </p>
+
+                {/* BOTTOM HOVER LINE */}
+                <div className="absolute bottom-0 left-1/2 w-0 h-[1px] bg-black/30 group-hover:w-[60%] group-hover:left-[20%] transition-all duration-500" />
+
+              </motion.div>
+            );
+          })}
 
         </div>
-      </section>
+
+      </div>
+    </section>
 
       {/* ============================= */}
       {/* CTA */}
