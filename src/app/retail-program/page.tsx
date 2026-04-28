@@ -1,6 +1,9 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
+import Brands from "../components/retail/brand"
+import Experience from "../components/retail/experience"
+import Tier from "../components/retail/tier"
 import {
   Store,
   Eye,
@@ -171,6 +174,8 @@ export default function Page() {
 
 </div>
       </section>
+
+      <Brands />
 
       {/* ============================= */}
       {/* TIMELINE */}
@@ -400,6 +405,9 @@ export default function Page() {
 
       </div>
     </section>
+<Tier />
+    <Experience />
+    
 
       {/* ============================= */}
       {/* CTA */}

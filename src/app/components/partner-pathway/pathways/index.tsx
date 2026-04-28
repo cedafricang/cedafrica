@@ -14,47 +14,50 @@ import {
 
 const pathways = [
   {
-    title: "Certified Execution Partner",
-    desc: "Delivers systems within defined standards and controlled execution frameworks.",
+    title: "Execution Partners",
+    desc: "System Integrators responsible for delivering AV systems within defined CED standards and controlled execution frameworks.",
     points: [
+      "Who: AV System Integrators & Contractors",
       "Executes CED-defined systems",
-      "Operates within strict standards",
-      "Works on approved projects only",
+      "Operates within strict technical standards",
+      "Delivers projects within approved frameworks",
     ],
     icon: ShieldCheck,
   },
   {
-    title: "Design & Specification Partner",
-    desc: "Engages at the design layer to align system intent with project vision.",
+    title: "Specifier Partners",
+    desc: "Architects and MEP consultants who influence project specifications and align AV systems at the design stage.",
     points: [
-      "Collaborates at design stage",
-      "Aligns system intent with project vision",
-      "Works closely with CED design layer",
+      "Who: Architects & MEP Consultants",
+      "Engages at early design stage",
+      "Defines AV requirements within projects",
+      "Aligns system intent with architectural vision",
     ],
     icon: DraftingCompass,
   },
   {
-    title: "Technology & Brand Partner",
-    desc: "Provides system components aligned with defined performance standards.",
+    title: "Technology Partners",
+    desc: "Leading manufacturers and OEMs providing approved technologies integrated into CED system architecture.",
     points: [
+      "Who: Premium AV Manufacturers (e.g. Sonos, Focal, Naim)",
       "Provides approved system components",
       "Aligns with performance standards",
-      "Integrated into system architecture",
+      "Integrated into certified system design",
     ],
     icon: Cpu,
   },
   {
-    title: "Strategic Development Partner",
-    desc: "Engages on large-scale and enterprise-level system development.",
+    title: "Strategic Partners",
+    desc: "Organizations engaged in large-scale, enterprise, or long-term ecosystem development with CED.",
     points: [
-      "Works on large-scale projects",
-      "Engages early in lifecycle",
-      "Aligns long-term with ecosystem",
+      "Who: Developers, Enterprise Clients, Institutional Stakeholders",
+      "Engages at project inception",
+      "Aligns long-term with CED ecosystem",
+      "Drives large-scale system deployment",
     ],
     icon: Building2,
   },
 ];
-
 /* ============================= */
 /* COMPONENT */
 /* ============================= */

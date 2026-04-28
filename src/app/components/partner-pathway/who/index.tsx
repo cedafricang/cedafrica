@@ -21,23 +21,26 @@ const sectionData = {
   items: [
     {
       title: "AV Integrators & System Providers",
+      desc: "Responsible for the installation and delivery of AV systems, operating within defined standards and execution frameworks.",
       icon: Settings,
     },
     {
       title: "Architects & MEP Consultants",
+      desc: "Engage at the design stage to influence system specifications and align AV with architectural and engineering intent.",
       icon: Compass,
     },
     {
       title: "Developers & Contractors",
+      desc: "Drive project development and delivery, requiring structured AV systems that integrate seamlessly within the built environment.",
       icon: Building2,
     },
     {
       title: "Technology & Brand Partners",
+      desc: "Manufacturers and OEMs providing approved technologies that align with performance standards and system architecture.",
       icon: Cpu,
     },
   ],
 };
-
 /* ============================= */
 /* COMPONENT */
 /* ============================= */
@@ -109,9 +112,14 @@ export default function WhoThisIsFor() {
                 </div>
 
                 {/* Title */}
-                <h3 className="text-lg md:text-xl font-medium text-black/80 leading-snug">
-                  {item.title}
-                </h3>
+<h3 className="text-lg md:text-xl font-medium text-black/80 leading-snug mb-3">
+  {item.title}
+</h3>
+
+{/* Description */}
+<p className="text-sm text-black/60 leading-relaxed">
+  {item.desc}
+</p>
 
               </motion.div>
             );
