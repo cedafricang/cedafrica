@@ -6,7 +6,7 @@ import Why from "../components/about/why";
 import What from "../components/about/what";
 import How from "../components/about/how";
 import Work from "../components/about/work";
-import Cta from "../components/about/cta";
+import Cta from "../components/ctawork";
 
 import {
   Layers,
