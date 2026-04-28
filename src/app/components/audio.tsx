@@ -9,24 +9,32 @@ export default function AudioConsent() {
 
   useEffect(() => {
     const consent = localStorage.getItem("ced_audio_consent");
+    const hasPlayed = localStorage.getItem("ced_audio_played");
 
+    // Show modal only if no decision yet
     if (!consent) {
       setShow(true);
-    } else if (consent === "accepted") {
-      playAudio();
+      return;
+    }
+
+    // If accepted BUT already played → do nothing
+    if (consent === "accepted" && hasPlayed === "true") {
+      return;
     }
   }, []);
 
   const playAudio = () => {
     if (audioRef.current) {
-      audioRef.current.volume = 0.4; // subtle
+      audioRef.current.volume = 0.4;
       audioRef.current.play().catch(() => {});
+      localStorage.setItem("ced_audio_played", "true");
     }
   };
 
   const handleAccept = () => {
     localStorage.setItem("ced_audio_consent", "accepted");
     setShow(false);
+
     setTimeout(() => {
       playAudio();
     }, 300);
@@ -39,10 +47,10 @@ export default function AudioConsent() {
 
   return (
     <>
-      {/* ===== AUDIO ===== */}
+      {/* AUDIO */}
       <audio ref={audioRef} src="/audio/cedwlc.mp3" preload="auto" />
 
-      {/* ===== MODAL ===== */}
+      {/* MODAL */}
       <AnimatePresence>
         {show && (
           <motion.div
@@ -58,7 +66,7 @@ export default function AudioConsent() {
               transition={{ duration: 0.4 }}
               className="w-full max-w-md bg-white text-black p-10"
             >
-              {/* ===== Header ===== */}
+              {/* HEADER */}
               <p className="text-[11px] tracking-[0.35em] uppercase text-black/40">
                 Experience
               </p>
@@ -72,10 +80,10 @@ export default function AudioConsent() {
                 guide your experience.
               </p>
 
-              {/* ===== Divider ===== */}
+              {/* Divider */}
               <div className="mt-6 h-[1px] w-full bg-black/10" />
 
-              {/* ===== Actions ===== */}
+              {/* Actions */}
               <div className="mt-8 flex gap-4">
                 <button
                   onClick={handleAccept}
