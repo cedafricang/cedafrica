@@ -5,24 +5,24 @@ import { motion } from "framer-motion";
 
 const actions = [
   {
-    title: "Become a Partner",
+    title: "Apply for Partner Access",
     desc: "Apply to join the CED partner ecosystem under defined standards and certification pathways.",
-    link: "/engage?type=partner",
+    link: "/engage/partner/system-integrators",
   },
   {
     title: "Request Design Consultation",
     desc: "Engage CED for system design, planning, and project-level AV consulting.",
-    link: "/engage?type=design",
+    link: "/engage/design-studio",
   },
   {
-    title: "Specifier Support",
+    title: "Request Specifier Support",
     desc: "Access technical guidance for AV system specification and early-stage project planning.",
-    link: "/engage?type=specifier",
+    link: "/engage/specifier/architects",
   },
   {
-    title: "Explore ProAV Systems",
+    title: "Engage PROAV Systems Team",
     desc: "Submit enquiries for enterprise and commercial AV system requirements.",
-    link: "/engage?type=proav",
+    link: "/engage/proav",
   },
 ];
 

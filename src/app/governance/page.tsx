@@ -2,6 +2,7 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import CTA from "../components/ctawork";
 import {
   ShieldCheck,
   Layers,
@@ -457,23 +458,7 @@ export default function Page() {
       {/* ============================= */}
       {/* CTA */}
       {/* ============================= */}
-      <section className="py-28 text-center bg-gradient-to-b from-[#1c1c1e] to-[#2a2a2d] text-white">
-        <h2 className="text-3xl text-white font-light mb-6">
-          Work Within a Defined System
-        </h2>
-
-        <p className="text-white/60 mb-10">
-          All engagements follow structured governance and standards.
-        </p>
-
-        <a
-          href="/engage"
-          className="border px-10 py-4 hover:bg-white hover:text-black transition"
-        >
-          Enter Through Engage Gateway
-        </a>
-      </section>
-
+      <CTA />
     </main>
   );
 }

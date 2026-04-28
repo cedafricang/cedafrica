@@ -393,7 +393,7 @@ export default function Page() {
       <section className="py-28 text-center bg-[#1c1c1e] text-white">
 
         <h2 className="text-3xl text-white font-light mb-6">
-          Apply for Contractor Partnership
+          For Developers & Project Delivery Teams
         </h2>
 
         <p className="text-white/60 mb-10">
@@ -401,10 +401,10 @@ export default function Page() {
         </p>
 
         <a
-          href="/engage?type=contractor"
+          href="/engage/project/developers"
           className="border px-10 py-4 hover:bg-white hover:text-black transition"
         >
-          Enter the System
+          Initiate Project Consultation
         </a>
 
       </section>

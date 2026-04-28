@@ -1,6 +1,7 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
+import CTA from "../components/ctawork";
 import {
   GraduationCap,
   Wrench,
@@ -52,24 +53,7 @@ const data = {
       desc: "Integrating audiovisual systems into architectural design and coordination.",
       cta: "Enroll",
     },
-    {
-      title: "Designing Performance-Driven AV Systems",
-      meta: "Technical Workshop · Virtual · [Date]",
-      desc: "System architecture, performance standards, and execution logic.",
-      cta: "Reserve Spot",
-    },
-    {
-      title: "AV Coordination with MEP Systems",
-      meta: "CPD Session · Hybrid · [Date]",
-      desc: "Aligning AV with electrical, mechanical, and data systems.",
-      cta: "Enroll",
-    },
-    {
-      title: "Private CPD for Firms",
-      meta: "Private Session · On Request",
-      desc: "Tailored sessions aligned with your team or project.",
-      cta: "Request Session",
-    },
+    
   ],
 
   value: [
@@ -180,51 +164,80 @@ export default function CPDPage() {
       </section>
 
       {/* ============================= */}
-      {/* SESSIONS */}
-      {/* ============================= */}
-      <section className="py-28">
-        <div className="max-w-6xl mx-auto px-6">
+{/* SESSIONS */}
+{/* ============================= */}
+<section className="py-28">
+  <div className="max-w-6xl mx-auto px-6">
 
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-light mb-4">
-              Available Sessions
-            </h2>
-            <p className="text-black/60">
-              Sessions available for enrollment or request.
+    <div className="text-center mb-16">
+      <h2 className="text-4xl font-light mb-4">
+        Available Sessions
+      </h2>
+      <p className="text-black/60">
+        Sessions available for enrollment or request.
+      </p>
+    </div>
+
+    {/* CONDITION */}
+    {data.sessions.length > 0 ? (
+
+      <div className="grid md:grid-cols-2 gap-10">
+
+        {data.sessions.map((s, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            className="p-8 border border-black/10 shadow-sm hover:shadow-md transition"
+          >
+            <h3 className="text-xl text-black/70 font-medium mb-2">
+              {s.title}
+            </h3>
+
+            <p className="text-sm text-black/40 mb-4">
+              {s.meta}
             </p>
-          </div>
 
-          <div className="grid md:grid-cols-2 gap-10">
+            <p className="text-black/60 mb-6">
+              {s.desc}
+            </p>
 
-            {data.sessions.map((s, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                className="p-8 border border-black/10 shadow-sm hover:shadow-md transition"
-              >
-                <h3 className="text-xl text-black/70 font-medium mb-2">
-                  {s.title}
-                </h3>
+            <a className="border px-6 py-2 text-sm hover:bg-black hover:text-white transition">
+              {s.cta}
+            </a>
+          </motion.div>
+        ))}
 
-                <p className="text-sm text-black/40 mb-4">
-                  {s.meta}
-                </p>
+      </div>
 
-                <p className="text-black/60 mb-6">
-                  {s.desc}
-                </p>
+    ) : (
 
-                <a className="border px-6 py-2 text-sm hover:bg-black hover:text-white transition">
-                  {s.cta}
-                </a>
-              </motion.div>
-            ))}
+      /* EMPTY STATE */
+      <div className="text-center py-20 border border-dashed border-black/10">
 
-          </div>
-        </div>
-      </section>
+        <p className="text-sm uppercase tracking-widest text-black/40 mb-4">
+          No Sessions Available
+        </p>
 
+        <h3 className="text-2xl font-light mb-4">
+          There are currently no scheduled sessions
+        </h3>
+
+        <p className="text-black/60 max-w-md mx-auto mb-8">
+          New sessions are released periodically. You can request a private or
+          firm-specific session while we update the schedule.
+        </p>
+
+        <button className="border px-6 py-3 text-sm hover:bg-black hover:text-white transition">
+          Request Private Session
+        </button>
+
+      </div>
+
+    )}
+
+  </div>
+</section>
       {/* ============================= */}
       {/* VALUE */}
       {/* ============================= */}
@@ -245,28 +258,7 @@ export default function CPDPage() {
       {/* ============================= */}
       {/* CTA */}
       {/* ============================= */}
-      <section className="py-28 text-center bg-[#1c1c1e] text-white">
-        <h2 className="text-4xl text-white mb-6">
-          Request a Session
-        </h2>
-
-        <p className="text-white/60 mb-10">
-          All sessions are structured through the Engage Gateway.
-        </p>
-
-        <div className="flex justify-center gap-6 flex-wrap">
-          <a className="border px-8 py-3 hover:bg-white hover:text-black transition">
-            Request CPD Session
-          </a>
-          <a className="border px-8 py-3 hover:bg-white hover:text-black transition">
-            Book Workshop
-          </a>
-          <a className="border px-8 py-3 hover:bg-white hover:text-black transition">
-            Engage with CED
-          </a>
-        </div>
-      </section>
-
+      <CTA />
     </main>
   );
 }

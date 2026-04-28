@@ -2,6 +2,7 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import CTA from "../components/ctawork";
 import {
   ShieldCheck,
   CheckCircle2,
@@ -433,22 +434,7 @@ export default function Page() {
       {/* ============================= */}
       {/* CTA */}
       {/* ============================= */}
-      <section className="py-28 text-center bg-gradient-to-b from-[#1c1c1e] to-[#2a2a2d] text-white">
-        <h2 className="text-3xl text-white font-light mb-6">
-          Become Part of the Ecosystem
-        </h2>
-
-        <p className="text-white/60 mb-10">
-          Entry into the CED ecosystem is structured and controlled.
-        </p>
-
-        <a
-          href="/engage?type=partner"
-          className="border px-10 py-4 hover:bg-white hover:text-black transition"
-        >
-          Apply Through Engage Gateway
-        </a>
-      </section>
+      <CTA />
 
     </main>
   );

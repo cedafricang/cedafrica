@@ -415,10 +415,10 @@ export default function Page() {
         </p>
 
         <a
-          href="/engage?type=retail"
+          href="/engage/partner/retail"
           className="border px-10 py-4 hover:bg-white hover:text-black transition"
         >
-          Enter the System
+          Apply for Partnership
         </a>
 
       </section>

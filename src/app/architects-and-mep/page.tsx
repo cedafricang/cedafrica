@@ -6,7 +6,7 @@ import How from "../components/architects-and-mep/how";
 import Get from "../components/architects-and-mep/get";
 import Where from "../components/architects-and-mep/where";
 import Projects from "../components/architects-and-mep/project-types";
-import Cta from "../components/architects-and-mep/cta";
+import Cta from "../components/ctawork";
 
 /* ============================= */
 /* CMS DATA */

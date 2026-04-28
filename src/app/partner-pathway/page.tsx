@@ -6,7 +6,7 @@ import Path from "../components/partner-pathway/pathways";
 import How from "../components/partner-pathway/how";
 import Requirement from "../components/partner-pathway/requirements";
 import What from "../components/partner-pathway/what";
-import Cta from "../components/partner-pathway/cta";
+import Cta from "../components/ctawork";
 
 /* ============================= */
 /* CMS DATA */
@@ -19,8 +19,8 @@ const heroData = {
     "Structured entry into the CED ecosystem — designed for professionals, firms, and organizations aligned with performance, standards, and long-term growth.",
   subtext: "Not all partners qualify. All partners are governed.",
   cta: {
-    label: "Enter the Ecosystem",
-    href: "/engage?type=partner",
+    label: "Apply for Partner Access",
+    href: "/engage/partner",
   },
   image: "/images/hero/h5.webp",
 

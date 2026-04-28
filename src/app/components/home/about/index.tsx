@@ -10,8 +10,8 @@ const pathways = [
     why: "Access governed standards, system design authority, and project alignment.",
     how: "Through structured partner programs and certification pathways.",
     boundary: "Entry is controlled and based on capability and alignment.",
-    cta: "Become a Partner",
-    link: "/partners",
+    cta: "Apply for Partner Access",
+    link: "/engage/partner/system-integrators",
   },
   {
     title: "Architects & Consultants",
@@ -19,8 +19,8 @@ const pathways = [
     why: "Ensure design certainty and performance-driven AV specifications.",
     how: "Through early-stage collaboration and structured specification support.",
     boundary: "CED operates within defined consulting and design boundaries.",
-    cta: "Access Specifier Support",
-    link: "/industry",
+    cta: "Request Specifier Support",
+    link: "/engage/specifier/architects",
   },
   {
     title: "Developers & Contractors",
@@ -28,8 +28,8 @@ const pathways = [
     why: "Integrate AV systems into projects with clarity and execution discipline.",
     how: "Through coordinated planning, design alignment, and system frameworks.",
     boundary: "Engagement is structured around project scope and timelines.",
-    cta: "Request Consultation",
-    link: "/engage",
+    cta: "Initiate Project Consultation",
+    link: "/engage/project/developers",
   },
   {
     title: "Enterprise & Institutions",
@@ -37,8 +37,8 @@ const pathways = [
     why: "Deploy reliable, scalable AV systems built for long-term performance.",
     how: "Through engineered ProAV systems and controlled delivery models.",
     boundary: "Solutions are defined by performance requirements and scale.",
-    cta: "Explore ProAV Systems",
-    link: "/solutions",
+    cta: "Engage ProAV Systems Team",
+    link: "/engage/proav",
   },
 ];
 

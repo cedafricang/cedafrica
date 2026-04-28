@@ -7,22 +7,22 @@ const solutions = [
   {
     title: "AV Design Studio",
     desc: "CED operates as the design authority, defining system architecture, performance standards, and technical frameworks before execution begins.",
-    cta: "Request Design Consultation",
-    link: "/engage",
+    cta: "Explore AV Design Studio",
+    link: "/design-studio",
     image: "/images/hero/studio.webp",
   },
   {
     title: "ProAV Systems",
     desc: "Engineered audiovisual systems for enterprise, commercial, and institutional environments, designed for reliability, scalability, and performance.",
     cta: "Explore ProAV Systems",
-    link: "/solutions",
+    link: "/proav",
     image: "/images/hero/proav.webp",
   },
   {
     title: "Reference Performance Systems",
     desc: "High-performance reference environments that set the benchmark for AV system design, including cinemas, hi-fi spaces, and immersive experiences.",
-    cta: "View Reference Systems",
-    link: "/solutions/reference",
+    cta: "Explore RPS",
+    link: "/performance-system",
     image: "/images/hero/cinema.webp",
   },
 ];

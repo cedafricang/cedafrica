@@ -19,7 +19,7 @@ const heroData = {
     "Where audiovisual systems are defined, structured, and engineered before execution begins.",
   cta: {
     label: "Request Design Consultation",
-    href: "/engage?type=design",
+    href: "/engage/design-studio",
   },
   image: "/images/hero/luk.webp",
 

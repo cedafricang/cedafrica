@@ -41,7 +41,7 @@ const data = {
       "Systems executed within defined standards and governed frameworks to ensure performance, consistency, and control.",
     cta: {
       label: "Start Your Project",
-      href: "/engage",
+      href: "/engage/proav",
     },
     image: "/images/hero/pro.webp",
   },
@@ -369,7 +369,7 @@ export default function ProAVPage() {
         <p className="text-white/60 mb-8">
           All projects are structured and governed through the Engage Gateway.
         </p>
-        <a href="/engage" className="border px-10 py-4 hover:bg-white hover:text-black transition">
+        <a href="/engage/proav" className="border px-10 py-4 hover:bg-white hover:text-black transition">
           Engage Now
         </a>
       </section>

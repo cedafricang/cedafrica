@@ -16,17 +16,17 @@ const ctaData = {
     {
       title: "Request Design Consultation",
       desc: "For projects requiring structured AV design, system architecture, and performance definition.",
-      href: "/engage?type=design",
+      href: "/engage/design-studio",
     },
     {
       title: "Become a Partner",
       desc: "For system integrators, contractors, and retail partners seeking to join the CED ecosystem.",
-      href: "/engage?type=partner",
+      href: "/engage/partner",
     },
     {
       title: "Specifier Support",
       desc: "For architects and consultants requiring guidance, specifications, and system planning support.",
-      href: "/engage?type=specifier",
+      href: "/engage/specifier/architects",
     },
   ],
 };

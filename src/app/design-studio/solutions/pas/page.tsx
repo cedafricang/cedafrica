@@ -166,7 +166,7 @@ export default function ProAVPage() {
           </p>
 
           <Link
-            href="/engage"
+            href="/engage/design-studio"
             className="inline-block px-8 py-3 border border-black text-[11px] tracking-[0.35em] uppercase hover:bg-black hover:text-white transition"
           >
             Request ProAV Design Consultation

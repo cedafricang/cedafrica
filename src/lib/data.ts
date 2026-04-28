@@ -56,7 +56,7 @@ export const posts: Post[] = [
 
     publishedAt: "2025-02-12",
     readTime: "5 min read",
-    coverImage: "/images/hero/avimage.jpg",
+    coverImage: "/images/projects/av1.jpg",
 
     seo: {
       title: "Designing AV Systems for Modern Homes | CED Africa",
@@ -127,7 +127,7 @@ export const posts: Post[] = [
 
   publishedAt: "2025-03-05",
   readTime: "6 min read",
-  coverImage: "/images/hero/avimage.jpg",
+  coverImage: "/images/projects/work.jpg",
 
   seo: {
     title: "Pitfalls to Avoid When Building a Home Cinema | CED Africa",

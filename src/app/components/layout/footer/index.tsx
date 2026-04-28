@@ -44,9 +44,10 @@ const footerNav = [
 ];
 
 const engageLinks = [
-  { label: "Become a Partner", href: "/engage?type=partner" },
-  { label: "Request Consultation", href: "/engage?type=design" },
-  { label: "Specifier Support", href: "/engage?type=specifier" },
+  { label: "Apply for Partner Access", href: "/engage/partner/system-integrators" },
+  { label: "Request Specifier Support", href: "/engage/specifier/architects" },
+  { label: "Initiate Project Consultation", href: "/engage/project/developers" },
+   { label: "Engage PROAV Systems Team", href: "/engage/proav" },
 ];
 
 /* ============================= */

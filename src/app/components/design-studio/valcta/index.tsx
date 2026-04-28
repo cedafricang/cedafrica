@@ -36,7 +36,7 @@ const ctaData = {
     "All systems begin with structured design and specification through the AV Design Studio.",
   cta: {
     label: "Request Design Consultation",
-    href: "/engage?type=design",
+    href: "/engage/design-studio",
   },
 };
 

@@ -25,7 +25,7 @@ const data = {
       "Systems engineered to define the highest level of audiovisual performance — setting the benchmark for design, execution, and experience.",
     cta: {
       label: "Request Consultation",
-      href: "/engage?type=reference",
+      href: "/engage/design-studio",
     },
     image: "/images/hero/foc.webp",
   },
@@ -284,8 +284,8 @@ export default function ReferenceSystemsPage() {
         <p className="text-white/60 mb-8">
           Engage with CED to develop systems that operate at reference performance level.
         </p>
-        <a href="/engage" className="border px-10 py-4 hover:bg-white hover:text-black transition">
-          Enter the System
+        <a href="/engage/design-studio" className="border px-10 py-4 hover:bg-white hover:text-black transition">
+          Request Consultation
         </a>
       </section>
 

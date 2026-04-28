@@ -412,10 +412,10 @@ export default function Page() {
         </p>
 
         <a
-          href="/engage?type=si-program"
+          href="/engage/partner/si-program"
           className="border px-10 py-4 hover:bg-white hover:text-black transition"
         >
-          Apply Through Engage Gateway
+          Apply for Certification
         </a>
 
       </section>

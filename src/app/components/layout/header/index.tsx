@@ -37,7 +37,7 @@ const nav: NavItem[] = [
     mega: {
       title: "Platform Governance",
       desc: "How CED governs partners, standards and AV system design.",
-      image: "/images/nav/hifi.jpg",
+      image: "/images/hero/h5.webp",
       links: [
         { label: "How We Work", href: "/how-we-work" },
         { label: "Governance & Standards", href: "/governance" },
@@ -50,7 +50,7 @@ const nav: NavItem[] = [
     mega: {
       title: "Engineering AV Systems",
       desc: "Consulting, system design and reference AV environments.",
-      image: "/images/nav/hifi.jpg",
+      image: "/images/hero/foc.webp",
       links: [
         { label: "AV Design Studio", href: "/design-studio" },
         { label: "ProAV Systems", href: "/proav" },
@@ -63,7 +63,7 @@ const nav: NavItem[] = [
     mega: {
       title: "Channel Partner Programs",
       desc: "Programs designed for system integrators and AV partners.",
-      image: "/images/nav/hifi.jpg",
+      image: "/images/hero/si.webp",
       links: [
         { label: "Partner Pathways", href: "partner-pathway" },
         { label: "SI Program", href: "/si-program" },
@@ -79,7 +79,7 @@ const nav: NavItem[] = [
     mega: {
       title: "Industry Specification",
       desc: "Supporting architects and consultants in specifying AV systems.",
-      image: "/images/nav/hifi.jpg",
+      image: "/images/hero/arch.webp",
       links: [
         { label: "Architects & MEP Consultants", href: "/architects-and-mep" },
         { label: "CPD / Learning & Events", href: "/cpd" },
@@ -194,7 +194,7 @@ export default function Header() {
 
             {/* CTA */}
             <Link
-  href="#"
+  href="/engage/partner"
   className={`hidden lg:flex items-center justify-center px-6 py-2 rounded-full text-[11px] tracking-[0.35em] uppercase border transition-all duration-500
   ${
     scrolled
