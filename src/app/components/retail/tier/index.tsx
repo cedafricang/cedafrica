@@ -4,40 +4,39 @@ import { motion } from "framer-motion";
 
 const tiers = [
   {
-    title: "Approved Retailer",
+    title: "Shop-in-Shop Retailer",
     level: "Entry",
-    desc: "Structured entry into the ecosystem with access to selected products and defined retail positioning.",
+    desc: "An entry point into the ecosystem through a dedicated branded display within an existing retail environment.",
     features: [
-      "Access to core product range",
-      "Standard retail positioning",
-      "Guided onboarding process",
-      "Aligned brand representation",
+      "Dedicated brand display area within store",
+      "Structured product showcase (e.g. Sonos display)",
+      "Guided retail setup aligned with brand standards",
+      "Entry-level access to select product range",
+    ],
+  },
+  {
+    title: "Approved Retailer",
+    level: "Advanced",
+    desc: "Established retail partners with structured product access and defined positioning within the ecosystem.",
+    features: [
+      "Access to broader product portfolio",
+      "Recognized retail partner status",
+      "Consistent brand representation across store",
+      "Enhanced customer engagement capability",
     ],
   },
   {
     title: "Elite Retailer",
-    level: "Advanced",
-    desc: "Expanded access to premium products with enhanced positioning and deeper customer engagement.",
-    features: [
-      "Full product ecosystem access",
-      "Premium retail positioning",
-      "Enhanced customer experience",
-      "Priority engagement & support",
-    ],
-  },
-  {
-    title: "Shop-in-Shop",
     level: "Flagship",
-    desc: "Dedicated branded retail environments designed to reflect manufacturer standards and immersive experience.",
+    desc: "Top-tier retail partners operating at the highest level of brand alignment, experience, and market positioning.",
     features: [
-      "Dedicated branded retail zone",
-      "Manufacturer-aligned display systems",
-      "Immersive listening experience",
-      "Full brand environment integration",
+      "Full access to premium product ecosystem (Sonos, Focal, Naim)",
+      "Flagship-level retail positioning",
+      "Advanced in-store experience and demonstration capability",
+      "Priority access, support, and strategic alignment",
     ],
   },
 ];
-
 export default function RetailTiers() {
   return (
     <section className="relative py-28 md:py-36 bg-[#f7f7f5] text-black overflow-hidden">
