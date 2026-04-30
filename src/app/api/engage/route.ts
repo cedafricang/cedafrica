@@ -2,6 +2,10 @@ import { NextResponse } from "next/server";
 
 const ZOHO_URL = "https://www.zohoapis.com/crm/v2/Leads";
 
+// ✅ NEW GOOGLE SHEETS URL
+const GOOGLE_SCRIPT_URL =
+  "https://script.google.com/macros/s/AKfycbxt0Lkh1j5vLy328tZm4uYTrRuroWIh04D-2-8f5ggPjhpnx-5O1sVkIADXJc8Fh4wWqQ/exec";
+
 export async function POST(req: Request) {
   try {
     const body = await req.json();
@@ -73,11 +77,8 @@ export async function POST(req: Request) {
             Last_Name: body.contact || "Unknown",
             Email: body.email,
             Phone: body.phone,
-
             Lead_Source: "CED Website",
             Lead_Status: "New",
-
-            // 🔥 IMPORTANT: include pathway inside CRM
             Description: buildDescription(body, pathway),
           },
         ],
@@ -88,13 +89,30 @@ export async function POST(req: Request) {
 
     if (!zohoRes.ok) {
       console.error("Zoho Error:", zohoData);
-
-      // ❗ Don't fail completely if Zoho fails
-      return NextResponse.json({
-        success: true,
-        warning: "Saved via email only (Zoho failed)",
-      });
     }
+
+    /* ---------------- 3. SEND TO GOOGLE SHEETS ---------------- */
+
+    try {
+      const res = await fetch(GOOGLE_SCRIPT_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          pathway,
+          ...body,
+        }),
+      });
+
+      const text = await res.text();
+      console.log("Google Sheets response:", text);
+
+    } catch (err) {
+      console.error("Google Sheets Error:", err);
+    }
+
+    /* ---------------- RESPONSE ---------------- */
 
     return NextResponse.json({
       success: true,
