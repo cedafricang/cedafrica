@@ -12,27 +12,51 @@ export default function ArticleGateModal({ open, onClose, post }: any) {
 
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [error, setError] = useState(false);
 
   const handleSubmit = async () => {
+    setError(false);
+
+    /* ---------------- VALIDATION ---------------- */
+
+    if (!form.fullName || !form.email) {
+      alert("Please fill in required fields");
+      return;
+    }
+
     setLoading(true);
 
     try {
-      await fetch("/api/article-request", {
+      const payload = {
+        ...form,
+        articleId: post?.id,
+        articleSlug: post?.slug,
+        articleTitle: post?.title,
+      };
+
+      // 🔥 DEBUG (VERY IMPORTANT)
+      console.log("Submitting payload:", payload);
+
+      const res = await fetch("/api/article-request", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          ...form,
-          articleId: post?.id,
-          articleSlug: post?.slug,
-          articleTitle: post?.title,
-        }),
+        body: JSON.stringify(payload),
       });
 
-      setSuccess(true);
+      const data = await res.json();
+      console.log("API Response:", data);
+
+      if (res.ok) {
+        setSuccess(true);
+      } else {
+        setError(true);
+      }
+
     } catch (err) {
-      console.error(err);
+      console.error("Submit error:", err);
+      setError(true);
     }
 
     setLoading(false);
@@ -63,21 +87,24 @@ export default function ArticleGateModal({ open, onClose, post }: any) {
                 </h2>
 
                 <p className="text-sm opacity-60 mb-6">
-                  Enter your details. The article will be sent within 24 hours.
+                  Enter your details. The article will be sent instantly.
                 </p>
 
                 <div className="space-y-4">
                   <input
-                    placeholder="Full Name"
+                    placeholder="Full Name *"
                     className="w-full border p-3 text-sm"
+                    value={form.fullName}
                     onChange={(e) =>
                       setForm({ ...form, fullName: e.target.value })
                     }
                   />
 
                   <input
-                    placeholder="Email"
+                    type="email"
+                    placeholder="Email *"
                     className="w-full border p-3 text-sm"
+                    value={form.email}
                     onChange={(e) =>
                       setForm({ ...form, email: e.target.value })
                     }
@@ -86,15 +113,24 @@ export default function ArticleGateModal({ open, onClose, post }: any) {
                   <input
                     placeholder="Company"
                     className="w-full border p-3 text-sm"
+                    value={form.company}
                     onChange={(e) =>
                       setForm({ ...form, company: e.target.value })
                     }
                   />
                 </div>
 
+                {/* ERROR */}
+                {error && (
+                  <p className="text-red-500 text-sm mt-4">
+                    Something went wrong. Try again.
+                  </p>
+                )}
+
                 <div className="mt-8 flex gap-4">
                   <button
                     onClick={handleSubmit}
+                    disabled={loading}
                     className="flex-1 border border-black py-3 text-[11px] uppercase hover:bg-black hover:text-white transition"
                   >
                     {loading ? "Submitting..." : "Request Article"}
@@ -115,7 +151,7 @@ export default function ArticleGateModal({ open, onClose, post }: any) {
                 </h3>
 
                 <p className="text-sm opacity-60">
-                  Check your email within 24 hours.
+                  Check your email — your article has been sent.
                 </p>
 
                 <button
