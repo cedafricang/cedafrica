@@ -1,13 +1,20 @@
 "use client";
 
-import Link from "next/link";
 import Image from "next/image";
 import { Post } from "@/lib/data";
 
-export default function Card({ post }: { post: Post }) {
+export default function Card({
+  post,
+  onReadMore,
+}: {
+  post: Post;
+  onReadMore: () => void;
+}) {
   return (
-    <Link href={`/knowledge-hub/${post.slug}`} className="group block h-full">
-
+    <div
+      onClick={onReadMore}
+      className="group block h-full cursor-pointer"
+    >
       <div className="h-full flex flex-col border border-black/10 bg-white overflow-hidden transition-all duration-300 hover:shadow-xl">
 
         {/* IMAGE */}
@@ -38,7 +45,7 @@ export default function Card({ post }: { post: Post }) {
             {post.excerpt}
           </p>
 
-          {/* META (push to bottom) */}
+          {/* META */}
           <div className="mt-auto pt-6 text-xs text-black/40 flex justify-between">
             <span>
               {new Date(post.publishedAt).toDateString()}
@@ -46,10 +53,15 @@ export default function Card({ post }: { post: Post }) {
             <span>{post.readTime}</span>
           </div>
 
+          {/* CTA */}
+          <div className="mt-4 text-[11px] tracking-[0.3em] uppercase flex items-center gap-3">
+            Read Article
+            <span className="w-6 h-[1px] bg-black group-hover:w-10 transition-all" />
+          </div>
+
         </div>
 
       </div>
-
-    </Link>
+    </div>
   );
 }

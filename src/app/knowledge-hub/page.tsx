@@ -1,21 +1,31 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import { useRouter } from "next/navigation"; // ✅ IMPORTANT
 import { posts, categories } from "@/lib/data";
 import Card from "../components/knowledge/Card";
 import Hero from "../components/knowledge/Hero";
 import SearchFilter from "../components/knowledge/SearchFilter";
 import Pagination from "../components/knowledge/Pagination";
+import ArticleGateModal from "../components/ArticleGateModal";
 
 const POSTS_PER_PAGE = 6;
 
 export default function Page() {
+  const router = useRouter(); // ✅ ADD THIS
+
+  /* ============================= */
+  /* STATE */
+  /* ============================= */
+
   const [query, setQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState("all");
   const [page, setPage] = useState(1);
 
+  const [selectedPost, setSelectedPost] = useState<any>(null);
+
   /* ============================= */
-  /* FILTER LOGIC (SAFE) */
+  /* FILTER */
   /* ============================= */
 
   const filtered = useMemo(() => {
@@ -34,7 +44,7 @@ export default function Page() {
   }, [query, activeCategory]);
 
   /* ============================= */
-  /* PAGINATION (SAFE) */
+  /* PAGINATION */
   /* ============================= */
 
   const totalPages = Math.max(
@@ -67,6 +77,10 @@ export default function Page() {
     setPage(1);
   };
 
+  /* ============================= */
+  /* RENDER */
+  /* ============================= */
+
   return (
     <main className="bg-white text-black">
 
@@ -76,7 +90,6 @@ export default function Page() {
       {/* CONTROLS */}
       <section className="max-w-6xl mx-auto px-6 py-20">
 
-        {/* Heading */}
         <div className="mb-10">
           <h2 className="text-2xl md:text-3xl font-medium tracking-tight">
             Insights & Perspectives
@@ -86,7 +99,6 @@ export default function Page() {
           </p>
         </div>
 
-        {/* Search + Filters */}
         <SearchFilter
           categories={categories}
           onSearch={handleSearch}
@@ -98,7 +110,6 @@ export default function Page() {
       {/* GRID */}
       <section className="max-w-6xl mx-auto px-6 pb-24">
 
-        {/* Results Info */}
         <div className="mb-8 flex justify-between items-center text-sm text-black/50">
           <span>
             Showing {paginatedPosts.length} of {filtered.length} articles
@@ -111,10 +122,25 @@ export default function Page() {
           )}
         </div>
 
-        {/* Cards */}
+        {/* ============================= */}
+        {/* CARDS (FIXED LOGIC) */}
+        {/* ============================= */}
+
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
           {paginatedPosts.map((post) => (
-            <Card key={post.id} post={post} />
+            <Card
+              key={post.id}
+              post={post}
+              onReadMore={() => {
+                if (post.gated) {
+                  // 👉 OPEN MODAL
+                  setSelectedPost(post);
+                } else {
+                  // 👉 OPEN PAGE
+                  router.push(`/knowledge-hub/${post.slug}`);
+                }
+              }}
+            />
           ))}
         </div>
 
@@ -152,6 +178,16 @@ export default function Page() {
         )}
 
       </section>
+
+      {/* ============================= */}
+      {/* MODAL */}
+      {/* ============================= */}
+
+      <ArticleGateModal
+        open={!!selectedPost}
+        post={selectedPost}
+        onClose={() => setSelectedPost(null)}
+      />
 
     </main>
   );

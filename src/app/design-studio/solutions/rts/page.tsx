@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import RTSD from "../../../components/rtsd";
 import Method from "../../../components/methodology";
+import Soln from "../../../components/rtss";
 
 const drawings = [
   {
@@ -94,6 +95,7 @@ export default function RTSPage() {
       </section>
 
       {/* ================= METHODOLOGY ================= */}
+      <Soln />
       <Method />
 
       {/* ================= DOCUMENTATION ================= */}

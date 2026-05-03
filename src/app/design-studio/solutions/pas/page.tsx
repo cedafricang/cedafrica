@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import PASD from "../../../components/pasd";
 import Method from "../../../components/methodology";
+import Soln from "../../../components/pass";
 
 const drawings = [
   {
@@ -94,6 +95,7 @@ export default function ProAVPage() {
       </section>
 
       {/* ================= METHODOLOGY ================= */}
+      <Soln />
       <Method />
 
       {/* ================= DOCUMENTATION ================= */}

@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import RHCD from "../../../components/rhcd";
 import Method from "../../../components/methodology";
+import Soln from "../../../components/rhcs";
 
 const drawings = [
   {
@@ -94,7 +95,9 @@ export default function CinemaPage() {
       </section>
 
       {/* ================= METHODOLOGY ================= */}
+      <Soln />
       <Method />
+
 
       {/* ================= DOCUMENTATION ================= */}
       <RHCD />

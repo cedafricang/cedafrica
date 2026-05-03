@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import HASD from "../../../components/hasd";
 import Method from "../../../components/methodology";
+import Soln from "../../../components/hass";
 
 const drawings = [
   {
@@ -93,6 +94,7 @@ export default function HospitalityPage() {
       </section>
 
       {/* ================= METHODOLOGY ================= */}
+      <Soln />
       <Method />
 
       {/* ================= DOCUMENTATION ================= */}

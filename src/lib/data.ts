@@ -22,6 +22,7 @@ export type Post = {
   publishedAt: string;
   readTime: string;
   coverImage: string;
+  gated?: boolean; 
   seo?: {
     title?: string;
     description?: string;
@@ -47,6 +48,7 @@ export const posts: Post[] = [
   {
     id: "1",
     slug: "designing-av-systems-modern-homes",
+     gated: false,
     title: "Designing AV Systems for Modern Homes",
     excerpt:
       "How to define audiovisual systems early in residential projects.",
@@ -118,6 +120,7 @@ export const posts: Post[] = [
   {
   id: "2",
   slug: "pitfalls-to-avoid-when-building-a-home-cinema",
+   gated: false,
   title: "Pitfalls to Avoid When Building a Home Cinema",
   excerpt:
     "Common mistakes that compromise performance, experience, and long-term value in home cinema projects.",
@@ -209,5 +212,89 @@ export const posts: Post[] = [
       ],
     },
   ],
+},
+{
+  id: "3",
+  slug: "home-cinema-design-pitfalls-architects",
+  title: "10 Costly Pitfalls in Home Cinema Design (Architect’s Blueprint)",
+  excerpt:
+    "Practical design-stage guidance for architects on the critical mistakes that compromise home cinema performance before construction even begins.",
+  category: "av-design",
+  publishedAt: "2026-05-04",
+  readTime: "6 min read",
+  coverImage: "/images/hero/cin.webp", // 👉 use any strong cinema image
+  gated: true,
+
+  content: [
+    {
+      type: "paragraph",
+      text: "This article outlines ten critical architectural mistakes that undermine home cinema performance — and how to prevent them at design stage."
+    },
+    {
+      type: "heading",
+      text: "Key Architectural Pitfalls"
+    },
+    {
+      type: "list",
+      items: [
+        "Incorrect room proportions affecting acoustics",
+        "Poor door positioning disrupting layout and sound",
+        "Windows compromising light and sound isolation",
+        "Improper room location causing noise interference",
+        "Centre aisles eliminating the sweet spot",
+        "Insufficient headroom for acoustics and comfort",
+        "Seating too close to walls",
+        "Improper screen distance",
+        "Shallow riser design",
+        "No dedicated projector room"
+      ]
+    },
+    {
+      type: "quote",
+      text: "Every mistake is preventable at design stage — but costly or impossible to fix after handover."
+    }
+  ]
+},
+{
+  id: "4",
+  slug: "home-cinema-design-pitfalls-mep",
+  title: "10 Costly Pitfalls in Home Cinema Design (MEP Blueprint)",
+  excerpt:
+    "A technical guide for MEP consultants on avoiding performance failures in HVAC, power, and infrastructure design for home cinemas.",
+  category: "av-design",
+  publishedAt: "2026-05-04",
+  readTime: "6 min read",
+  coverImage: "/images/hero/cin1.webp", // 👉 use another cinema image
+  gated: true,
+
+  content: [
+    {
+      type: "paragraph",
+      text: "This guide highlights the most common MEP mistakes that degrade acoustic performance, reliability, and overall cinematic experience."
+    },
+    {
+      type: "heading",
+      text: "Key MEP Pitfalls"
+    },
+    {
+      type: "list",
+      items: [
+        "HVAC units placed inside the cinema room",
+        "Vent placement interfering with speaker layout",
+        "No acoustic duct design",
+        "Plumbing noise intrusion",
+        "Mechanical vibration from adjacent equipment",
+        "Poor thermostat integration",
+        "AC units placed above AV equipment",
+        "Improper grounding and electrical noise",
+        "No UPS or power conditioning",
+        "Lack of integrated lighting scenes"
+      ]
+    },
+    {
+      type: "quote",
+      text: "Silence, stability, and control — these are engineered, not accidental."
+    }
+  ]
 }
 ];

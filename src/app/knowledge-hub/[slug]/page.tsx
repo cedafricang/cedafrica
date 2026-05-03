@@ -1,6 +1,7 @@
 import { posts } from "@/lib/data";
 import { notFound } from "next/navigation";
 import ContentRenderer from "../../components/knowledge/ContentRenderer";
+import ArticleGateModal from "../../components/ArticleGateModal";
 
 /* ============================= */
 /* METADATA */
