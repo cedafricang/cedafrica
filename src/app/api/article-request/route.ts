@@ -5,6 +5,14 @@ const ZOHO_URL = "https://www.zohoapis.com/crm/v2/Leads";
 const GOOGLE_SCRIPT_URL =
   "https://script.google.com/macros/s/AKfycbxt0Lkh1j5vLy328tZm4uYTrRuroWIh04D-2-8f5ggPjhpnx-5O1sVkIADXJc8Fh4wWqQ/exec";
 
+/* ---------------- ARTICLE LINKS ---------------- */
+// 🔥 ONLY id3 & id4 will trigger auto email
+
+const ARTICLE_LINKS: Record<string, string> = {
+  id3: "https://ced-vercel.app/data/CED_HomeCinema_Pitfalls_Architect.pdf",
+  id4: "https://ced-vercel.app/data/CED_HomeCinema_Pitfalls_MEP.pdf",
+};
+
 export async function POST(req: Request) {
   try {
     const body = await req.json();
@@ -41,11 +49,9 @@ export async function POST(req: Request) {
       );
     }
 
-    /* ---------------- EMAIL SUBJECT ---------------- */
-
     const subject = `Article Request — ${articleTitle}`;
 
-    /* ---------------- 1. SEND EMAIL ---------------- */
+    /* ---------------- 1. INTERNAL EMAIL ---------------- */
 
     await fetch("https://api.resend.com/emails", {
       method: "POST",
@@ -55,7 +61,11 @@ export async function POST(req: Request) {
       },
       body: JSON.stringify({
         from: "CED Platform <marketing@ced.africa>",
-        to: ["marketing@ced.africa", "design@ced.africa", "sadediran@ced.africa"],
+        to: [
+          "marketing@ced.africa",
+          "design@ced.africa",
+          "sadediran@ced.africa",
+        ],
         subject,
         html: buildEmail({
           fullName,
@@ -67,10 +77,39 @@ export async function POST(req: Request) {
       }),
     });
 
-    /* ---------------- 2. SEND TO ZOHO (FIXED) ---------------- */
+    /* ---------------- 2. SEND PDF TO USER (NEW 🔥) ---------------- */
 
     try {
-      const token = await getZohoAccessToken(); // ✅ dynamic token
+      const link = ARTICLE_LINKS[articleId];
+
+      if (link) {
+        await fetch("https://api.resend.com/emails", {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            from: "CED Africa <marketing@ced.africa>",
+            to: [email],
+            subject: `Your article — ${articleTitle}`,
+            html: buildUserEmail({
+              fullName,
+              articleTitle,
+              link,
+            }),
+          }),
+        });
+      }
+
+    } catch (err) {
+      console.error("User Email Error:", err);
+    }
+
+    /* ---------------- 3. SEND TO ZOHO ---------------- */
+
+    try {
+      const token = await getZohoAccessToken();
 
       const zohoRes = await fetch(ZOHO_URL, {
         method: "POST",
@@ -81,7 +120,7 @@ export async function POST(req: Request) {
         body: JSON.stringify({
           data: [
             {
-              Last_Name: fullName || "Unknown", // required
+              Last_Name: fullName || "Unknown",
               Email: email,
               Company: company || "Unknown",
 
@@ -110,7 +149,7 @@ Company: ${company}
       console.error("Zoho Request Failed:", err);
     }
 
-    /* ---------------- 3. GOOGLE SHEETS ---------------- */
+    /* ---------------- 4. GOOGLE SHEETS ---------------- */
 
     try {
       const res = await fetch(GOOGLE_SCRIPT_URL, {
@@ -172,6 +211,46 @@ function buildEmail(data: any) {
     </div>
   `;
 }
+
+/* 🔥 USER EMAIL TEMPLATE */
+
+function buildUserEmail(data: any) {
+  return `
+    <div style="font-family:Arial; line-height:1.6;">
+
+      <p>Hi ${data.fullName},</p>
+
+      <p>
+        Thank you for your interest in:
+      </p>
+
+      <p><strong>${data.articleTitle}</strong></p>
+
+      <p>
+        You can access your article below:
+      </p>
+
+      <p>
+        <a href="${data.link}" target="_blank">
+          Download Article
+        </a>
+      </p>
+
+      <br/>
+
+      <p>
+        If you're working on a project, our team would be happy to guide you.
+      </p>
+
+      <p>
+        — CED Africa
+      </p>
+
+    </div>
+  `;
+}
+
+/* ---------------- TOKEN HELPER ---------------- */
 
 async function getZohoAccessToken() {
   const res = await fetch("https://accounts.zoho.com/oauth/v2/token", {
