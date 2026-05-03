@@ -2,7 +2,6 @@ import { NextResponse } from "next/server";
 
 const ZOHO_URL = "https://www.zohoapis.com/crm/v2/Leads";
 
-// ✅ NEW GOOGLE SHEETS URL
 const GOOGLE_SCRIPT_URL =
   "https://script.google.com/macros/s/AKfycbxt0Lkh1j5vLy328tZm4uYTrRuroWIh04D-2-8f5ggPjhpnx-5O1sVkIADXJc8Fh4wWqQ/exec";
 
@@ -12,7 +11,7 @@ export async function POST(req: Request) {
 
     const pathway: string = body.pathway || "unknown";
 
-    /* ---------------- BASIC VALIDATION ---------------- */
+    /* ---------------- VALIDATION ---------------- */
 
     if (!body.email || !body.contact) {
       return NextResponse.json(
@@ -23,7 +22,12 @@ export async function POST(req: Request) {
 
     /* ---------------- ENV CHECK ---------------- */
 
-    if (!process.env.RESEND_API_KEY || !process.env.ZOHO_ACCESS_TOKEN) {
+    if (
+      !process.env.RESEND_API_KEY ||
+      !process.env.ZOHO_CLIENT_ID ||
+      !process.env.ZOHO_CLIENT_SECRET ||
+      !process.env.ZOHO_REFRESH_TOKEN
+    ) {
       console.error("Missing environment variables");
       return NextResponse.json(
         { error: "Server misconfiguration" },
@@ -52,7 +56,7 @@ export async function POST(req: Request) {
       },
       body: JSON.stringify({
         from: "CED Platform <marketing@ced.africa>",
-        to: ["marketing@ced.africa", "design@ced.africa"],
+        to: ["marketing@ced.africa", "design@ced.africa", "sadediran@ced.africa"],
         subject,
         html: buildEmail(body, pathway),
       }),
@@ -62,36 +66,45 @@ export async function POST(req: Request) {
       console.error("Email failed");
     }
 
-    /* ---------------- 2. SEND TO ZOHO ---------------- */
+    /* ---------------- 2. SEND TO ZOHO (FIXED) ---------------- */
 
-    const zohoRes = await fetch(ZOHO_URL, {
-      method: "POST",
-      headers: {
-        Authorization: `Zoho-oauthtoken ${process.env.ZOHO_ACCESS_TOKEN}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        data: [
-          {
-            Company: body.company || body.organization || "Unknown",
-            Last_Name: body.contact || "Unknown",
-            Email: body.email,
-            Phone: body.phone,
-            Lead_Source: "CED Website",
-            Lead_Status: "New",
-            Description: buildDescription(body, pathway),
-          },
-        ],
-      }),
-    });
+    try {
+      const token = await getZohoAccessToken(); // ✅ dynamic token
 
-    const zohoData = await zohoRes.json();
+      const zohoRes = await fetch(ZOHO_URL, {
+        method: "POST",
+        headers: {
+          Authorization: `Zoho-oauthtoken ${token}`,
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          data: [
+            {
+              Company: body.company || body.organization || "Unknown",
+              Last_Name: body.contact || "Unknown",
+              Email: body.email,
+              Phone: body.phone,
 
-    if (!zohoRes.ok) {
-      console.error("Zoho Error:", zohoData);
+              Lead_Source: "CED Website",
+              Lead_Status: "New",
+
+              Description: buildDescription(body, pathway),
+            },
+          ],
+        }),
+      });
+
+      const zohoData = await zohoRes.json();
+
+      if (!zohoRes.ok) {
+        console.error("Zoho Error:", zohoData);
+      }
+
+    } catch (err) {
+      console.error("Zoho Request Failed:", err);
     }
 
-    /* ---------------- 3. SEND TO GOOGLE SHEETS ---------------- */
+    /* ---------------- 3. GOOGLE SHEETS ---------------- */
 
     try {
       const res = await fetch(GOOGLE_SCRIPT_URL, {
@@ -157,4 +170,28 @@ function buildDescription(data: Record<string, any>, pathway: string) {
   });
 
   return text;
+}
+
+/* ✅ TOKEN HELPER (SAME AS BEFORE) */
+
+async function getZohoAccessToken() {
+  const res = await fetch("https://accounts.zoho.com/oauth/v2/token", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams({
+      refresh_token: process.env.ZOHO_REFRESH_TOKEN!,
+      client_id: process.env.ZOHO_CLIENT_ID!,
+      client_secret: process.env.ZOHO_CLIENT_SECRET!,
+      grant_type: "refresh_token",
+    }),
+  });
+
+  const data = await res.json();
+
+  if (!res.ok) {
+    console.error("Zoho token error:", data);
+    throw new Error("Failed to get Zoho access token");
+  }
+
+  return data.access_token;
 }

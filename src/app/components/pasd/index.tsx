@@ -35,37 +35,49 @@ export default function AVMCCDocumentation() {
   };
 
   const handleSubmit = async (e: any) => {
-    e.preventDefault();
-    setLoading(true);
+  e.preventDefault();
+  setLoading(true);
 
-    const formData = new FormData();
-    formData.append("Full Name", form.name);
-    formData.append("Company", form.company);
-    formData.append("Phone", form.phone);
-    formData.append("Email", form.email);
-    formData.append("Document Requested", selectedDoc);
-    formData.append("_subject", "AVMCC Documentation Request");
-    formData.append("_captcha", "false");
-
-    await fetch("https://formsubmit.co/ajax/adediranstephen2000@gmail.com", {
+  try {
+    const res = await fetch("/api/article-request", {
       method: "POST",
-      body: formData,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        fullName: form.name,
+        email: form.email,
+        company: form.company,
+        phone: form.phone,
+
+        articleTitle: selectedDoc,
+        articleSlug: "avmcc-docs",
+        articleId: "avmcc",
+      }),
     });
 
-    setLoading(false);
-    setOpen(false);
-    setSuccess(true);
+    if (res.ok) {
+      setOpen(false);
+      setSuccess(true);
 
-    setForm({
-      name: "",
-      company: "",
-      phone: "",
-      email: "",
-    });
+      setForm({
+        name: "",
+        company: "",
+        phone: "",
+        email: "",
+      });
 
-    setTimeout(() => setSuccess(false), 5000);
-  };
+      setTimeout(() => setSuccess(false), 5000);
+    } else {
+      console.error("Submission failed");
+    }
 
+  } catch (err) {
+    console.error(err);
+  }
+
+  setLoading(false);
+};
   return (
     <section className="py-28 bg-[#b8a882] text-black relative overflow-hidden">
 

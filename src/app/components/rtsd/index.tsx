@@ -59,53 +59,52 @@ export default function MortimerDocumentation() {
   };
 
   const handleSubmit = async (e: any) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    setLoading(true);
-    setError(false);
+  setLoading(true);
+  setError(false);
 
-    const formData = new FormData();
-    formData.append("Full Name", form.name);
-    formData.append("Company", form.company);
-    formData.append("Phone", form.phone);
-    formData.append("Email", form.email);
-    formData.append("Document Requested", selectedDoc);
-    formData.append("_subject", "Mortimer Documentation Request");
-    formData.append("_captcha", "false");
+  try {
+    const res = await fetch("/api/article-request", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        fullName: form.name,
+        email: form.email,
+        company: form.company,
+        phone: form.phone,
 
-    try {
-      const res = await fetch(
-        "https://formsubmit.co/ajax/adediranstephen2000@gmail.com",
-        {
-          method: "POST",
-          body: formData,
-        }
-      );
+        articleTitle: selectedDoc,
+        articleSlug: "mortimer-docs",
+        articleId: "mortimer",
+      }),
+    });
 
-      const data = await res.json();
+    if (res.ok) {
+      setOpen(false);
+      setSuccess(true);
 
-      if (data.success === "true" || res.ok) {
-        setOpen(false);
-        setSuccess(true);
+      setForm({
+        name: "",
+        company: "",
+        phone: "",
+        email: "",
+      });
 
-        setForm({
-          name: "",
-          company: "",
-          phone: "",
-          email: "",
-        });
-
-        setTimeout(() => setSuccess(false), 5000);
-      } else {
-        setError(true);
-      }
-    } catch (err) {
-      console.error(err);
+      setTimeout(() => setSuccess(false), 5000);
+    } else {
       setError(true);
     }
 
-    setLoading(false);
-  };
+  } catch (err) {
+    console.error(err);
+    setError(true);
+  }
+
+  setLoading(false);
+};
 
   return (
     <section className="py-28 bg-[#b8a882] text-black relative overflow-hidden">
