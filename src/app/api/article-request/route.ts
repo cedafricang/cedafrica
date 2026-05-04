@@ -6,11 +6,19 @@ const GOOGLE_SCRIPT_URL =
   "https://script.google.com/macros/s/AKfycbxt0Lkh1j5vLy328tZm4uYTrRuroWIh04D-2-8f5ggPjhpnx-5O1sVkIADXJc8Fh4wWqQ/exec";
 
 /* ---------------- ARTICLE LINKS ---------------- */
-// 🔥 ONLY id3 & id4 will trigger auto email
+/* ✅ FIXED: supports BOTH id AND slug */
 
 const ARTICLE_LINKS: Record<string, string> = {
-  id3: "https://ced-vercel.app/data/CED_HomeCinema_Pitfalls_Architect.pdf",
-  id4: "https://ced-vercel.app/data/CED_HomeCinema_Pitfalls_MEP.pdf",
+  // by ID
+  id3: "https://ced-africa.vercel.app/data/CED_HomeCinema_Pitfalls_Architect.pdf",
+  id4: "https://ced-africa.vercel.app/data/CED_HomeCinema_Pitfalls_MEP.pdf",
+
+  // by slug (THIS WAS YOUR MISSING PIECE 🔥)
+  "architect-pitfalls":
+    "https://ced-africa.vercel.app/data/CED_HomeCinema_Pitfalls_Architect.pdf",
+
+  "mep-pitfalls":
+    "https://ced-africa.vercel.app/data/CED_HomeCinema_Pitfalls_MEP.pdf",
 };
 
 export async function POST(req: Request) {
@@ -25,6 +33,10 @@ export async function POST(req: Request) {
       articleSlug,
       articleId,
     } = body;
+
+    /* ---------------- DEBUG (IMPORTANT) ---------------- */
+    console.log("Incoming articleId:", articleId);
+    console.log("Incoming articleSlug:", articleSlug);
 
     /* ---------------- VALIDATION ---------------- */
 
@@ -77,13 +89,18 @@ export async function POST(req: Request) {
       }),
     });
 
-    /* ---------------- 2. SEND PDF TO USER (NEW 🔥) ---------------- */
+    /* ---------------- 2. SEND PDF TO USER (FIXED 🔥) ---------------- */
 
     try {
-      const link = ARTICLE_LINKS[articleId];
+      const link =
+        ARTICLE_LINKS[articleId] ||
+        ARTICLE_LINKS[articleSlug] ||
+        null;
+
+      console.log("Resolved link:", link);
 
       if (link) {
-        await fetch("https://api.resend.com/emails", {
+        const emailRes = await fetch("https://api.resend.com/emails", {
           method: "POST",
           headers: {
             Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
@@ -100,6 +117,11 @@ export async function POST(req: Request) {
             }),
           }),
         });
+
+        const data = await emailRes.json();
+        console.log("USER EMAIL RESPONSE:", data);
+      } else {
+        console.log("❌ No link found — email not sent");
       }
 
     } catch (err) {
@@ -199,12 +221,9 @@ function buildEmail(data: any) {
     <div style="font-family:Arial; line-height:1.6;">
       <h2>New Article Request</h2>
       <hr/>
-
       <p><strong>Article:</strong> ${data.articleTitle}</p>
       <p><strong>Slug:</strong> ${data.articleSlug}</p>
-
       <br/>
-
       <p><strong>Name:</strong> ${data.fullName}</p>
       <p><strong>Email:</strong> ${data.email}</p>
       <p><strong>Company:</strong> ${data.company}</p>
@@ -212,23 +231,14 @@ function buildEmail(data: any) {
   `;
 }
 
-/* 🔥 USER EMAIL TEMPLATE */
-
 function buildUserEmail(data: any) {
   return `
     <div style="font-family:Arial; line-height:1.6;">
-
       <p>Hi ${data.fullName},</p>
 
-      <p>
-        Thank you for your interest in:
-      </p>
+      <p>Here is your requested article:</p>
 
       <p><strong>${data.articleTitle}</strong></p>
-
-      <p>
-        You can access your article below:
-      </p>
 
       <p>
         <a href="${data.link}" target="_blank">
@@ -238,14 +248,7 @@ function buildUserEmail(data: any) {
 
       <br/>
 
-      <p>
-        If you're working on a project, our team would be happy to guide you.
-      </p>
-
-      <p>
-        — CED Africa
-      </p>
-
+      <p>— CED Africa</p>
     </div>
   `;
 }

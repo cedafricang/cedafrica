@@ -10,7 +10,8 @@ import { useEffect, useState } from "react";
 
 type SubLink = {
   label: string;
-  href: string;
+  href?: string;
+  sublinks?: { label: string; href: string }[];
 };
 
 type MegaData = {
@@ -52,10 +53,31 @@ const nav: NavItem[] = [
       desc: "Consulting, system design and reference AV environments.",
       image: "/images/hero/foc.webp",
       links: [
-        { label: "AV Design Studio", href: "/design-studio" },
-        { label: "ProAV Systems", href: "/proav" },
-        { label: "Reference Performance Systems", href: "/performance-system" },
-      ],
+  {
+    label: "AV Design Studio",
+    href: "/design-studio",
+    sublinks: [
+      { label: "Residential Home Technology", href: "/design-studio/solutions/rts" },
+      { label: "Pro AV Solutions", href: "/design-studio/solutions/pas" },
+      { label: "Hospitality AV Solutions", href: "/design-studio/solutions/has" },
+      { label: "Reference Home Cinema", href: "/design-studio/solutions/rhc" },
+    ],
+  },
+  {
+    label: "ProAV Systems",
+    href: "/proav",
+    sublinks: [
+    //put submenu
+    ],
+  },
+  {
+    label: "Reference Performance Systems",
+    href: "/performance-system",
+    sublinks: [
+      // submenu here
+    ],
+  },
+]
     },
   },
   {
@@ -273,15 +295,38 @@ export default function Header() {
                       }`}
                     >
                       {item.mega.links.map((l, j) => (
-                      <Link
-  key={j}
-  href={l.href}
-  className="mobile-sub-item"
-  onClick={closeAllMenus}
->
-                          {l.label}
-                        </Link>
-                      ))}
+  <div key={j}>
+
+    {/* MAIN ITEM */}
+    {l.href ? (
+      <Link
+        href={l.href}
+        className="mobile-sub-item"
+        onClick={closeAllMenus}
+      >
+        {l.label}
+      </Link>
+    ) : (
+      <div className="mobile-sub-item opacity-70">
+        {l.label}
+      </div>
+    )}
+
+    {/* SUBLINKS (NEW 🔥) */}
+    {l.sublinks &&
+      l.sublinks.map((sub, k) => (
+        <Link
+          key={k}
+          href={sub.href}
+          className="mobile-sub-item pl-4"
+          onClick={closeAllMenus}
+        >
+          {sub.label}
+        </Link>
+      ))}
+
+  </div>
+))}
                     </div>
                   )}
                 </div>
@@ -467,9 +512,21 @@ max-height:400px;
 }
 
 .mobile-sub-item{
-font-size:15px;
-opacity:.7;
-padding:10px 0;
+  font-size:15px;
+  padding:10px 0;
+  display:block;
+}
+
+/* MAIN ITEM */
+.mobile-sub-item{
+  font-weight:500;
+}
+
+/* CHILD ITEMS */
+.mobile-sub-item.pl-4{
+  padding-left:20px;
+  font-size:14px;
+  opacity:.6;
 }
 
 /* DESKTOP MEGA */
@@ -513,78 +570,169 @@ function MegaMenu({ item, onClose }: { item?: MegaData; onClose: () => void }) {
 
   return (
     <div className="mega open">
-      <div className="mega-inner">
-        <div className="mega-image">
-          <Image src={item.image} alt="" fill style={{ objectFit: "cover" }} />
-        </div>
+  <div className="mega-inner">
 
-        <div>
-          <h3>{item.title}</h3>
-          <p>{item.desc}</p>
+    {/* IMAGE */}
+    <div className="mega-image">
+      <Image src={item.image} alt="" fill style={{ objectFit: "cover" }} />
+    </div>
 
-          <div className="mega-links">
-            {item.links.map((l, i) => (
-  <Link
-    key={i}
-    href={l.href}
-    className="mega-link"
-    onClick={onClose} // ✅ ADD THIS
-  >
+    {/* CONTENT */}
+    <div>
+      <h3>{item.title}</h3>
+      <p>{item.desc}</p>
+
+      {/* LINKS */}
+      <div className="mega-links">
+        {item.links.map((l, i) => (
+          <div key={i} className="mega-block">
+
+            {/* MAIN LINK */}
+            {l.href ? (
+              <Link href={l.href} className="mega-link" onClick={onClose}>
                 <span>{l.label}</span>
                 <span className="icon">→</span>
               </Link>
-            ))}
+            ) : (
+              <div className="mega-link no-click">
+                <span>{l.label}</span>
+              </div>
+            )}
+
+            {/* SUB LINKS */}
+            {l.sublinks && (
+              <div className="mega-sublinks">
+                {l.sublinks.map((sub, j) => (
+                  <Link
+                    key={j}
+                    href={sub.href}
+                    onClick={onClose}
+                    className="mega-sublink"
+                  >
+                    {sub.label}
+                  </Link>
+                ))}
+              </div>
+            )}
+
           </div>
-        </div>
+        ))}
       </div>
+    </div>
 
-<style jsx>{`
+  </div>
 
-.mega-inner{
-max-width:1400px;
-width:100%;
-background:white;
-padding:60px 40px;
-display:grid;
-grid-template-columns:420px 1fr;
-gap:60px;
-box-shadow:0 30px 80px rgba(0,0,0,.12);
+  {/* ✅ STYLE MUST BE OUTSIDE INNER DIV */}
+  <style jsx>{`
+    .mega-inner{
+      max-width:1400px;
+      width:100%;
+      background:white;
+      padding:60px 40px;
+      display:grid;
+      grid-template-columns:420px 1fr;
+      gap:60px;
+      box-shadow:0 30px 80px rgba(0,0,0,.12);
+    }
+
+    .mega-image{
+      position:relative;
+      height:260px;
+      border-radius:10px;
+      overflow:hidden;
+    }
+
+    .mega-links{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr); /* 🔥 FORCE 3 COLUMNS */
+  gap:40px;
+  margin-top:30px;
+  align-items:start;
 }
 
-.mega-image{
-position:relative;
-height:260px;
-border-radius:10px;
-overflow:hidden;
+    .mega-link{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:13px;
+  font-weight:500;
+  padding:0;
+  border:none;
 }
-
-.mega-links{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:16px;
-margin-top:30px;
+  .mega-block{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
 }
 
 .mega-link{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:16px 18px;
-border:1px solid rgba(0,0,0,.08);
-border-radius:10px;
+  font-size:13px;
+  letter-spacing:.2em;
+  text-transform:uppercase;
 }
 
-.icon{
-width:28px;
-height:28px;
-border-radius:50%;
-border:1px solid #4b5563;
-display:flex;
-align-items:center;
-justify-content:center;
+.mega-sublink{
+  font-size:13px;
+  opacity:.6;
+  padding-left:0;
 }
 
-`}</style>
-    </div>
+    .icon{
+      width:28px;
+      height:28px;
+      border-radius:50%;
+      border:1px solid #4b5563;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+      .mobile-sub{
+  display:flex;
+  flex-direction:column;
+  gap:6px; /* 🔥 THIS CREATES SEPARATION */
+}
+  /* Parent (category title) */
+.mobile-sub > div > .mobile-sub-item{
+  font-size:15px;
+  font-weight:500;
+  margin-top:10px;
+}
+
+/* Children */
+.mobile-sub-item.pl-4{
+  border-left:1px solid rgba(0,0,0,.08);
+  padding-left:16px;
+}
+
+    .mega-block {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .no-click {
+      pointer-events: none;
+      opacity: 0.8;
+    }
+
+    .mega-sublinks {
+      margin-top: 10px;
+      padding-left: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .mega-sublink {
+      font-size: 13px;
+      opacity: 0.6;
+      transition: all 0.2s ease;
+    }
+
+    .mega-sublink:hover {
+      opacity: 1;
+      transform: translateX(4px);
+    }
+  `}</style>
+</div>
   );
 }
